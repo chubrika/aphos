@@ -1,0 +1,39 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/reset";
+@import "base/typography";
+@import "layout/header";
+@import "layout/footer";
+@import "components/button";
+
+.contact-section {
+  padding: 5rem 0;
+}
+
+.contact-form {
+  display: grid;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}
+
+.contact-form__group {
+  display: grid;
+  gap: $spacing-xs;
+}
+
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: $spacing-sm;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background-color: #fff;
+}

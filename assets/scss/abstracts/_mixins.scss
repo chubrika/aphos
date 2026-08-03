@@ -1,0 +1,17 @@
+@mixin container {
+  width: min(100% - 2rem, $container-width);
+  margin-inline: auto;
+}
+
+@mixin button-reset {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

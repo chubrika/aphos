@@ -1,0 +1,75 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: 1px solid $color-primary;
+  border-radius: $radius-md;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color $transition-base, border-color $transition-base, color $transition-base, transform $transition-base;
+  
+}
+.button--primary {
+  background: linear-gradient(135deg, #4265d6 0%, #24428e 100%);
+}
+.button--primary:hover,
+.button--primary:focus-visible {
+  background-color: $color-primary-dark;
+  border-color: $color-primary-dark;
+  transform: translateY(-1px);
+}
+
+// Smaller size variant used in tight spaces like the header
+.button--sm {
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-xs;
+  font-family: $font-family-bold;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Medium size used in forms (login, registration)
+.button--md {
+  width: 100%;
+  height: 48px;
+  padding: 0 $spacing-lg;
+  border-radius: $radius-lg;
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.button--orange {
+  background: linear-gradient(90deg, #e85a1a 0%, #f16e27 45%, #ff8a3d 100%);
+  border-color: transparent;
+  color: #fff;
+
+  &:hover,
+  &:focus-visible {
+    background: linear-gradient(90deg, #d64f14 0%, #e85a1a 45%, #f16e27 100%);
+    border-color: transparent;
+    transform: translateY(-1px);
+  }
+}
+
+// Ghost / outline variant
+.button--outline {
+  background-color: transparent;
+  border-color: $color-primary;
+  color: $color-primary;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-primary;
+    color: $color-primary;
+    background-color: transparent;
+    transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,225 @@
+.site-header {
+  background-color: $color-surface;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  min-height: 95px;
+}
+
+.site-header__brand {
+  margin-right: 55px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.site-header__toggle {
+  @include button-reset;
+
+  display: none;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  color: $color-primary;
+  border: 1px solid $color-border;
+}
+
+.site-header__menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  font-size: $font-size-sm;
+}
+
+.site-header__menu a {
+  position: relative;
+  display: inline-block;
+  font-family: $font-family-bold;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  transition: color $transition-base;
+}
+
+.site-header__menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: $color-orange;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform $transition-base;
+}
+
+
+.site-header__menu a:hover::after,
+.site-header__menu a[aria-current="page"]::after,
+.site-header__menu a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+// ── Auth section ────────────────────────────────────────────────────────────
+.site-header__auth {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-left: auto;
+}
+
+
+// ── Language switcher ────────────────────────────────────────────────────────
+.lang-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lang-switcher__trigger {
+  @include button-reset;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $color-text;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.lang-switcher__flag {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lang-switcher__chevron {
+  color: currentColor;
+  flex-shrink: 0;
+  transition: transform $transition-base;
+}
+
+.lang-switcher.is-open .lang-switcher__chevron {
+  transform: rotate(180deg);
+}
+
+.lang-switcher__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  gap: 4px;
+  min-width: 76px;
+  padding: 6px;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-sm;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transform-origin: top center;
+  transition:
+    opacity $transition-base,
+    transform $transition-base,
+    visibility $transition-base;
+}
+
+.lang-switcher.is-open .lang-switcher__menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  z-index: 10;
+}
+
+.lang-switcher__option {
+  @include button-reset;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: $radius-sm;
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+  text-align: left;
+  text-transform: lowercase;
+  color: $color-text;
+  transition:
+    background-color $transition-base,
+    color $transition-base;
+
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background-color: rgba($color-primary, 0.08);
+    color: $color-primary;
+  }
+}
+
+.lang-switcher__option.is-active {
+  background-color: rgba($color-primary, 0.12);
+  color: $color-primary;
+}
+
+@include mobile {
+  .site-header__inner {
+    flex-wrap: wrap;
+    padding-block: $spacing-sm;
+  }
+
+  .site-header__toggle {
+    display: inline-flex;
+  }
+
+  .site-header__nav {
+    display: none;
+    width: 100%;
+  }
+
+  .site-header__nav.is-open {
+    display: block;
+  }
+
+  .site-header__menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    padding-top: $spacing-sm;
+  }
+
+  .site-header__auth {
+    display: none;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    gap: $spacing-xs;
+    margin-left: 0;
+  }
+
+  .site-header__nav.is-open ~ .site-header__auth {
+    display: flex;
+  }
+
+  .lang-switcher__menu {
+    right: auto;
+    left: 0;
+  }
+}

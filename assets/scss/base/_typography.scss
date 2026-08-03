@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "FiraGO-Normal";
+  src: url("../fonts/firago-latin-300-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FiraGO-Regular";
+  src: url("../fonts/firago-latin-400-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FiraGO-Bold";
+  src: url("../fonts/firago-latin-600-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+body {
+  font-family: $font-family-normal;
+  color: $color-text;
+  background-color: $color-surface;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+.container {
+  @include container;
+}

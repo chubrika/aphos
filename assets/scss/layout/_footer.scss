@@ -1,0 +1,241 @@
+.site-footer {
+  padding: $spacing-3xl 0;
+  margin-bottom: $spacing-md;
+  background-color: $color-footer;
+  color: #fff;
+  border-radius: $radius-lg;
+
+  .site-footer__brand,
+  .site-footer__nav,
+  .site-footer__contact,
+  .site-footer__apps,
+  .site-footer__legal {
+    opacity: 0;
+    transform: translate3d(0, 1.4rem, 0);
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .site-footer__brand {
+    transition-duration: 0.55s;
+    transition-delay: 0s;
+  }
+
+  .site-footer__nav {
+    transition-duration: 0.6s;
+    transition-delay: 0.18s;
+  }
+
+  .site-footer__contact {
+    transition-duration: 0.65s;
+    transition-delay: 0.36s;
+  }
+
+  .site-footer__apps {
+    transition-duration: 0.7s;
+    transition-delay: 0.52s;
+  }
+
+  .site-footer__legal {
+    transition-duration: 0.75s;
+    transition-delay: 0.72s;
+  }
+
+  &.is-revealed {
+    .site-footer__brand,
+    .site-footer__nav,
+    .site-footer__contact,
+    .site-footer__apps,
+    .site-footer__legal {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__brand,
+    .site-footer__nav,
+    .site-footer__contact,
+    .site-footer__apps,
+    .site-footer__legal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      will-change: auto;
+    }
+  }
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3xl;
+}
+
+.site-footer__main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+  gap: $spacing-2xl;
+  align-items: start;
+}
+
+.site-footer__logo {
+  display: inline-block;
+  margin-bottom: $spacing-md;
+
+  img {
+    display: block;
+    width: 150px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+}
+
+.site-footer__copyright {
+  margin-bottom: $spacing-lg;
+  font-family: $font-family-normal;
+  font-size: $font-size-xs;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: opacity $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+}
+
+.site-footer__menu {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  a {
+    font-family: $font-family-regular;
+    font-size: $font-size-sm;
+    color: #fff;
+    transition: color $transition-base;
+    letter-spacing: 0.8px;
+
+    &:hover,
+    &:focus-visible {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.site-footer__address,
+.site-footer__hours {
+  margin-bottom: $spacing-md;
+  font-family: $font-family-regular;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  color: #fff;
+  letter-spacing: 0.8px;
+}
+
+.site-footer__channels {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-family-regular;
+    font-size: $font-size-sm;
+    color: #386CFF;
+    transition: opacity $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.8;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.site-footer__apps-title {
+  margin-bottom: $spacing-md;
+  font-family: $font-family-regular;
+  font-size: $font-size-lg;
+  color: #fff;
+  letter-spacing: 0.8px;
+}
+
+.site-footer__badges {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.site-footer__badge {
+  display: inline-flex;
+  width: fit-content;
+  transition: opacity $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.85;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $spacing-xs;
+  font-family: $font-family-regular;
+  font-size: $font-size-xs;
+  color: $color-surface;
+  letter-spacing: 0.5px;
+
+  a {
+    color: inherit;
+    transition: color $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
+
+@include mobile {
+  .site-footer {
+    padding: $spacing-2xl 0;
+  }
+
+  .site-footer__main {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+
+  .site-footer__inner {
+    gap: $spacing-xl;
+  }
+}

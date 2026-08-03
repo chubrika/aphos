@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | My Project</title>
+  <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="index.html">My Project</a>
+      <button
+        class="site-header__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+        aria-label="Toggle navigation"
+      >
+        Menu
+      </button>
+      <nav class="site-header__nav" id="site-navigation" aria-label="Primary navigation">
+        <ul class="site-header__menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__auth">
+        <a class="button button--sm button--outline" href="#">შესვლა</a>
+        <a class="button button--sm" href="#">რეგისტრაცია</a>
+        <div class="lang-switcher">
+          <button
+            class="lang-switcher__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="language-menu"
+          >
+            <img class="lang-switcher__flag" width="32" height="32" src="assets/images/flag_en.svg" alt="English">
+            <span class="lang-switcher__label">eng</span>
+            <svg class="lang-switcher__chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="lang-switcher__menu" id="language-menu" role="menu" aria-label="Language selector">
+            <button class="lang-switcher__option is-active" type="button" role="menuitem" data-lang="eng" data-flag-src="assets/images/flag_en.svg" data-flag-alt="English">
+              <img width="32" height="32" src="assets/images/flag_en.svg" alt="English">
+              <span>eng</span>
+            </button>
+            <button class="lang-switcher__option" type="button" role="menuitem" data-lang="ka" data-flag-src="assets/images/flag_geo.svg" data-flag-alt="Georgian">
+              <img width="32" height="32" src="assets/images/flag_geo.svg" alt="Georgian">
+              <span>ka</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>
+          This contact page uses its own SCSS and JavaScript entry points while
+          reusing shared layout and component modules.
+        </p>
+        <form class="contact-form">
+          <div class="contact-form__group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name">
+          </div>
+          <div class="contact-form__group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com">
+          </div>
+          <div class="contact-form__group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+          </div>
+          <button class="button" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 My Project. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/modules/header.js"></script>
+</body>
+</html>
