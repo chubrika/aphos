@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealSections = document.querySelectorAll(".why-apos, .tariffs, .calculator, .site-footer");
+  const revealSections = document.querySelectorAll(".why-apos, .tariffs, .calculator");
 
   if (revealSections.length) {
     if (prefersReducedMotion) {
@@ -368,5 +368,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updatePrice(false);
+  }
+
+  const loginForm = document.querySelector(".login-card");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      window.location.href = "dashboard.html";
+    });
   }
 });

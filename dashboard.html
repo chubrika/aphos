@@ -21,7 +21,7 @@
             </button>
             <nav class="site-header__nav" id="site-navigation" aria-label="Primary navigation">
                 <ul class="site-header__menu">
-                    <li><a href="#" aria-current="page">დეშბორდი</a></li>
+                    <li><a href="dashboard.html" aria-current="page">დეშბორდი</a></li>
                     <li><a href="#">მიღებული</a></li>
                     <li><a href="#">მისამართები</a></li>
                     <li><a href="#">ტრანზაქციები</a></li>
@@ -137,42 +137,42 @@
 
         <section class="dashboard-tabs">
 
-           <div class="dashboard-tabs__header">
-            <div class="container">
-                <h1 class="dashboard-tabs__title">აქტიური გზავნილები</h1>
+            <div class="dashboard-tabs__header">
+                <div class="container">
+                    <h1 class="dashboard-tabs__title">აქტიური გზავნილები</h1>
 
-                <div class="dashboard-tabs__nav" role="tablist" aria-label="აქტიური გზავნილები">
-                    <button class="dashboard-tabs__tab is-active" type="button" role="tab" id="tab-service-center"
-                        aria-selected="true" aria-controls="panel-service-center" data-tab="service-center">
-                        <span class="dashboard-tabs__label">სერვის ცენტრში</span>
-                        <span class="dashboard-tabs__badge">4</span>
-                    </button>
-                    <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-customs" aria-selected="false"
-                        aria-controls="panel-customs" data-tab="customs" tabindex="-1">
-                        <span class="dashboard-tabs__label">საბაჟო პროცედურები</span>
-                        <span class="dashboard-tabs__badge">34</span>
-                    </button>
-                    <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-sent" aria-selected="false"
-                        aria-controls="panel-sent" data-tab="sent" tabindex="-1">
-                        <span class="dashboard-tabs__label">გამოგზავნილი</span>
-                        <span class="dashboard-tabs__badge">12</span>
-                    </button>
-                    <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-warehouse" aria-selected="false"
-                        aria-controls="panel-warehouse" data-tab="warehouse" tabindex="-1">
-                        <span class="dashboard-tabs__label">საწყობში</span>
-                        <span class="dashboard-tabs__badge">44</span>
-                    </button>
-                    <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-receive" aria-selected="false"
-                        aria-controls="panel-receive" data-tab="receive" tabindex="-1">
-                        <span class="dashboard-tabs__label">მისაღები</span>
-                        <span class="dashboard-tabs__badge">11</span>
-                    </button>
+                    <div class="dashboard-tabs__nav" role="tablist" aria-label="აქტიური გზავნილები">
+                        <button class="dashboard-tabs__tab is-active" type="button" role="tab" id="tab-service-center"
+                            aria-selected="true" aria-controls="panel-service-center" data-tab="service-center">
+                            <span class="dashboard-tabs__label">სერვის ცენტრში</span>
+                            <span class="dashboard-tabs__badge">4</span>
+                        </button>
+                        <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-customs"
+                            aria-selected="false" aria-controls="panel-customs" data-tab="customs" tabindex="-1">
+                            <span class="dashboard-tabs__label">საბაჟო პროცედურები</span>
+                            <span class="dashboard-tabs__badge">34</span>
+                        </button>
+                        <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-sent" aria-selected="false"
+                            aria-controls="panel-sent" data-tab="sent" tabindex="-1">
+                            <span class="dashboard-tabs__label">გამოგზავნილი</span>
+                            <span class="dashboard-tabs__badge">12</span>
+                        </button>
+                        <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-warehouse"
+                            aria-selected="false" aria-controls="panel-warehouse" data-tab="warehouse" tabindex="-1">
+                            <span class="dashboard-tabs__label">საწყობში</span>
+                            <span class="dashboard-tabs__badge">44</span>
+                        </button>
+                        <button class="dashboard-tabs__tab" type="button" role="tab" id="tab-receive"
+                            aria-selected="false" aria-controls="panel-receive" data-tab="receive" tabindex="-1">
+                            <span class="dashboard-tabs__label">მისაღები</span>
+                            <span class="dashboard-tabs__badge">11</span>
+                        </button>
+                    </div>
                 </div>
             </div>
-           </div>
             <div class="container">
                 <div class="dashboard-tabs__panels">
-                    <div class="dashboard-tabs__panel is-active" role="tabpanel" id="panel-service-center"
+                    <div class="dashboard-tabs__panel is-active is-revealed" role="tabpanel" id="panel-service-center"
                         aria-labelledby="tab-service-center">
                         <ul class="dashboard-shipments">
                             <li class="dashboard-shipment">
@@ -309,29 +309,345 @@
 
                     <div class="dashboard-tabs__panel" role="tabpanel" id="panel-sent" aria-labelledby="tab-sent"
                         hidden>
-                        <ul class="dashboard-shipments">
-                            <li class="dashboard-shipment">
-                                <div class="dashboard-shipment__merchant" aria-hidden="true">
-                                    <span class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                        <ul class="dashboard-consignments">
+                            <li class="dashboard-consignment dashboard-consignment--alert">
+                                <p class="dashboard-consignment__status">ყურადღება: დეკლარირება არ არის დასრულებული,
+                                    გთხოვთ შეავსოთ ინფორმაცია.</p>
+                                <div class="dashboard-consignment__head">
+                                    <div class="dashboard-consignment__origin">
+                                        <span class="dashboard-consignment__flag" aria-hidden="true">
+                                            <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                                        </span>
+                                        <div class="dashboard-consignment__refs">
+                                            <p class="dashboard-consignment__id">H0102462</p>
+                                            <p class="dashboard-consignment__eta">(Estimated date 21/01/20)</p>
+                                        </div>
+                                    </div>
+                                    <p class="dashboard-consignment__service">
+                                        <span class="dashboard-consignment__service-type">საკურიერო სერვისი</span>
+                                        <span class="dashboard-consignment__service-sep" aria-hidden="true">|</span>
+                                        <button class="dashboard-consignment__service-method" type="button"
+                                            data-pickup-open>აფოსიდან გატანა</button>
+                                    </p>
                                 </div>
-                                <div class="dashboard-shipment__info">
-                                    <p class="dashboard-shipment__tracking">TBAACY702345002</p>
-                                    <p class="dashboard-shipment__price">67.80 $</p>
+                                <table class="dashboard-consignment__table">
+                                    <caption class="visually-hidden">გზავნილის ამანათები H0102462</caption>
+                                    <colgroup>
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--item">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--meta">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--actions">
+                                    </colgroup>
+                                    <thead class="visually-hidden">
+                                        <tr>
+                                            <th scope="col">ამანათი</th>
+                                            <th scope="col">წონა და ტარიფი</th>
+                                            <th scope="col">მოქმედება</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY504175789</p>
+                                                        <p class="dashboard-shipment__price">58.99 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">1 კგ</p>
+                                                <p class="dashboard-shipment__fee">15 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <button
+                                                        class="dashboard-shipment__declare dashboard-shipment__declare--alert"
+                                                        type="button">დეკლარირება</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--divider" colspan="3">
+                                                <div class="divider"></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY504175789</p>
+                                                        <p class="dashboard-shipment__price">23.20 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">0.85 კგ</p>
+                                                <p class="dashboard-shipment__fee">15 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox"
+                                                            name="pay-TBAACY504175789-2">
+                                                        <span class="checkbox__control" aria-hidden="true"></span>
+                                                        <span class="checkbox__label">გადახდა</span>
+                                                    </label>
+                                                    <button class="dashboard-shipment__declare" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" aria-hidden="true">
+                                                            <path d="M12 20h9" />
+                                                            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                                        </svg>
+                                                        დეკლარირება
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li class="dashboard-consignment dashboard-consignment--transit">
+                                <p class="dashboard-consignment__status">გზავნილი გამოგზავნილია. სავარაუდო ჩამოსვლის
+                                    თარიღი მითითებულია ბარათზე.</p>
+                                <div class="dashboard-consignment__head">
+                                    <div class="dashboard-consignment__origin">
+                                        <span class="dashboard-consignment__flag" aria-hidden="true">
+                                            <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                                        </span>
+                                        <div class="dashboard-consignment__refs">
+                                            <p class="dashboard-consignment__id">H0102518</p>
+                                            <p class="dashboard-consignment__eta">(Estimated date 24/01/20)</p>
+                                        </div>
+                                    </div>
+                                    <p class="dashboard-consignment__service">
+                                        <span class="dashboard-consignment__service-type">საკურიერო სერვისი</span>
+                                        <span class="dashboard-consignment__service-sep" aria-hidden="true">|</span>
+                                        <button class="dashboard-consignment__service-method" type="button"
+                                            data-pickup-open>აფოსიდან გატანა</button>
+                                    </p>
                                 </div>
-                                <div class="dashboard-shipment__actions">
-                                    <button class="dashboard-shipment__declare" type="button">დეკლარირება</button>
-                                    <button class="dashboard-shipment__delete" type="button" aria-label="წაშლა">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <polyline points="3 6 5 6 21 6" />
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                        </svg>
-                                    </button>
+                                <table class="dashboard-consignment__table">
+                                    <caption class="visually-hidden">გზავნილის ამანათები H0102518</caption>
+                                    <colgroup>
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--item">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--meta">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--actions">
+                                    </colgroup>
+                                    <thead class="visually-hidden">
+                                        <tr>
+                                            <th scope="col">ამანათი</th>
+                                            <th scope="col">წონა და ტარიფი</th>
+                                            <th scope="col">მოქმედება</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY702345002</p>
+                                                        <p class="dashboard-shipment__price">67.80 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">1.4 კგ</p>
+                                                <p class="dashboard-shipment__fee">21 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <button
+                                                        class="dashboard-shipment__declare dashboard-shipment__declare--alert"
+                                                        type="button">დეკლარირება</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--divider" colspan="3">
+                                                <div class="divider"></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY702345110</p>
+                                                        <p class="dashboard-shipment__price">14.50 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">0.40 კგ</p>
+                                                <p class="dashboard-shipment__fee">8 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox"
+                                                            name="pay-TBAACY702345110">
+                                                        <span class="checkbox__control" aria-hidden="true"></span>
+                                                        <span class="checkbox__label">გადახდა</span>
+                                                    </label>
+                                                    <button class="dashboard-shipment__declare" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" aria-hidden="true">
+                                                            <path d="M12 20h9" />
+                                                            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                                        </svg>
+                                                        დეკლარირება
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li class="dashboard-consignment dashboard-consignment--success">
+                                <p class="dashboard-consignment__status">გადახდა წარმატებით შესრულდა. ამანათი მზად არის
+                                    გასაცემად.</p>
+                                <div class="dashboard-consignment__head">
+                                    <div class="dashboard-consignment__origin">
+                                        <span class="dashboard-consignment__flag" aria-hidden="true">
+                                            <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                                        </span>
+                                        <div class="dashboard-consignment__refs">
+                                            <p class="dashboard-consignment__id">H0102604</p>
+                                            <p class="dashboard-consignment__eta">(Estimated date 28/01/20)</p>
+                                        </div>
+                                    </div>
+                                    <p class="dashboard-consignment__service">
+                                        <span class="dashboard-consignment__service-item">
+                                            <button class="dashboard-consignment__edit" type="button"
+                                                data-courier-open aria-label="სერვისის რედაქტირება">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    aria-hidden="true">
+                                                    <path d="M12 20h9" />
+                                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="dashboard-consignment__service-method" type="button"
+                                                data-courier-open>საკურიერო სერვისი</button>
+
+                                        </span>
+                                        <span class="dashboard-consignment__service-sep" aria-hidden="true">|</span>
+                                        <span class="dashboard-consignment__service-item">
+                                            <button class="dashboard-consignment__edit" type="button"
+                                                data-pickup-open aria-label="გატანის მეთოდის რედაქტირება">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    aria-hidden="true">
+                                                    <path d="M12 20h9" />
+                                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="dashboard-consignment__service-method" type="button"
+                                                data-pickup-open>აფოსიდან გატანა</button>
+
+                                        </span>
+                                    </p>
                                 </div>
+                                <table class="dashboard-consignment__table">
+                                    <caption class="visually-hidden">გზავნილის ამანათები H0102604</caption>
+                                    <colgroup>
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--item">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--meta">
+                                        <col class="dashboard-consignment__col dashboard-consignment__col--actions">
+                                    </colgroup>
+                                    <thead class="visually-hidden">
+                                        <tr>
+                                            <th scope="col">ამანათი</th>
+                                            <th scope="col">წონა და ტარიფი</th>
+                                            <th scope="col">მოქმედება</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY803456221</p>
+                                                        <p class="dashboard-shipment__price">41.10 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">0.92 კგ</p>
+                                                <p class="dashboard-shipment__fee">14 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <button class="dashboard-shipment__declare"
+                                                        type="button">დეკლარირება</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--divider" colspan="3">
+                                                <div class="divider"></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="dashboard-shipment dashboard-shipment--row">
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                                                <div class="dashboard-shipment__product">
+                                                    <div class="dashboard-shipment__merchant" aria-hidden="true">
+                                                        <span
+                                                            class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                                                    </div>
+                                                    <div class="dashboard-shipment__info">
+                                                        <p class="dashboard-shipment__tracking">TBAACY803456330</p>
+                                                        <p class="dashboard-shipment__price">19.75 $</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                                                <p class="dashboard-shipment__weight">0.55 კგ</p>
+                                                <p class="dashboard-shipment__fee">10 Gel</p>
+                                            </td>
+                                            <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                                                <div class="dashboard-shipment__actions">
+                                                    <span class="dashboard-shipment__paid">PAID</span>
+                                                    <button class="dashboard-shipment__declare" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" aria-hidden="true">
+                                                            <path d="M12 20h9" />
+                                                            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                                        </svg>
+                                                        დეკლარირება
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </li>
                         </ul>
                     </div>
@@ -538,7 +854,218 @@
         </div>
     </footer>
 
+    <div class="declaration-modal" id="declaration-modal" hidden aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="declaration-modal-title"
+            aria-describedby="declaration-modal-subtitle" tabindex="-1">
+      
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 class="declaration-modal__title" id="declaration-modal-title">დეკლარირება</h2>
+                        <p class="declaration-modal__subtitle" id="declaration-modal-subtitle">გთხოვთ შეავსოთ ყველა
+                            სავალდებულო ველი</p>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <form class="declaration-modal__form" id="declaration-form" novalidate>
+                    <div class="declaration-modal__grid">
+                        <div class="declaration-modal__fields">
+                            <label class="visually-hidden" for="declaration-tracking">თრექინგი</label>
+                            <input class="input" id="declaration-tracking" name="tracking" type="text"
+                                placeholder="თრექინგ #">
+
+                            <label class="visually-hidden" for="declaration-shop">მაღაზიის სახელი</label>
+                            <input class="input input--required" id="declaration-shop" name="shop" type="text"
+                                placeholder="Shop name*" required>
+
+                            <label class="visually-hidden" for="declaration-category">კატეგორია</label>
+                            <div class="declaration-modal__select">
+                                <select class="input" id="declaration-category" name="category" required>
+                                    <option value="" disabled>კატეგორია</option>
+                                    <option value="makeup" selected>Makeup Brushes, Eyeshadows, Blushes, Mascaras
+                                    </option>
+                                    <option value="clothes">Clothes / Apparel</option>
+                                    <option value="shoes">Shoes</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="books">Books</option>
+                                    <option value="toys">Toys</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="declaration-modal__row">
+                                <label class="visually-hidden" for="declaration-price">ფასი</label>
+                                <input class="input" id="declaration-price" name="price" type="text" inputmode="decimal"
+                                    placeholder="ფასი">
+
+                                <label class="visually-hidden" for="declaration-currency">ვალუტა</label>
+                                <div class="declaration-modal__select declaration-modal__select--currency">
+                                    <select class="input" id="declaration-currency" name="currency">
+                                        <option value="USD" selected>USD ($)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                        <option value="GBP">GBP (£)</option>
+                                        <option value="GEL">GEL (₾)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label class="visually-hidden" for="declaration-quantity">რაოდენობა</label>
+                            <input class="input" id="declaration-quantity" name="quantity" type="text"
+                                inputmode="numeric" placeholder="რაოდენობა">
+
+                            <label class="visually-hidden" for="declaration-comment">კომენტარი</label>
+                            <textarea class="input declaration-modal__textarea" id="declaration-comment" name="comment"
+                                rows="4" placeholder="კომენტარი"></textarea>
+                        </div>
+
+                        <div class="declaration-modal__uploads">
+                            <div class="declaration-modal__upload">
+                                <h3 class="declaration-modal__upload-title">ინვოისი</h3>
+                                <p class="declaration-modal__upload-hint">Each file must not exceed 2 MB. Only PDF and
+                                    Files cannot be password protected</p>
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="invoice" accept=".pdf,application/pdf">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <p class="declaration-modal__file-name" data-file-name hidden></p>
+                            </div>
+
+                            <div class="declaration-modal__upload">
+                                <h3 class="declaration-modal__upload-title">ყიდვის ორდერი</h3>
+                                <p class="declaration-modal__upload-hint">Each file must not exceed 2 MB. Only PDF and
+                                    Files cannot be password protected</p>
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="purchase-order"
+                                        accept=".pdf,application/pdf">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <p class="declaration-modal__file-name" data-file-name hidden></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="declaration-modal__actions">
+                        <button class="button button--primary declaration-modal__submit" type="submit">დეკლარირება</button>
+                        <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="declaration-modal declaration-modal--pickup" id="pickup-modal" hidden aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="pickup-modal-title"
+            aria-describedby="pickup-modal-subtitle" tabindex="-1">
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 class="declaration-modal__title" id="pickup-modal-title">გატანა სერვის ცენტრიდან</h2>
+                        <p class="declaration-modal__subtitle" id="pickup-modal-subtitle">გთხოვთ შეავსოთ ყველა
+                            სავალდებულო ველი</p>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <form class="declaration-modal__form" id="pickup-form" novalidate>
+                    <div class="declaration-modal__fields pickup-modal__fields">
+                        <label class="visually-hidden" for="pickup-city">ქალაქი</label>
+                        <div class="declaration-modal__select">
+                            <select class="input" id="pickup-city" name="city" required>
+                                <option value="" disabled selected>ქალაქი</option>
+                                <option value="tbilisi">თბილისი</option>
+                                <option value="batumi">ბათუმი</option>
+                                <option value="kutaisi">ქუთაისი</option>
+                                <option value="rustavi">რუსთავი</option>
+                            </select>
+                        </div>
+
+                        <label class="visually-hidden" for="pickup-branch">ფილიალი</label>
+                        <div class="declaration-modal__select">
+                            <select class="input" id="pickup-branch" name="branch" required>
+                                <option value="" disabled selected>ფილიალი</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="declaration-modal__actions">
+                        <button class="button button--primary declaration-modal__submit"
+                            type="submit">დამახსოვრება</button>
+                        <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="declaration-modal declaration-modal--courier" id="courier-modal" hidden aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="courier-modal-title"
+            aria-describedby="courier-modal-subtitle" tabindex="-1">
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 class="declaration-modal__title" id="courier-modal-title">საკურიერო სერვისი</h2>
+                        <p class="declaration-modal__subtitle" id="courier-modal-subtitle">offers door-to door courier
+                            delivery service in any region of Georgia</p>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <form class="declaration-modal__form" id="courier-form" novalidate>
+                    <div class="declaration-modal__fields courier-modal__fields">
+                        <label class="visually-hidden" for="courier-city">ქალაქი</label>
+                        <div class="declaration-modal__select">
+                            <select class="input" id="courier-city" name="city" required>
+                                <option value="" disabled selected>ქალაქი</option>
+                                <option value="tbilisi">თბილისი</option>
+                                <option value="batumi">ბათუმი</option>
+                                <option value="kutaisi">ქუთაისი</option>
+                                <option value="rustavi">რუსთავი</option>
+                            </select>
+                        </div>
+
+                        <label class="visually-hidden" for="courier-address">მისამართი</label>
+                        <input class="input" id="courier-address" name="address" type="text" placeholder="მისამართი"
+                            required>
+                    </div>
+
+                    <div class="declaration-modal__actions">
+                        <button class="button button--primary declaration-modal__submit"
+                            type="submit">აქტივაცია</button>
+                        <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/modules/header.js"></script>
+    <script src="assets/js/modules/footer.js"></script>
     <script src="assets/js/dashboard.js"></script>
 </body>
 
