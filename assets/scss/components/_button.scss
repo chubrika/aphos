@@ -1,6 +1,7 @@
 .button {
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
   padding: $spacing-sm $spacing-lg;
   border: 1px solid $color-primary;

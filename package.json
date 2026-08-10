@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "sass assets/scss/home.scss assets/css/home.css --style=expanded && sass assets/scss/contact.scss assets/css/contact.css --style=expanded",
-    "watch:css": "sass --watch assets/scss/home.scss:assets/css/home.css assets/scss/contact.scss:assets/css/contact.css --style=expanded"
+    "build:css": "sass assets/scss:assets/css --style=expanded",
+    "watch:css": "sass --watch assets/scss:assets/css --style=expanded"
   },
   "repository": {
     "type": "git",

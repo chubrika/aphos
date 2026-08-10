@@ -63,8 +63,11 @@ ul {
 }
 body {
   font-family: "FiraGO-Normal";
-  color: #1F1F1F;
+  color: #000;
   background-color: #ffffff;
+  background-image: radial-gradient(ellipse 80% 65% at 100% 0%, rgba(176, 192, 230, 0.62) 0%, rgba(200, 210, 235, 0.28) 38%, transparent 72%), radial-gradient(ellipse 70% 58% at 0% 88%, rgba(253, 214, 184, 0.78) 0%, rgba(255, 232, 212, 0.38) 42%, transparent 70%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -86,7 +89,8 @@ p {
 }
 
 .site-header {
-  background-color: #ffffff;
+  background-color: #fff;
+  border-bottom: 1px solid #CDD7E3;
 }
 
 .site-header__inner {
@@ -178,7 +182,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   font-weight: 600;
-  color: #1F1F1F;
+  color: #000;
   white-space: nowrap;
   transition: color 0.2s ease-in-out;
 }
@@ -221,7 +225,7 @@ p {
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  color: #1F1F1F;
+  color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .site-header__more-dropdown a:hover, .site-header__more-dropdown a:focus-visible {
@@ -269,14 +273,14 @@ p {
 .site-header__profile-name {
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  color: #1F1F1F;
+  color: #000;
   font-size: 12px;
   margin: 0;
 }
 
 .site-header__profile-balance {
   font-family: "FiraGO-Bold";
-  color: #1F1F1F;
+  color: #000;
   font-weight: 600;
   margin: 0;
   font-size: 14px;
@@ -313,7 +317,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   font-weight: 600;
-  color: #1F1F1F;
+  color: #000;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
@@ -380,7 +384,7 @@ p {
   font-size: 14px;
   text-align: left;
   text-transform: lowercase;
-  color: #1F1F1F;
+  color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .lang-switcher__option img {
@@ -668,6 +672,7 @@ p {
 .button {
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
   padding: 10px 30px;
   border: 1px solid #3c62c1;

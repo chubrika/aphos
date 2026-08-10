@@ -248,8 +248,8 @@ function initDeclarationModal() {
     onOpen({ modal, trigger }) {
       const trackingInput = modal.querySelector("#declaration-tracking");
       const shopInput = modal.querySelector("#declaration-shop");
-      const shipment = trigger?.closest(".dashboard-shipment");
-      const tracking = shipment?.querySelector(".dashboard-shipment__tracking")?.textContent?.trim();
+      const shipment = trigger?.closest(".dashboard-shipment, .accepted-card, .dashboard-consignment");
+      const tracking = shipment?.querySelector(".dashboard-shipment__tracking, .accepted-card__tracking")?.textContent?.trim();
 
       if (trackingInput) {
         trackingInput.value = tracking || "";

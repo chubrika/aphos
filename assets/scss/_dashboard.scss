@@ -1,6 +1,5 @@
 .dashboard-hero {
   padding: 60px 60px;
-  background: #f0f6fc;
 }
 
 .dashboard-hero__inner {
@@ -151,9 +150,6 @@
 
 .dashboard-tabs {
   padding-bottom: 80px;
-  &__header{
-    background: #f0f6fc;
-  }
 }
 
 .dashboard-tabs__title {
@@ -468,10 +464,14 @@
 .dashboard-consignment__status {
   margin: 0;
   padding: 10px 20px;
-  font-family: $font-family-regular;
+  font-family: $font-family-bold;
   font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   line-height: 1.4;
   color: $color-surface;
+  height: 60px;
+  border-radius: 16px;
 }
 
 .dashboard-consignment--alert .dashboard-consignment__status {
@@ -479,11 +479,156 @@
 }
 
 .dashboard-consignment--transit .dashboard-consignment__status {
-  background-color: #8fa6bb;
+  background-color: #d9dde9;
+  color: $color-primary-dark-2;
 }
 
 .dashboard-consignment--success .dashboard-consignment__status {
   background-color: #2bb3a0;
+}
+
+.dashboard-consignment--parcel {
+  border: 0;
+  overflow: inherit;
+  box-shadow: none;
+  background-color: transparent;
+  .dashboard-consignment__status {
+    padding: 10px 24px;
+  }
+
+  .dashboard-consignment__origin {
+    gap: 12px;
+  }
+
+  .dashboard-consignment__refs {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .dashboard-consignment__eta {
+    font-family: $font-family-bold;
+    color: $color-text;
+  }
+
+  .dashboard-shipment__weight {
+    color: $color-primary-dark-2;
+  }
+}
+
+.dashboard-consignment__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: #fff;
+  position: relative;
+  bottom: 25px;
+  border: 1px solid rgba(61, 81, 136, 0.1);
+  border-radius: 16px;
+  background-color: $color-surface;
+  box-shadow: 0 10px 28px rgba(61, 81, 136, 0.08);
+}
+
+.dashboard-consignment__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.dashboard-consignment__product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.dashboard-consignment__delivery {
+  margin: 0;
+  font-family: $font-family-regular;
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  letter-spacing: 0.4px;
+  text-align: right;
+  color: $color-text;
+}
+
+.dashboard-consignment__delivery-label {
+  font-family: $font-family-bold;
+  font-weight: 700;
+}
+
+.dashboard-consignment__actions {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-shrink: 0;
+}
+
+.dashboard-consignment__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+.dashboard-consignment__buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-shipment__clearance {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background-color: #fdecec;
+  color: #e75656;
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  transition: opacity $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #e75656;
+    outline-offset: 2px;
+  }
+}
+
+.dashboard-warehouse__title {
+  margin: 0 0 16px;
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  color: $color-text;
+}
+
+.dashboard-consignment--plain {
+  border-color: #cdd7e3;
+
+  .dashboard-consignment__head {
+    padding-bottom: 4px;
+  }
+
+  .dashboard-shipment__cell--actions .dashboard-shipment__actions {
+    gap: 8px;
+  }
 }
 
 .dashboard-consignment__head {
@@ -535,9 +680,11 @@
 }
 
 .dashboard-consignment__eta {
-  font-family: $font-family-regular;
+  font-family: $font-family-bold;
   font-size: $font-size-xs;
-  color: #8b95a5;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: $color-text;
 }
 
 .dashboard-consignment__service {
@@ -1064,8 +1211,43 @@ body:has(.declaration-modal:not([hidden])) {
     margin-left: 0;
   }
 
+  .dashboard-warehouse__title {
+    margin-bottom: 12px;
+  }
+
   .dashboard-consignment__status {
     padding: 10px 16px;
+  }
+
+  .dashboard-consignment__body {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .dashboard-consignment__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dashboard-consignment__delivery {
+    text-align: left;
+  }
+
+  .dashboard-consignment__actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .dashboard-consignment__meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .dashboard-consignment__buttons {
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .dashboard-consignment__head {

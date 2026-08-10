@@ -1,0 +1,315 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.accepted {
+  padding: 40px 0 80px;
+}
+
+.accepted__group + .accepted__group {
+  margin-top: 40px;
+}
+
+.accepted__title {
+  margin: 0 0 22px;
+  font-family: $font-family-bold;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  color: $color-text;
+}
+
+.accepted__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+@keyframes accepted-card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.accepted-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid #cdd7e3;
+  border-radius: 16px;
+  background-color: $color-surface;
+  box-shadow: 0 8px 24px rgba(61, 81, 136, 0.06);
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+
+  .accepted.is-revealed & {
+    animation-name: accepted-card-in;
+    animation-duration: 0.55s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+  }
+
+  @for $i from 1 through 12 {
+    .accepted.is-revealed &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.07}s;
+    }
+  }
+
+  .accepted.is-revealed &:nth-child(n + 13) {
+    animation-delay: 0.84s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accepted-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+.accepted-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.accepted-card__origin,
+.accepted-card__product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.accepted-card__flag,
+.accepted-card__logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.accepted-card__flag {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 0 1px rgba(61, 81, 136, 0.08);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.accepted-card__logo {
+  width: 40px;
+  height: 40px;
+  font-family: $font-family-bold;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.accepted-card__logo--amazon {
+  background-color: #fff4e8;
+  color: #ff9900;
+}
+
+.accepted-card__id,
+.accepted-card__eta,
+.accepted-card__tracking,
+.accepted-card__price,
+.accepted-card__status,
+.accepted-card__weight,
+.accepted-card__fee {
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: 0.4px;
+}
+
+.accepted-card__id,
+.accepted-card__tracking {
+  font-weight: 600;
+  color: $color-primary-dark-2;
+}
+
+.accepted-card__id {
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+}
+
+.accepted-card__tracking {
+  font-family: $font-family-regular;
+  font-size: $font-size-xs;
+}
+
+.accepted-card__eta {
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  color: $color-text;
+}
+
+.accepted-card__price,
+.accepted-card__fee {
+  margin-top: 2px;
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.accepted-card__status {
+  margin: 0;
+  font-family: $font-family-regular;
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  letter-spacing: 0.4px;
+  text-align: right;
+  color: $color-text;
+}
+
+.accepted-card__status-label {
+  font-family: $font-family-bold;
+  font-weight: 700;
+}
+
+.accepted-card__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  text-align: right;
+}
+
+.accepted-card__link {
+  @include button-reset;
+  padding: 0;
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.4px;
+  color: $color-primary-dark-2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.accepted-card__link-sep {
+  font-family: $font-family-regular;
+  font-size: $font-size-xs;
+  line-height: 1;
+  color: $color-primary-dark-2;
+}
+
+.accepted-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-shrink: 0;
+}
+
+.accepted-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+.accepted-card__weight {
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $color-primary-dark-2;
+}
+
+.accepted-card__declare {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background-color: #f0f6fc;
+  color: $color-primary-dark-2;
+  font-family: $font-family-bold;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  transition: opacity $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+@include mobile {
+  .accepted {
+    padding: 28px 0 48px;
+  }
+
+  .accepted-card {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .accepted-card__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .accepted-card__status {
+    text-align: left;
+  }
+
+  .accepted-card__links {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .accepted-card__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .accepted-card__meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

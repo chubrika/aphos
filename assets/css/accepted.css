@@ -1,0 +1,332 @@
+.accepted {
+  padding: 40px 0 80px;
+}
+
+.accepted__group + .accepted__group {
+  margin-top: 40px;
+}
+
+.accepted__title {
+  margin: 0 0 22px;
+  font-family: "FiraGO-Bold";
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  color: #000;
+}
+
+.accepted__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+@keyframes accepted-card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.accepted-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid #cdd7e3;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(61, 81, 136, 0.06);
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+}
+.accepted.is-revealed .accepted-card {
+  animation-name: accepted-card-in;
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.accepted.is-revealed .accepted-card:nth-child(1) {
+  animation-delay: 0s;
+}
+.accepted.is-revealed .accepted-card:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.accepted.is-revealed .accepted-card:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.accepted.is-revealed .accepted-card:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.accepted.is-revealed .accepted-card:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.accepted.is-revealed .accepted-card:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.accepted.is-revealed .accepted-card:nth-child(7) {
+  animation-delay: 0.42s;
+}
+.accepted.is-revealed .accepted-card:nth-child(8) {
+  animation-delay: 0.49s;
+}
+.accepted.is-revealed .accepted-card:nth-child(9) {
+  animation-delay: 0.56s;
+}
+.accepted.is-revealed .accepted-card:nth-child(10) {
+  animation-delay: 0.63s;
+}
+.accepted.is-revealed .accepted-card:nth-child(11) {
+  animation-delay: 0.7s;
+}
+.accepted.is-revealed .accepted-card:nth-child(12) {
+  animation-delay: 0.77s;
+}
+.accepted.is-revealed .accepted-card:nth-child(n+13) {
+  animation-delay: 0.84s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accepted-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+.accepted-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.accepted-card__origin,
+.accepted-card__product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.accepted-card__flag,
+.accepted-card__logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.accepted-card__flag {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 0 1px rgba(61, 81, 136, 0.08);
+}
+.accepted-card__flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.accepted-card__logo {
+  width: 40px;
+  height: 40px;
+  font-family: "FiraGO-Bold";
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.accepted-card__logo--amazon {
+  background-color: #fff4e8;
+  color: #ff9900;
+}
+
+.accepted-card__id,
+.accepted-card__eta,
+.accepted-card__tracking,
+.accepted-card__price,
+.accepted-card__status,
+.accepted-card__weight,
+.accepted-card__fee {
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: 0.4px;
+}
+
+.accepted-card__id,
+.accepted-card__tracking {
+  font-weight: 600;
+  color: #27479a;
+}
+
+.accepted-card__id {
+  font-family: "FiraGO-Bold";
+  font-size: 14px;
+}
+
+.accepted-card__tracking {
+  font-family: "FiraGO-Regular";
+  font-size: 12px;
+}
+
+.accepted-card__eta {
+  font-family: "FiraGO-Bold";
+  font-size: 12px;
+  color: #000;
+}
+
+.accepted-card__price,
+.accepted-card__fee {
+  margin-top: 2px;
+  font-family: "FiraGO-Bold";
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+}
+
+.accepted-card__status {
+  margin: 0;
+  font-family: "FiraGO-Regular";
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.4px;
+  text-align: right;
+  color: #000;
+}
+
+.accepted-card__status-label {
+  font-family: "FiraGO-Bold";
+  font-weight: 700;
+}
+
+.accepted-card__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  text-align: right;
+}
+
+.accepted-card__link {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-family: "FiraGO-Bold";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.4px;
+  color: #27479a;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease-in-out;
+}
+.accepted-card__link:hover, .accepted-card__link:focus-visible {
+  opacity: 0.75;
+}
+.accepted-card__link:focus-visible {
+  outline: 2px solid #3c62c1;
+  outline-offset: 2px;
+}
+
+.accepted-card__link-sep {
+  font-family: "FiraGO-Regular";
+  font-size: 12px;
+  line-height: 1;
+  color: #27479a;
+}
+
+.accepted-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-shrink: 0;
+}
+
+.accepted-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+.accepted-card__weight {
+  font-family: "FiraGO-Bold";
+  font-size: 12px;
+  font-weight: 600;
+  color: #27479a;
+}
+
+.accepted-card__declare {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background-color: #f0f6fc;
+  color: #27479a;
+  font-family: "FiraGO-Bold";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease-in-out;
+}
+.accepted-card__declare:hover, .accepted-card__declare:focus-visible {
+  opacity: 0.75;
+}
+.accepted-card__declare:focus-visible {
+  outline: 2px solid #3c62c1;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .accepted {
+    padding: 28px 0 48px;
+  }
+  .accepted-card {
+    gap: 14px;
+    padding: 16px;
+  }
+  .accepted-card__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .accepted-card__status {
+    text-align: left;
+  }
+  .accepted-card__links {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .accepted-card__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .accepted-card__meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/*# sourceMappingURL=accepted.css.map */
