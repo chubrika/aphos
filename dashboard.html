@@ -135,12 +135,15 @@
             </div>
         </section>
 
-        <section class="dashboard-tabs">
-
+        <section class="dashboard-tabs" aria-labelledby="dashboard-tabs-title">
+            <div class="container">
+                <h1 class="dashboard-tabs__title" id="dashboard-tabs-title">
+                    <span class="dashboard-tabs__title-text">აქტიური გზავნილები</span>
+                </h1>
+            </div>
             <div class="dashboard-tabs__header">
+                <div class="separator-top"></div>
                 <div class="container">
-                    <h1 class="dashboard-tabs__title">აქტიური გზავნილები</h1>
-
                     <div class="dashboard-tabs__nav" role="tablist" aria-label="აქტიური გზავნილები">
                         <button class="dashboard-tabs__tab is-active" type="button" role="tab" id="tab-service-center"
                             aria-selected="true" aria-controls="panel-service-center" data-tab="service-center">
@@ -169,6 +172,7 @@
                         </button>
                     </div>
                 </div>
+                <div class="separator-bottom"></div>
             </div>
             <div class="container">
                 <div class="dashboard-tabs__panels">

@@ -45,7 +45,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: rgba(61, 81, 136, 0.12);
+  background-color: #CDD7E3;
 }
 .registration__header .separator-bottom {
   position: absolute;
@@ -53,7 +53,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: rgba(61, 81, 136, 0.12);
+  background-color: #CDD7E3;
 }
 
 .registration__tabs {
@@ -62,9 +62,9 @@
   width: 100%;
   margin-bottom: 50px;
   overflow: hidden;
-  border: 1px solid rgba(61, 81, 136, 0.12);
+  border: 1px solid #CDD7E3;
   border-bottom: none;
-  background-color: #e4ebf4;
+  background-color: transparent;
 }
 
 .registration__tab {
@@ -79,8 +79,8 @@
   justify-content: center;
   min-height: 52px;
   padding: 14px 12px;
-  border-right: 1px solid rgba(61, 81, 136, 0.12);
-  background-color: #fff;
+  border-right: 1px solid #CDD7E3;
+  border-bottom: 1px solid #CDD7E3;
   color: #000;
   font-family: "FiraGO-Bold";
   font-size: 14px;
