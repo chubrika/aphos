@@ -2,6 +2,10 @@
   background-color: #fff;
 }
 
+.registration-page .site-header {
+  border-bottom: 1px solid $color-border;
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;

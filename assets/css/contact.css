@@ -88,6 +88,10 @@ p {
   background-color: #fff;
 }
 
+.registration-page .site-header {
+  border-bottom: 1px solid #CDD7E3;
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;
