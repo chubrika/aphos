@@ -96,14 +96,18 @@
                                 <div class="registration__field floating-field">
                                     <input class="input floating-field__control" id="first-name-latin"
                                         name="first_name_latin" type="text" placeholder=" " autocomplete="given-name"
-                                        required>
+                                        pattern="[A-Za-z\s\-']+"
+                                        title="გთხოვთ შეიყვანოთ მხოლოდ ლათინური სიმბოლოები"
+                                        data-latin-only required>
                                     <label class="floating-field__label" for="first-name-latin">სახელი
                                         (ლათინურად)*</label>
                                 </div>
                                 <div class="registration__field floating-field">
                                     <input class="input floating-field__control" id="last-name-latin"
                                         name="last_name_latin" type="text" placeholder=" " autocomplete="family-name"
-                                        required>
+                                        pattern="[A-Za-z\s\-']+"
+                                        title="გთხოვთ შეიყვანოთ მხოლოდ ლათინური სიმბოლოები"
+                                        data-latin-only required>
                                     <label class="floating-field__label" for="last-name-latin">გვარი
                                         (ლათინურად)*</label>
                                 </div>
@@ -197,7 +201,10 @@
                                 <div class="registration__grid">
                                     <div class="registration__field floating-field">
                                         <input class="input floating-field__control" id="email" name="email"
-                                            type="email" placeholder=" " autocomplete="username" required>
+                                            type="email" placeholder=" " autocomplete="username" inputmode="email"
+                                            pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+                                            title="გთხოვთ შეიყვანოთ ლათინური სიმბოლოებით ელ. ფოსტა (მაგ. name@example.com)"
+                                            data-latin-email required>
                                         <label class="floating-field__label" for="email">ელ. ფოსტა (მომხმარებლის
                                             სახელი)*</label>
                                     </div>
@@ -247,7 +254,10 @@
                             <div class="registration__grid">
                                 <div class="registration__field floating-field">
                                     <input class="input floating-field__control" id="company-name-latin"
-                                        name="company_name_latin" type="text" placeholder=" " required>
+                                        name="company_name_latin" type="text" placeholder=" "
+                                        pattern="[A-Za-z0-9\s\-'.&]+"
+                                        title="გთხოვთ შეიყვანოთ მხოლოდ ლათინური სიმბოლოები"
+                                        data-latin-only="text" required>
                                     <label class="floating-field__label" for="company-name-latin">კომპანიის დასახელება
                                         (ლათინურად)*</label>
                                 </div>
@@ -304,7 +314,10 @@
                                 <div class="registration__grid">
                                     <div class="registration__field floating-field">
                                         <input class="input floating-field__control" id="legal-email" name="email"
-                                            type="email" placeholder=" " autocomplete="username" required>
+                                            type="email" placeholder=" " autocomplete="username" inputmode="email"
+                                            pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+                                            title="გთხოვთ შეიყვანოთ ლათინური სიმბოლოებით ელ. ფოსტა (მაგ. name@example.com)"
+                                            data-latin-email required>
                                         <label class="floating-field__label" for="legal-email">ელ. ფოსტა (მომხმარებლის
                                             სახელი)*</label>
                                     </div>

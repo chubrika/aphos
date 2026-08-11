@@ -96,6 +96,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll("[data-latin-only]").forEach((input) => {
+    const mode = input.getAttribute("data-latin-only");
+    const disallowed =
+      mode === "email"
+        ? /[^A-Za-z0-9@._%+\-]/g
+        : mode === "text"
+          ? /[^A-Za-z0-9\s\-'.&]/g
+          : /[^A-Za-z\s\-']/g;
+
+    input.addEventListener("input", () => {
+      const filtered = input.value.replace(disallowed, "");
+      if (input.value !== filtered) {
+        input.value = filtered;
+      }
+    });
+  });
+
   const calculatorForm = document.querySelector(".calculator__form");
 
   if (calculatorForm) {

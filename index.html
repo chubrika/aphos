@@ -115,7 +115,10 @@
             <div class="login-card__fields">
               <div class="floating-field">
                 <input class="input floating-field__control" id="login-email" name="email" type="email" placeholder=" "
-                  autocomplete="email" required>
+                  autocomplete="email" inputmode="email"
+                  pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+                  title="გთხოვთ შეიყვანოთ ლათინური სიმბოლოებით ელ. ფოსტა (მაგ. name@example.com)"
+                  data-latin-only="email" required>
                 <label class="floating-field__label" for="login-email">ელ. ფოსტა</label>
               </div>
 

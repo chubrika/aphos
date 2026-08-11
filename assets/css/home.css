@@ -787,8 +787,8 @@ p {
   box-shadow: 0 0 0 3px rgba(60, 98, 193, 0.12);
 }
 .input:user-invalid, .input.is-invalid {
-  background-color: #ffefef;
-  border-color: #e8b4b4;
+  background-color: #FBE4E4;
+  border-color: #DD4A4A;
 }
 
 .input--select {

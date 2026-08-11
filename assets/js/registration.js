@@ -119,6 +119,33 @@ function initDigitsOnly(root) {
   });
 }
 
+function initLatinEmail(root) {
+  root.querySelectorAll("[data-latin-email]").forEach((input) => {
+    input.addEventListener("input", () => {
+      const filtered = input.value.replace(/[^A-Za-z0-9@._%+\-]/g, "");
+      if (input.value !== filtered) {
+        input.value = filtered;
+      }
+    });
+  });
+}
+
+function initLatinOnly(root) {
+  root.querySelectorAll("[data-latin-only]").forEach((input) => {
+    const allowText = input.getAttribute("data-latin-only") === "text";
+    const disallowed = allowText
+      ? /[^A-Za-z0-9\s\-'.&]/g
+      : /[^A-Za-z\s\-']/g;
+
+    input.addEventListener("input", () => {
+      const filtered = input.value.replace(disallowed, "");
+      if (input.value !== filtered) {
+        input.value = filtered;
+      }
+    });
+  });
+}
+
 function initRegistrationPage() {
   const root = document.querySelector(".registration");
 
@@ -130,6 +157,8 @@ function initRegistrationPage() {
   initRegistrationTabs();
   initTermsLinks();
   initDigitsOnly(root);
+  initLatinEmail(root);
+  initLatinOnly(root);
   root.querySelectorAll(".registration__form").forEach(initPasswordMatch);
 }
 
