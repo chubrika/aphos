@@ -113,14 +113,16 @@
             <h2 class="login-card__title">ავტორიზაცია</h2>
 
             <div class="login-card__fields">
-              <label class="visually-hidden" for="login-email">ელ. ფოსტა</label>
-              <input class="input" id="login-email" name="email" type="email" placeholder="ელ. ფოსტა"
-                autocomplete="email" required>
+              <div class="floating-field">
+                <input class="input floating-field__control" id="login-email" name="email" type="email" placeholder=" "
+                  autocomplete="email" required>
+                <label class="floating-field__label" for="login-email">ელ. ფოსტა</label>
+              </div>
 
-              <div class="input-group input-group--password">
-                <label class="visually-hidden" for="login-password">პაროლი</label>
-                <input class="input" id="login-password" name="password" type="password" placeholder="პაროლი"
+              <div class="floating-field input-group input-group--password">
+                <input class="input floating-field__control" id="login-password" name="password" type="password" placeholder=" "
                   autocomplete="current-password" required>
+                <label class="floating-field__label" for="login-password">პაროლი</label>
                 <button class="input-group__toggle" type="button" data-password-toggle aria-label="პაროლის ჩვენება"
                   aria-pressed="false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -151,7 +153,7 @@
       </div>
     </section>
 
-    <section id="why-apos" class="why-apos container">
+    <!-- <section id="why-apos" class="why-apos container">
       <h2 class="why-apos__title"> <span class="title-gradient">რატომ აფოსი</span> </h2>
 
       <ul class="why-apos__list">
@@ -232,9 +234,9 @@
           </a>
         </li>
       </ul>
-    </section>
+    </section> -->
 
-    <section id="tariffs" class="tariffs">
+    <section id="tariffs" class="tariffs" style="margin-top: 40px;">
       <div class="container">
         <h2 class="tariffs__title">ტარიფები</h2>
         <p class="tariffs__description">გამოცდილი პირობებით განსაზღვრული ტარიფები, რომელიც გამოიყენება საკურიერო
@@ -735,6 +737,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/modules/floating-field.js"></script>
   <script src="assets/js/modules/header.js"></script>
   <script src="assets/js/modules/footer.js"></script>
   <script src="assets/js/home.js"></script>

@@ -6,6 +6,7 @@
 @import "layout/footer";
 @import "components/button";
 @import "components/input";
+@import "components/floating-field";
 @import "dashboard";
 
 .container {
@@ -72,39 +73,19 @@
 }
 
 .hero-slide--1 {
-  background-image: linear-gradient(
-    135deg,
-    #2a3148 0%,
-    #121826 50%,
-    #3a2a22 100%
-  );
+  background-image: url("../images/static/first.png");
 }
 
 .hero-slide--2 {
-  background-image: linear-gradient(
-    135deg,
-    #1f2a3a 0%,
-    #101820 50%,
-    #2a3348 100%
-  );
+  background-image: url("../images/static/second.png");
 }
 
 .hero-slide--3 {
-  background-image: linear-gradient(
-    135deg,
-    #243040 0%,
-    #141c28 50%,
-    #3a2830 100%
-  );
+  background-image: url("../images/static/third.png");
 }
 
 .hero-slide--4 {
-  background-image: linear-gradient(
-    135deg,
-    #222838 0%,
-    #10141e 50%,
-    #2e3a28 100%
-  );
+  background-image: url("../images/static/second.png");
 }
 
 .hero-slide__inner {

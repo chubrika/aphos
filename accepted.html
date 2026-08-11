@@ -405,53 +405,104 @@
                 <form class="declaration-modal__form" id="declaration-form" novalidate>
                     <div class="declaration-modal__grid">
                         <div class="declaration-modal__fields">
-                            <label class="visually-hidden" for="declaration-tracking">თრექინგი</label>
-                            <input class="input" id="declaration-tracking" name="tracking" type="text"
-                                placeholder="თრექინგ #">
+                            <div class="floating-field">
+  <input class="input floating-field__control" id="declaration-tracking" name="tracking" type="text"
+                                placeholder=" ">
+  <label class="floating-field__label" for="declaration-tracking">თრექინგი</label>
+</div>
 
                             <label class="visually-hidden" for="declaration-shop">მაღაზიის სახელი</label>
-                            <input class="input input--required" id="declaration-shop" name="shop" type="text"
-                                placeholder="Shop name*" required>
+                            <div class="search-select" data-search-select data-search-select-type="shop">
+                                <input type="hidden" id="declaration-shop" name="shop" value="" required>
+                                <button class="search-select__trigger input input--required" type="button"
+                                    aria-expanded="false" aria-haspopup="listbox"
+                                    aria-controls="declaration-shop-list">
+                                    <span class="search-select__label" data-search-label
+                                        data-placeholder="Shop name*">Shop name*</span>
+                                    <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                <div class="search-select__menu" hidden aria-hidden="true">
+                                    <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                        autocomplete="off" aria-label="მაღაზიის ძებნა">
+                                    <ul class="search-select__list" id="declaration-shop-list" role="listbox"></ul>
+                                </div>
+                            </div>
 
                             <label class="visually-hidden" for="declaration-category">კატეგორია</label>
-                            <div class="declaration-modal__select">
-                                <select class="input" id="declaration-category" name="category" required>
-                                    <option value="" disabled>კატეგორია</option>
-                                    <option value="makeup" selected>Makeup Brushes, Eyeshadows, Blushes, Mascaras
-                                    </option>
-                                    <option value="clothes">Clothes / Apparel</option>
-                                    <option value="shoes">Shoes</option>
-                                    <option value="electronics">Electronics</option>
-                                    <option value="accessories">Accessories</option>
-                                    <option value="books">Books</option>
-                                    <option value="toys">Toys</option>
-                                    <option value="other">Other</option>
-                                </select>
+                            <div class="search-select" data-search-select>
+                                <input type="hidden" id="declaration-category" name="category" value="makeup" required>
+                                <button class="search-select__trigger input" type="button" aria-expanded="false"
+                                    aria-haspopup="listbox" aria-controls="declaration-category-list">
+                                    <span class="search-select__label" data-search-label>Makeup Brushes, Eyeshadows,
+                                        Blushes, Mascaras</span>
+                                    <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                <div class="search-select__menu" hidden aria-hidden="true">
+                                    <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                        autocomplete="off" aria-label="კატეგორიის ძებნა">
+                                    <ul class="search-select__list" id="declaration-category-list" role="listbox">
+                                        <li role="option" class="search-select__option is-selected" data-value="makeup"
+                                            tabindex="-1" aria-selected="true">Makeup Brushes, Eyeshadows, Blushes,
+                                            Mascaras</li>
+                                        <li role="option" class="search-select__option" data-value="clothes"
+                                            tabindex="-1" aria-selected="false">Clothes / Apparel</li>
+                                        <li role="option" class="search-select__option" data-value="shoes" tabindex="-1"
+                                            aria-selected="false">Shoes</li>
+                                        <li role="option" class="search-select__option" data-value="electronics"
+                                            tabindex="-1" aria-selected="false">Electronics</li>
+                                        <li role="option" class="search-select__option" data-value="accessories"
+                                            tabindex="-1" aria-selected="false">Accessories</li>
+                                        <li role="option" class="search-select__option" data-value="books" tabindex="-1"
+                                            aria-selected="false">Books</li>
+                                        <li role="option" class="search-select__option" data-value="toys" tabindex="-1"
+                                            aria-selected="false">Toys</li>
+                                        <li role="option" class="search-select__option" data-value="other" tabindex="-1"
+                                            aria-selected="false">Other</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div class="declaration-modal__row">
-                                <label class="visually-hidden" for="declaration-price">ფასი</label>
-                                <input class="input" id="declaration-price" name="price" type="text" inputmode="decimal"
-                                    placeholder="ფასი">
+                                <div class="floating-field">
+  <input class="input floating-field__control" id="declaration-price" name="price" type="text" inputmode="decimal"
+                                    placeholder=" ">
+  <label class="floating-field__label" for="declaration-price">ფასი</label>
+</div>
 
-                                <label class="visually-hidden" for="declaration-currency">ვალუტა</label>
                                 <div class="declaration-modal__select declaration-modal__select--currency">
-                                    <select class="input" id="declaration-currency" name="currency">
+<div class="floating-field">
+  <select class="input floating-field__control" id="declaration-currency" name="currency">
                                         <option value="USD" selected>USD ($)</option>
                                         <option value="EUR">EUR (€)</option>
                                         <option value="GBP">GBP (£)</option>
                                         <option value="GEL">GEL (₾)</option>
                                     </select>
-                                </div>
+  <label class="floating-field__label" for="declaration-currency">ვალუტა</label>
+</div>
+</div>
                             </div>
 
-                            <label class="visually-hidden" for="declaration-quantity">რაოდენობა</label>
-                            <input class="input" id="declaration-quantity" name="quantity" type="text"
-                                inputmode="numeric" placeholder="რაოდენობა">
+                            <div class="floating-field">
+  <input class="input floating-field__control" id="declaration-quantity" name="quantity" type="text"
+                                inputmode="numeric" placeholder=" ">
+  <label class="floating-field__label" for="declaration-quantity">რაოდენობა</label>
+</div>
 
-                            <label class="visually-hidden" for="declaration-comment">კომენტარი</label>
-                            <textarea class="input declaration-modal__textarea" id="declaration-comment" name="comment"
-                                rows="4" placeholder="კომენტარი"></textarea>
+                            <div class="floating-field floating-field--textarea">
+                                <textarea class="input floating-field__control declaration-modal__textarea" id="declaration-comment" name="comment"
+                                    rows="4" placeholder=" "></textarea>
+                                <label class="floating-field__label" for="declaration-comment">კომენტარი</label>
+                            </div>
                         </div>
 
                         <div class="declaration-modal__uploads">
@@ -512,21 +563,50 @@
                 <form class="declaration-modal__form" id="pickup-form" novalidate>
                     <div class="declaration-modal__fields pickup-modal__fields">
                         <label class="visually-hidden" for="pickup-city">ქალაქი</label>
-                        <div class="declaration-modal__select">
-                            <select class="input" id="pickup-city" name="city" required>
-                                <option value="" disabled selected>ქალაქი</option>
-                                <option value="tbilisi">თბილისი</option>
-                                <option value="batumi">ბათუმი</option>
-                                <option value="kutaisi">ქუთაისი</option>
-                                <option value="rustavi">რუსთავი</option>
-                            </select>
+                        <div class="search-select" data-search-select>
+                            <input type="hidden" id="pickup-city" name="city" value="" required>
+                            <button class="search-select__trigger input input--required" type="button"
+                                aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-city-list">
+                                <span class="search-select__label" data-search-label data-placeholder="ქალაქი*">ქალაქი*</span>
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="search-select__menu" hidden aria-hidden="true">
+                                <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                    autocomplete="off" aria-label="ქალაქის ძებნა">
+                                <ul class="search-select__list" id="pickup-city-list" role="listbox">
+                                    <li role="option" class="search-select__option" data-value="tbilisi" tabindex="-1"
+                                        aria-selected="false">თბილისი</li>
+                                    <li role="option" class="search-select__option" data-value="batumi" tabindex="-1"
+                                        aria-selected="false">ბათუმი</li>
+                                    <li role="option" class="search-select__option" data-value="kutaisi" tabindex="-1"
+                                        aria-selected="false">ქუთაისი</li>
+                                    <li role="option" class="search-select__option" data-value="rustavi" tabindex="-1"
+                                        aria-selected="false">რუსთავი</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <label class="visually-hidden" for="pickup-branch">ფილიალი</label>
-                        <div class="declaration-modal__select">
-                            <select class="input" id="pickup-branch" name="branch" required>
-                                <option value="" disabled selected>ფილიალი</option>
-                            </select>
+                        <div class="search-select" data-search-select data-search-select-branch>
+                            <input type="hidden" id="pickup-branch" name="branch" value="" required>
+                            <button class="search-select__trigger input input--required" type="button" disabled
+                                aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-branch-list">
+                                <span class="search-select__label" data-search-label data-placeholder="ფილიალი*">ფილიალი*</span>
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="search-select__menu" hidden aria-hidden="true">
+                                <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                    autocomplete="off" aria-label="ფილიალის ძებნა">
+                                <ul class="search-select__list" id="pickup-branch-list" role="listbox"></ul>
+                            </div>
                         </div>
                     </div>
 
@@ -563,19 +643,38 @@
                 <form class="declaration-modal__form" id="courier-form" novalidate>
                     <div class="declaration-modal__fields courier-modal__fields">
                         <label class="visually-hidden" for="courier-city">ქალაქი</label>
-                        <div class="declaration-modal__select">
-                            <select class="input" id="courier-city" name="city" required>
-                                <option value="" disabled selected>ქალაქი</option>
-                                <option value="tbilisi">თბილისი</option>
-                                <option value="batumi">ბათუმი</option>
-                                <option value="kutaisi">ქუთაისი</option>
-                                <option value="rustavi">რუსთავი</option>
-                            </select>
+                        <div class="search-select" data-search-select>
+                            <input type="hidden" id="courier-city" name="city" value="" required>
+                            <button class="search-select__trigger input input--required" type="button"
+                                aria-expanded="false" aria-haspopup="listbox" aria-controls="courier-city-list">
+                                <span class="search-select__label" data-search-label data-placeholder="ქალაქი*">ქალაქი*</span>
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="search-select__menu" hidden aria-hidden="true">
+                                <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                    autocomplete="off" aria-label="ქალაქის ძებნა">
+                                <ul class="search-select__list" id="courier-city-list" role="listbox">
+                                    <li role="option" class="search-select__option" data-value="tbilisi" tabindex="-1"
+                                        aria-selected="false">თბილისი</li>
+                                    <li role="option" class="search-select__option" data-value="batumi" tabindex="-1"
+                                        aria-selected="false">ბათუმი</li>
+                                    <li role="option" class="search-select__option" data-value="kutaisi" tabindex="-1"
+                                        aria-selected="false">ქუთაისი</li>
+                                    <li role="option" class="search-select__option" data-value="rustavi" tabindex="-1"
+                                        aria-selected="false">რუსთავი</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <label class="visually-hidden" for="courier-address">მისამართი</label>
-                        <input class="input" id="courier-address" name="address" type="text" placeholder="მისამართი"
-                            required>
+                        <div class="floating-field">
+                            <input class="input floating-field__control" id="courier-address" name="address" type="text"
+                                placeholder=" " required>
+                            <label class="floating-field__label" for="courier-address">მისამართი*</label>
+                        </div>
                     </div>
 
                     <div class="declaration-modal__actions">
@@ -588,6 +687,7 @@
         </div>
     </div>
 
+    <script src="assets/js/modules/floating-field.js"></script>
     <script src="assets/js/modules/header.js"></script>
     <script src="assets/js/modules/footer.js"></script>
     <script src="assets/js/dashboard.js"></script>

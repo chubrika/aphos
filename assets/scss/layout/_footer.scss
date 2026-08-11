@@ -2,8 +2,11 @@
   padding: $spacing-3xl 0;
   margin-bottom: $spacing-md;
   background-color: $color-footer;
+  background-image:
+    radial-gradient(ellipse 115% 130% at 100% 0%, #3a5288 0%, #2a3f66 34%, #1f2d4a 58%, $color-footer 78%);
   color: #fff;
   border-radius: $radius-lg;
+  overflow: hidden;
 
   .site-footer__brand,
   .site-footer__nav,

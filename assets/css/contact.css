@@ -461,8 +461,10 @@ p {
   padding: 80px 0;
   margin-bottom: 20px;
   background-color: #1B2636;
+  background-image: radial-gradient(ellipse 115% 130% at 100% 0%, #3a5288 0%, #2a3f66 34%, #1f2d4a 58%, #1B2636 78%);
   color: #fff;
   border-radius: 30px;
+  overflow: hidden;
 }
 .site-footer .site-footer__brand,
 .site-footer .site-footer__nav,

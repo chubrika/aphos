@@ -1,21 +1,3 @@
-.accepted {
-  padding: 40px 0 80px;
-}
-
-.accepted__group + .accepted__group {
-  margin-top: 40px;
-}
-
-.accepted__title {
-  margin: 0 0 22px;
-  font-family: "FiraGO-Bold";
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.3px;
-  color: #000;
-}
-
 .accepted__list {
   display: flex;
   flex-direction: column;
@@ -23,7 +5,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
 }
 
 @keyframes accepted-card-in {
@@ -48,50 +29,55 @@
   opacity: 0;
   transform: translate3d(0, 1.75rem, 0);
 }
-.accepted.is-revealed .accepted-card {
+.accepted.is-revealed .accepted-card, .dashboard-tabs__panel.is-revealed .accepted-card {
   animation-name: accepted-card-in;
   animation-duration: 0.55s;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   animation-fill-mode: both;
 }
-.accepted.is-revealed .accepted-card:nth-child(1) {
+.accepted.is-revealed .accepted-card:nth-child(1), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(1) {
   animation-delay: 0s;
 }
-.accepted.is-revealed .accepted-card:nth-child(2) {
+.accepted.is-revealed .accepted-card:nth-child(2), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(2) {
   animation-delay: 0.07s;
 }
-.accepted.is-revealed .accepted-card:nth-child(3) {
+.accepted.is-revealed .accepted-card:nth-child(3), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(3) {
   animation-delay: 0.14s;
 }
-.accepted.is-revealed .accepted-card:nth-child(4) {
+.accepted.is-revealed .accepted-card:nth-child(4), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(4) {
   animation-delay: 0.21s;
 }
-.accepted.is-revealed .accepted-card:nth-child(5) {
+.accepted.is-revealed .accepted-card:nth-child(5), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(5) {
   animation-delay: 0.28s;
 }
-.accepted.is-revealed .accepted-card:nth-child(6) {
+.accepted.is-revealed .accepted-card:nth-child(6), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(6) {
   animation-delay: 0.35s;
 }
-.accepted.is-revealed .accepted-card:nth-child(7) {
+.accepted.is-revealed .accepted-card:nth-child(7), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(7) {
   animation-delay: 0.42s;
 }
-.accepted.is-revealed .accepted-card:nth-child(8) {
+.accepted.is-revealed .accepted-card:nth-child(8), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(8) {
   animation-delay: 0.49s;
 }
-.accepted.is-revealed .accepted-card:nth-child(9) {
+.accepted.is-revealed .accepted-card:nth-child(9), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(9) {
   animation-delay: 0.56s;
 }
-.accepted.is-revealed .accepted-card:nth-child(10) {
+.accepted.is-revealed .accepted-card:nth-child(10), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(10) {
   animation-delay: 0.63s;
 }
-.accepted.is-revealed .accepted-card:nth-child(11) {
+.accepted.is-revealed .accepted-card:nth-child(11), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(11) {
   animation-delay: 0.7s;
 }
-.accepted.is-revealed .accepted-card:nth-child(12) {
+.accepted.is-revealed .accepted-card:nth-child(12), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(12) {
   animation-delay: 0.77s;
 }
-.accepted.is-revealed .accepted-card:nth-child(n+13) {
+.accepted.is-revealed .accepted-card:nth-child(n+13), .dashboard-tabs__panel.is-revealed .accepted-card:nth-child(n+13) {
   animation-delay: 0.84s;
+}
+
+.dashboard-tabs__panel .accepted-card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -243,6 +229,11 @@
   outline-offset: 2px;
 }
 
+.accepted-card__link.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .accepted-card__link-sep {
   font-family: "FiraGO-Regular";
   font-size: 12px;
@@ -300,9 +291,6 @@
 }
 
 @media (max-width: 768px) {
-  .accepted {
-    padding: 28px 0 48px;
-  }
   .accepted-card {
     gap: 14px;
     padding: 16px;
@@ -326,6 +314,29 @@
   .accepted-card__meta {
     align-items: flex-start;
     text-align: left;
+  }
+}
+.accepted {
+  padding: 40px 0 80px;
+}
+
+.accepted__group + .accepted__group {
+  margin-top: 40px;
+}
+
+.accepted__title {
+  margin: 0 0 22px;
+  font-family: "FiraGO-Bold";
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .accepted {
+    padding: 28px 0 48px;
   }
 }
 
