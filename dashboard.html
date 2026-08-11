@@ -136,10 +136,12 @@
         </section>
 
         <section class="dashboard-tabs" aria-labelledby="dashboard-tabs-title">
-            <div class="container">
-                <h1 class="dashboard-tabs__title" id="dashboard-tabs-title">
-                    <span class="dashboard-tabs__title-text">აქტიური გზავნილები</span>
-                </h1>
+            <div class="dashboard-hero__bg mb-20">
+                <div class="container dashboard-tabs__bg">
+                    <h1 class="dashboard-tabs__title" id="dashboard-tabs-title">
+                        <span class="dashboard-tabs__title-text">აქტიური გზავნილები</span>
+                    </h1>
+                </div>
             </div>
             <div class="dashboard-tabs__header">
                 <div class="separator-top"></div>
@@ -1639,10 +1641,11 @@
                             <input type="hidden" id="pickup-city" name="city" value="" required>
                             <button class="search-select__trigger input input--required" type="button"
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-city-list">
-                                <span class="search-select__label" data-search-label data-placeholder="ქალაქი*">ქალაქი*</span>
+                                <span class="search-select__label" data-search-label
+                                    data-placeholder="ქალაქი*">ქალაქი*</span>
                                 <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
                             </button>
@@ -1667,10 +1670,11 @@
                             <input type="hidden" id="pickup-branch" name="branch" value="" required>
                             <button class="search-select__trigger input input--required" type="button" disabled
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-branch-list">
-                                <span class="search-select__label" data-search-label data-placeholder="ფილიალი*">ფილიალი*</span>
+                                <span class="search-select__label" data-search-label
+                                    data-placeholder="ფილიალი*">ფილიალი*</span>
                                 <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
                             </button>
@@ -1683,7 +1687,8 @@
                     </div>
 
                     <div class="declaration-modal__actions">
-                        <button class="button button--primary declaration-modal__submit" type="submit">დამახსოვრება</button>
+                        <button class="button button--primary declaration-modal__submit"
+                            type="submit">დამახსოვრება</button>
                         <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
                     </div>
                 </form>
@@ -1719,10 +1724,11 @@
                             <input type="hidden" id="courier-city" name="city" value="" required>
                             <button class="search-select__trigger input input--required" type="button"
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="courier-city-list">
-                                <span class="search-select__label" data-search-label data-placeholder="ქალაქი*">ქალაქი*</span>
+                                <span class="search-select__label" data-search-label
+                                    data-placeholder="ქალაქი*">ქალაქი*</span>
                                 <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
                             </button>
@@ -1743,16 +1749,16 @@
                         </div>
 
                         <div class="floating-field">
-                        <input class="input floating-field__control" id="courier-address" name="address" type="text"
-                            placeholder=" " required>
-                        <label class="floating-field__label" for="courier-address">მისამართი*</label>
-                    </div>
+                            <input class="input floating-field__control" id="courier-address" name="address" type="text"
+                                placeholder=" " required>
+                            <label class="floating-field__label" for="courier-address">მისამართი*</label>
+                        </div>
 
-                    <div class="declaration-modal__actions">
-                        <button class="button button--primary declaration-modal__submit"
-                            type="submit">აქტივაცია</button>
-                        <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
-                    </div>
+                        <div class="declaration-modal__actions">
+                            <button class="button button--primary declaration-modal__submit"
+                                type="submit">აქტივაცია</button>
+                            <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+                        </div>
                 </form>
             </div>
         </div>
