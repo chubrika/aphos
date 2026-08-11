@@ -156,6 +156,8 @@
 
 .dashboard-tabs {
   padding-bottom: 80px;
+  
+  @include page-mesh-background;
 }
 
 .dashboard-tabs__title {

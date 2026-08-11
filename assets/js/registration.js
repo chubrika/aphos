@@ -108,6 +108,17 @@ function initTermsLinks() {
   });
 }
 
+function initDigitsOnly(root) {
+  root.querySelectorAll("[data-digits-only]").forEach((input) => {
+    input.addEventListener("input", () => {
+      const digits = input.value.replace(/\D/g, "");
+      if (input.value !== digits) {
+        input.value = digits;
+      }
+    });
+  });
+}
+
 function initRegistrationPage() {
   const root = document.querySelector(".registration");
 
@@ -118,6 +129,7 @@ function initRegistrationPage() {
   fillDateSelects(root);
   initRegistrationTabs();
   initTermsLinks();
+  initDigitsOnly(root);
   root.querySelectorAll(".registration__form").forEach(initPasswordMatch);
 }
 

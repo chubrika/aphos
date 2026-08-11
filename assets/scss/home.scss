@@ -18,6 +18,10 @@
   margin-inline: auto;
 }
 
+.main-content {
+  @include page-mesh-background;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
