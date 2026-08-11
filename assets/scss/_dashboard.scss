@@ -156,7 +156,7 @@
 
 .dashboard-tabs {
   padding-bottom: 80px;
-  
+
   @include page-mesh-background;
 }
 
@@ -1359,6 +1359,8 @@ body:has(.declaration-modal:not([hidden])) {
 @include mobile {
   .dashboard-hero {
     padding-block: 24px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .dashboard-hero__inner,
@@ -1428,6 +1430,7 @@ body:has(.declaration-modal:not([hidden])) {
 
   .dashboard-consignment__status {
     padding: 10px 16px;
+    height: 75px;
   }
 
   .dashboard-consignment__body {

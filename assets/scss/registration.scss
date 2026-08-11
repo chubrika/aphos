@@ -235,6 +235,9 @@
 @include mobile {
   .registration {
     padding: 32px 0 $spacing-2xl;
+    &__inner {
+      width: 100%;
+    }
   }
 
   .registration__tabs {

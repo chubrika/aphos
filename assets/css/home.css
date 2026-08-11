@@ -2659,6 +2659,8 @@ body:has(.declaration-modal:not([hidden])) {
 @media (max-width: 768px) {
   .dashboard-hero {
     padding-block: 24px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .dashboard-hero__inner,
   .dashboard-hero__summary,
@@ -2714,6 +2716,7 @@ body:has(.declaration-modal:not([hidden])) {
   }
   .dashboard-consignment__status {
     padding: 10px 16px;
+    height: 75px;
   }
   .dashboard-consignment__body {
     gap: 14px;
