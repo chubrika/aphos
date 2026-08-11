@@ -3445,7 +3445,6 @@ body:has(.declaration-modal:not([hidden])) {
 }
 .calculator {
   padding-block: 100px;
-  background: linear-gradient(90deg, #fff4eb 0%, #ffffff 42%, #f0f5ff 100%);
 }
 .calculator__title, .calculator__description, .calculator__fields, .calculator__result {
   opacity: 0;
