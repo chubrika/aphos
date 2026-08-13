@@ -387,11 +387,128 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePrice(false);
   }
 
-  const loginForm = document.querySelector(".login-card");
-  if (loginForm) {
+  document.querySelectorAll(".login-card, #login-modal-form").forEach((loginForm) => {
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       window.location.href = "dashboard.html";
+    });
+  });
+
+  const loginModal = document.getElementById("login-modal");
+  if (loginModal) {
+    const panel = loginModal.querySelector(".login-modal__panel");
+    const openTriggers = document.querySelectorAll("[data-login-open]");
+    const closeTriggers = loginModal.querySelectorAll("[data-login-close]");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let lastTrigger = null;
+    let closeTimer = 0;
+
+    const getFocusable = () => {
+      return Array.from(
+        panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.getClientRects().length);
+    };
+
+    const finishClose = () => {
+      loginModal.hidden = true;
+      loginModal.setAttribute("aria-hidden", "true");
+      openTriggers.forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
+
+      if (lastTrigger && typeof lastTrigger.focus === "function") {
+        lastTrigger.focus();
+      }
+    };
+
+    const closeLoginModal = () => {
+      if (loginModal.hidden || !loginModal.classList.contains("is-open")) {
+        return;
+      }
+
+      loginModal.classList.remove("is-open");
+      window.clearTimeout(closeTimer);
+
+      if (prefersReducedMotion) {
+        finishClose();
+        return;
+      }
+
+      closeTimer = window.setTimeout(finishClose, 520);
+    };
+
+    const openLoginModal = (trigger) => {
+      lastTrigger = trigger || null;
+      window.clearTimeout(closeTimer);
+
+      loginModal.hidden = false;
+      loginModal.setAttribute("aria-hidden", "false");
+      openTriggers.forEach((item) => item.setAttribute("aria-expanded", "true"));
+      void loginModal.offsetWidth;
+      loginModal.classList.add("is-open");
+
+      window.requestAnimationFrame(() => {
+        panel.querySelector("input")?.focus();
+      });
+    };
+
+    openTriggers.forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openLoginModal(trigger);
+      });
+    });
+
+    closeTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        closeLoginModal();
+      });
+    });
+
+    panel.addEventListener("transitionend", (event) => {
+      if (event.target !== panel || event.propertyName !== "transform") {
+        return;
+      }
+
+      if (!loginModal.classList.contains("is-open")) {
+        window.clearTimeout(closeTimer);
+        finishClose();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (loginModal.hidden || !loginModal.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLoginModal();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusable = getFocusable();
+      if (!focusable.length) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || !panel.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (active === last || !panel.contains(active))) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   }
 });
