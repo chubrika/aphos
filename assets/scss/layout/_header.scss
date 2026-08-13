@@ -1,4 +1,5 @@
 .site-header {
+  position: relative;
   background-color: #fff;
 }
 
@@ -30,9 +31,15 @@
   border: 1px solid $color-border;
 }
 
+.site-header__nav {
+  align-self: stretch;
+  display: flex;
+}
+
 .site-header__menu {
   display: flex;
   align-items: center;
+  align-self: stretch;
   gap: $spacing-lg;
   font-size: $font-size-sm;
 }
@@ -62,8 +69,80 @@
 
 .site-header__menu a:hover::after,
 .site-header__menu a[aria-current="page"]::after,
-.site-header__menu a:focus-visible::after {
+.site-header__menu a:focus-visible::after,
+.site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__has-subnav > a::after,
+.site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__has-subnav > a::after {
   transform: scaleX(1);
+}
+
+.site-header__has-subnav {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.site-header__subnav {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: #e3eaf2;
+  transition:
+    max-height $transition-base,
+    visibility $transition-base;
+  transition-delay: 0.08s;
+}
+
+.site-header__subnav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-lg;
+  min-height: 42px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header__subnav a {
+  position: relative;
+  display: inline-block;
+  padding-block: $spacing-sm;
+  font-family: $font-family-bold;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: $color-text;
+  transition: color $transition-base;
+}
+
+.site-header__subnav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+  height: 1px;
+  background-color: $color-text;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform $transition-base;
+}
+
+.site-header__subnav a:hover::after,
+.site-header__subnav a[aria-current="page"]::after,
+.site-header__subnav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__subnav,
+.site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav,
+.site-header--subnav-visible .site-header__subnav,
+.faq-page .site-header__subnav {
+  max-height: 80px;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 // ── Auth section ────────────────────────────────────────────────────────────
@@ -355,6 +434,12 @@
     padding-top: $spacing-sm;
   }
 
+  .site-header__subnav-menu {
+    flex-wrap: wrap;
+    gap: $spacing-sm $spacing-md;
+    padding-inline: $spacing-sm;
+  }
+
   .site-header__auth {
     display: none;
     width: 100%;
@@ -393,5 +478,9 @@
   .lang-switcher__menu {
     right: auto;
     left: 0;
+  }
+
+  .site-header__has-subnav {
+    align-self: flex-start;
   }
 }
