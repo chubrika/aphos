@@ -134,12 +134,8 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   color: $color-orange;
-  opacity: 0.4;
-  transition: opacity $transition-base;
-}
-
-.faq-item.is-open .faq-item__number {
   opacity: 1;
+  transition: opacity $transition-base;
 }
 
 .faq-item__question {
@@ -166,7 +162,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #a9c0e4;
+  background-color: $color-primary-dark-2;
   transition: background-color 0.25s ease, transform $transition-base;
 
   &::before,
@@ -206,11 +202,19 @@
 }
 
 .faq-item.is-open .faq-item__icon {
-  background-color: $color-primary-dark-2;
-
   &::after {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.faq__list:has(.faq-item.is-open) .faq-item:not(.is-open) {
+  .faq-item__number {
+    opacity: 0.4;
+  }
+
+  .faq-item__icon {
+    background-color: #a9c0e4;
   }
 }
 
