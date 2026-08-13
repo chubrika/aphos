@@ -24,7 +24,7 @@
                     <li><a href="dashboard.html">დეშბორდი</a></li>
                     <li><a href="accepted.html" aria-current="page">მიღებული</a></li>
                     <li><a href="#">მისამართები</a></li>
-                    <li><a href="#">ტრანზაქციები</a></li>
+                    <li><a href="transactions.html">ტრანზაქციები</a></li>
                     <li><a href="#">საკურიერო</a></li>
                     <li><a href="#">რეისები</a></li>
                     <li class="site-header__more-menu">
@@ -49,14 +49,15 @@
 
             <div class="site-header__auth site-header__auth--dashboard">
 
-                <div class="site-header__profile" aria-label="User account">
+                <button class="site-header__profile" type="button" aria-label="User account" aria-haspopup="dialog"
+                    aria-controls="account-drawer" aria-expanded="false">
                     <span class="site-header__avatar" aria-hidden="true">DT</span>
-                    <div class="site-header__profile-copy">
-                        <p class="site-header__profile-name">თორნიკე ა. - <span
-                                class="site-header__profile-id">SP32212</span></p>
-                        <p class="site-header__profile-balance">ბალანსი: 122 gel</p>
-                    </div>
-                </div>
+                    <span class="site-header__profile-copy">
+                        <span class="site-header__profile-name">თორნიკე ა. - <span
+                                class="site-header__profile-id">SP32212</span></span>
+                        <span class="site-header__profile-balance">ბალანსი: 122 gel</span>
+                    </span>
+                </button>
                 <a class="button button--sm button--primary site-header__fund-button" href="#">შევსება</a>
                 <div class="lang-switcher">
                     <button class="lang-switcher__trigger" type="button" aria-expanded="false" aria-haspopup="true"
@@ -683,6 +684,47 @@
                         <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-drawer" id="account-drawer" hidden aria-hidden="true">
+        <div class="account-drawer__overlay" data-account-close></div>
+        <div class="account-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="account-drawer-title"
+            tabindex="-1">
+            <div class="account-drawer__inner">
+                <header class="account-drawer__header">
+                    <div class="account-drawer__user">
+                        <span class="site-header__avatar" aria-hidden="true">DT</span>
+                        <div class="account-drawer__user-copy">
+                            <p class="account-drawer__name" id="account-drawer-title">თორნიკე ა. - <span
+                                    class="site-header__profile-id">SP32212</span></p>
+                            <p class="account-drawer__balance">ბალანსი: 122 gel</p>
+                        </div>
+                    </div>
+                    <a class="button button--sm button--primary account-drawer__topup" href="#">შევსება</a>
+                    <button class="account-drawer__close" type="button" aria-label="დახურვა" data-account-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <nav class="account-drawer__nav" aria-label="Account">
+                    <ul class="account-drawer__menu">
+                        <li><a href="dashboard.html">დეშბორდი</a></li>
+                        <li><a href="accepted.html" aria-current="page">მიღებული (ისტორია)</a></li>
+                        <li><a href="#">მისამართები</a></li>
+                        <li><a href="transactions.html">ტრანზაქციები</a></li>
+                        <li><a href="#">პირადი მონაცემები</a></li>
+                        <li><a href="#">პაროლი ცვლილება</a></li>
+                    </ul>
+                </nav>
+
+                <a class="button button--orange account-drawer__logout" href="index.html">გამოსვლა</a>
             </div>
         </div>
     </div>
