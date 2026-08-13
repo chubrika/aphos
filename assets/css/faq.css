@@ -70,11 +70,68 @@
   flex-direction: column;
 }
 
+@keyframes faq-item-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 .faq-item {
   border-bottom: 1px solid #CDD7E3;
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
 }
 .faq-item:last-child {
   border-bottom: none;
+}
+.faq.is-revealed .faq-item {
+  animation-name: faq-item-in;
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.faq.is-revealed .faq-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.faq.is-revealed .faq-item:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.faq.is-revealed .faq-item:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.faq.is-revealed .faq-item:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.faq.is-revealed .faq-item:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.faq.is-revealed .faq-item:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.faq.is-revealed .faq-item:nth-child(7) {
+  animation-delay: 0.42s;
+}
+.faq.is-revealed .faq-item:nth-child(8) {
+  animation-delay: 0.49s;
+}
+.faq.is-revealed .faq-item:nth-child(9) {
+  animation-delay: 0.56s;
+}
+.faq.is-revealed .faq-item:nth-child(10) {
+  animation-delay: 0.63s;
+}
+.faq.is-revealed .faq-item:nth-child(11) {
+  animation-delay: 0.7s;
+}
+.faq.is-revealed .faq-item:nth-child(12) {
+  animation-delay: 0.77s;
+}
+.faq.is-revealed .faq-item:nth-child(n+13) {
+  animation-delay: 0.84s;
 }
 
 .faq-item__heading {
@@ -102,6 +159,12 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   color: #f16e27;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.faq-item.is-open .faq-item__number {
+  opacity: 1;
 }
 
 .faq-item__question {
@@ -201,8 +264,14 @@
   .faq-item__icon,
   .faq-item__icon::after,
   .faq-item__panel,
-  .faq-item__question {
+  .faq-item__question,
+  .faq-item__number {
     transition: none;
+  }
+  .faq-item {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }
 @media (max-width: 768px) {
