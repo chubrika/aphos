@@ -1,0 +1,91 @@
+function initTabs(rootSelector = ".tabs, .dashboard-tabs") {
+  const roots = Array.from(document.querySelectorAll(rootSelector));
+
+  if (!roots.length) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  roots.forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll('[role="tabpanel"]'));
+
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    const revealPanel = (panel) => {
+      panel.classList.remove("is-revealed");
+
+      if (prefersReducedMotion) {
+        panel.classList.add("is-revealed");
+        return;
+      }
+
+      void panel.offsetWidth;
+      panel.classList.add("is-revealed");
+    };
+
+    const activateTab = (nextTab) => {
+      const nextPanelId = nextTab.getAttribute("aria-controls");
+
+      tabs.forEach((tab) => {
+        const isActive = tab === nextTab;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.id === nextPanelId;
+        panel.classList.toggle("is-active", isActive);
+        panel.classList.remove("is-revealed");
+        panel.hidden = !isActive;
+      });
+
+      const nextPanel = panels.find((panel) => panel.id === nextPanelId);
+      if (nextPanel) {
+        revealPanel(nextPanel);
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        if (tab.getAttribute("aria-selected") === "true") {
+          return;
+        }
+
+        activateTab(tab);
+      });
+
+      tab.addEventListener("keydown", (event) => {
+        let targetIndex = null;
+
+        if (event.key === "ArrowRight") {
+          targetIndex = (index + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft") {
+          targetIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          targetIndex = 0;
+        } else if (event.key === "End") {
+          targetIndex = tabs.length - 1;
+        }
+
+        if (targetIndex === null) {
+          return;
+        }
+
+        event.preventDefault();
+        const nextTab = tabs[targetIndex];
+        activateTab(nextTab);
+        nextTab.focus();
+      });
+    });
+
+    const initialPanel = panels.find((panel) => panel.classList.contains("is-active")) || panels[0];
+    if (initialPanel && !initialPanel.classList.contains("is-revealed")) {
+      revealPanel(initialPanel);
+    }
+  });
+}
