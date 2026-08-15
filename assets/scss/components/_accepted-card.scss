@@ -137,16 +137,19 @@
 .accepted-card__id {
   font-family: $font-family-bold;
   font-size: $font-size-sm;
+  letter-spacing: 0.8px;
 }
 
 .accepted-card__tracking {
   font-family: $font-family-regular;
   font-size: $font-size-xs;
+  letter-spacing: 0.8px;
 }
 
 .accepted-card__eta {
   font-family: $font-family-bold;
   font-size: $font-size-xs;
+  letter-spacing: 0.8px;
   color: $color-text;
 }
 
@@ -191,7 +194,7 @@
   font-size: $font-size-xs;
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   color: $color-primary-dark-2;
   text-decoration: none;
   white-space: nowrap;

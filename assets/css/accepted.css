@@ -158,16 +158,19 @@
 .accepted-card__id {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  letter-spacing: 0.8px;
 }
 
 .accepted-card__tracking {
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  letter-spacing: 0.8px;
 }
 
 .accepted-card__eta {
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  letter-spacing: 0.8px;
   color: #000;
 }
 
@@ -215,7 +218,7 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   color: #27479a;
   text-decoration: none;
   white-space: nowrap;

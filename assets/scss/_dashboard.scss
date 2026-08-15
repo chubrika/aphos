@@ -265,6 +265,7 @@
   margin-top: 2px;
   font-family: $font-family-bold;
   font-size: $font-size-xs;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: $color-text;
 }
@@ -380,7 +381,7 @@
   font-family: $font-family-bold;
   font-size: $font-size-xs;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   line-height: 1.4;
   color: $color-surface;
   height: 60px;
@@ -464,7 +465,7 @@
   font-family: $font-family-regular;
   font-size: $font-size-xs;
   line-height: 1.4;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   text-align: right;
   color: $color-text;
 }
@@ -596,7 +597,7 @@
   font-family: $font-family-bold;
   font-size: $font-size-xs;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   color: $color-text;
 }
 
