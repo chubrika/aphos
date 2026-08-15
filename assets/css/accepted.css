@@ -340,7 +340,7 @@
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.3px;
+  letter-spacing: 1.2px;
   color: #000;
 }
 

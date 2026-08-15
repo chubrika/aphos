@@ -3671,7 +3671,7 @@ body:has(.declaration-modal:not([hidden])) {
   font-size: clamp(20px, 2.4vw, 24px);
   font-weight: 700;
   line-height: 1.35;
-  letter-spacing: 0.2px;
+  letter-spacing: 1.2px;
   color: #000;
 }
 
