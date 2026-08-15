@@ -15,6 +15,12 @@
   letter-spacing: $letter-spacing-sm;
 }
 
+@mixin font-md {
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  letter-spacing: $letter-spacing-md;
+}
+
 @mixin button-reset {
   border: 0;
   background: transparent;

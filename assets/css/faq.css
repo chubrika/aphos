@@ -171,7 +171,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
   color: #5a6270;
   transition: color 0.2s ease-in-out;
 }
@@ -255,8 +255,8 @@
   margin-left: calc(2.6em + 20px);
   font-family: "FiraGO-Regular";
   font-size: 16px;
-  line-height: 1.7;
-  letter-spacing: 0.6px;
+  line-height: 1.8;
+  letter-spacing: 0.8px;
   color: #5a6270;
 }
 
