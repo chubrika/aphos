@@ -58,48 +58,6 @@ function initPasswordMatch(form) {
   });
 }
 
-function initRegistrationTabs() {
-  const tabs = Array.from(document.querySelectorAll(".registration__tab"));
-  const panels = Array.from(document.querySelectorAll(".registration__panel"));
-
-  if (!tabs.length || !panels.length) {
-    return;
-  }
-
-  const activateTab = (nextTab) => {
-    tabs.forEach((tab) => {
-      const isActive = tab === nextTab;
-      const panel = document.getElementById(tab.getAttribute("aria-controls"));
-
-      tab.classList.toggle("is-active", isActive);
-      tab.setAttribute("aria-selected", String(isActive));
-      tab.tabIndex = isActive ? 0 : -1;
-
-      if (panel) {
-        panel.hidden = !isActive;
-      }
-    });
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      activateTab(tab);
-    });
-
-    tab.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") {
-        return;
-      }
-
-      event.preventDefault();
-      const offset = event.key === "ArrowRight" ? 1 : -1;
-      const nextIndex = (index + offset + tabs.length) % tabs.length;
-      tabs[nextIndex].focus();
-      activateTab(tabs[nextIndex]);
-    });
-  });
-}
-
 function initTermsLinks() {
   document.querySelectorAll(".registration__terms-link").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -154,7 +112,11 @@ function initRegistrationPage() {
   }
 
   fillDateSelects(root);
-  initRegistrationTabs();
+
+  if (typeof initTabs === "function") {
+    initTabs(".registration");
+  }
+
   initTermsLinks();
   initDigitsOnly(root);
   initLatinEmail(root);

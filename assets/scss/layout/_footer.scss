@@ -98,9 +98,7 @@
 .site-footer__copyright {
   margin-bottom: $spacing-lg;
   font-family: $font-family-normal;
-  font-size: $font-size-xs;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
+  @include font-xs;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -130,10 +128,9 @@
 
   a {
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
+    @include font-sm;
     color: #fff;
     transition: color $transition-base;
-    letter-spacing: 0.8px;
 
     &:hover,
     &:focus-visible {
@@ -146,10 +143,8 @@
 .site-footer__hours {
   margin-bottom: $spacing-md;
   font-family: $font-family-regular;
-  font-size: $font-size-sm;
-  line-height: 1.6;
+  @include font-sm;
   color: #fff;
-  letter-spacing: 0.8px;
 }
 
 .site-footer__channels {
@@ -162,7 +157,7 @@
     align-items: center;
     gap: $spacing-xs;
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
+    @include font-sm;
     color: #386CFF;
     transition: opacity $transition-base;
 
@@ -213,9 +208,8 @@
   justify-content: flex-end;
   gap: $spacing-xs;
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
+  @include font-xs;
   color: $color-surface;
-  letter-spacing: 0.5px;
 
   a {
     color: inherit;

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>პაროლის აღდგენა | My Project</title>
+  <title>წესები და პირობები | My Project</title>
   <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/css/reset-password.css">
+  <link rel="stylesheet" href="assets/css/content.css">
 </head>
 
-<body class="reset-password-page">
+<body class="content-page">
   <header class="site-header">
     <div class="container-fluid site-header__inner">
       <a class="site-header__brand" href="index.html">
@@ -71,40 +71,16 @@
   </header>
 
   <main>
-    <section class="reset-password" aria-labelledby="create-password-title">
-      <div class="container reset-password__inner">
-        <div class="reset-password__content">
-          <h1 class="reset-password__title" id="create-password-title">
-            პაროლის
-            აღდგენა
-          </h1>
-
-          <form class="reset-password__form" action="index.html" method="post">
-            <div class="reset-password__fields">
-<div class="floating-field">
-  <input class="input floating-field__control" id="new-password" name="password" type="password" placeholder=" "
-                autocomplete="new-password" minlength="12" required>
-  <label class="floating-field__label" for="new-password">ახალი პაროლი*</label>
-</div>
-
-              <div class="floating-field">
-  <input class="input floating-field__control" id="confirm-password" name="password_confirm" type="password"
-                placeholder=" " autocomplete="new-password" minlength="12" required>
-  <label class="floating-field__label" for="confirm-password">პაროლის გამეორება*</label>
-</div>
-            
-</div>
-
-            <p class="reset-password__hint">
-              Your password needs a big letter (A-Z), a small letter (a-z), a number (0-9), and a symbol (like !, @, or
-              #). Make it at least 12 characters long to keep it safe
-            </p>
-
-            <div class="reset-password__actions">
-              <button class="button button--md button--primary" type="submit">შეცვლა</button>
-              <a class="reset-password__cancel" href="index.html">გაუქმება</a>
-            </div>
-          </form>
+    <section class="content" aria-labelledby="content-title">
+      <div class="container">
+        <h1 class="content__title" id="content-title"><span class="title-gradient">ქონთენთ ფეიჯი</span></h1>
+        <div class="content__body">
+          <p>
+            ცნობილი ფაქტია, რომ გვერდის წაკითხვისას შიგთავსს შეუძლია მკითხველის ყურადღება მიიზიდოს და დიზაინის აღქმაში ხელი შეუშალოს. Lorem Ipsum-ის გამოყენებით ვებულობთ იმაზე მეტ-ნაკლებად სწორი გადანაწილების ტექსტს, ვიდრე ერთიდაიგივე გამეორებადი სიტყვებია ხოლმე. შედეგად, ტექსტი ჩვეულებრივ ინგლისურს გავს, მისი წაკითხვა კი შეუძლებელია. დღეს უამრავი პერსონალური საგამომცემლო პროგრამა და ვებგვერდი იყენებს Lorem Ipsum-ს, როგორც დროებით ტექსტს წყობის შესავსებად; Lorem Ipsum-ის მოძებნისას კი საძიებო სისტემები ბევრ დაუსრულებელ გვერდს გვიჩვენებენ. წლების მანძილზე ამ ტექსტის უამრავი ვერსია გამოჩნდა, ზოგი შემთხვევით დაშვებული შეცდომის გამო, ზოგი კი – განზრახ, ხუმრობით.
+          </p>
+          <p>
+            ცნობილი ფაქტია, რომ გვერდის წაკითხვისას შიგთავსს შეუძლია მკითხველის ყურადღება მიიზიდოს და დიზაინის აღქმაში ხელი შეუშალოს. Lorem Ipsum-ის გამოყენებით ვებულობთ იმაზე მეტ-ნაკლებად სწორი გადანაწილების ტექსტს, ვიდრე ერთიდაიგივე გამეორებადი სიტყვებია ხოლმე. შედეგად, ტექსტი ჩვეულებრივ ინგლისურს გავს, მისი წაკითხვა კი შეუძლებელია. დღეს უამრავი პერსონალური საგამომცემლო პროგრამა და ვებგვერდი იყენებს Lorem Ipsum-ს, როგორც დროებით ტექსტს წყობის შესავსებად; Lorem Ipsum-ის მოძებნისას კი საძიებო სისტემები ბევრ დაუსრულებელ გვერდს გვიჩვენებენ. წლების მანძილზე ამ ტექსტის უამრავი ვერსია გამოჩნდა, ზოგი შემთხვევით დაშვებული შეცდომის გამო, ზოგი კი – განზრახ, ხუმრობით.
+          </p>
         </div>
       </div>
     </section>
@@ -167,7 +143,7 @@
             <li><a href="contact.html">სერვისები</a></li>
             <li><a href="contact.html">ტარიფები</a></li>
             <li><a href="contact.html">ინფორმაცია</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">კონტაქტი</a></li>
           </ul>
         </nav>
@@ -234,7 +210,7 @@
       </div>
 
       <nav class="site-footer__legal" aria-label="Legal">
-        <a href="terms.html">წესები და პირობები</a>
+        <a href="terms.html" aria-current="page">წესები და პირობები</a>
         <span aria-hidden="true">/</span>
         <a href="privacy.html">პერსონალური მონაცემების პოლიტიკა</a>
         <span aria-hidden="true">/</span>
@@ -243,10 +219,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/modules/floating-field.js"></script>
   <script src="assets/js/modules/header.js"></script>
   <script src="assets/js/modules/footer.js"></script>
-  <script src="assets/js/create-password.js"></script>
 </body>
 
 </html>

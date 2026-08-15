@@ -22,7 +22,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.6px;
+  letter-spacing: 4px;
 }
 
 .warehouses .tabs__nav {
@@ -59,7 +59,7 @@
   font-family: "FiraGO-Bold";
   font-size: 12px;
   line-height: 1.3;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
   color: #303030;
 }
 
@@ -68,9 +68,9 @@
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.2px;
   color: #000;
   overflow-wrap: anywhere;
 }

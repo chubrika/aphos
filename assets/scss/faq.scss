@@ -27,7 +27,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 1.6px;
+  letter-spacing: 4px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -42,8 +42,7 @@
   gap: 6px;
   padding: $spacing-xs 0;
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
-  letter-spacing: 0.3px;
+  @include font-xs;
   color: $color-primary;
   transition: color $transition-base;
 
@@ -277,7 +276,7 @@
   }
 
   .faq-item__question {
-    font-size: $font-size-sm;
+    @include font-sm;
   }
 
   .faq-item__icon {

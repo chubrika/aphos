@@ -88,6 +88,7 @@ p {
 .site-header {
   position: relative;
   background-color: #fff;
+  border-bottom: 1px solid #CDD7E3;
 }
 
 .registration-page .site-header {
@@ -131,6 +132,8 @@ p {
   align-self: stretch;
   gap: 30px;
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
 }
 
 .site-header__menu a {
@@ -138,7 +141,6 @@ p {
   display: inline-block;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.8px;
   transition: color 0.2s ease-in-out;
 }
 
@@ -175,7 +177,8 @@ p {
   visibility: hidden;
   pointer-events: none;
   background-color: #e3eaf2;
-  transition: max-height 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  opacity: 0;
+  transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.55s ease, visibility 0.7s;
   transition-delay: 0.08s;
 }
 
@@ -188,6 +191,9 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
+  transform: translateY(-12px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0.08s;
 }
 
 .site-header__subnav a {
@@ -196,8 +202,9 @@ p {
   padding-block: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.8px;
   color: #000;
   transition: color 0.2s ease-in-out;
 }
@@ -225,9 +232,17 @@ p {
 .site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav,
 .site-header--subnav-visible .site-header__subnav,
 .faq-page .site-header__subnav {
-  max-height: 80px;
+  max-height: 48px;
+  opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition-delay: 0s;
+}
+.site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__subnav .site-header__subnav-menu,
+.site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav .site-header__subnav-menu,
+.site-header--subnav-visible .site-header__subnav .site-header__subnav-menu,
+.faq-page .site-header__subnav .site-header__subnav-menu {
+  transform: translateY(0);
   transition-delay: 0s;
 }
 
@@ -258,6 +273,8 @@ p {
   border-left: 1px solid #CDD7E3;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #000;
   white-space: nowrap;
@@ -302,6 +319,8 @@ p {
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -368,6 +387,8 @@ p {
   font-weight: 600;
   color: #000;
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   margin: 0;
 }
 
@@ -377,6 +398,8 @@ p {
   font-weight: 600;
   margin: 0;
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
 }
 
 .site-header__profile-id {
@@ -409,6 +432,8 @@ p {
   gap: 8px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #000;
   cursor: pointer;
@@ -475,6 +500,8 @@ p {
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   text-align: left;
   text-transform: lowercase;
   color: #000;
@@ -520,6 +547,12 @@ p {
     flex-wrap: wrap;
     gap: 10px 20px;
     padding-inline: 10px;
+  }
+  .site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__subnav,
+  .site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav,
+  .site-header--subnav-visible .site-header__subnav,
+  .faq-page .site-header__subnav {
+    max-height: 160px;
   }
   .site-header__auth {
     display: none;
@@ -647,11 +680,15 @@ p {
 
 .account-drawer__name {
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #000;
 }
 
 .account-drawer__balance {
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #000;
 }
 
@@ -701,8 +738,9 @@ p {
 .account-drawer__menu a {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  letter-spacing: 0.3px;
   color: #27479a;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
@@ -725,6 +763,8 @@ p {
   border-radius: 999px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
 }
 
@@ -734,10 +774,13 @@ body:has(.account-drawer:not([hidden])) {
 
 @media (prefers-reduced-motion: reduce) {
   .account-drawer__overlay,
-  .account-drawer__panel {
+  .account-drawer__panel,
+  .site-header__subnav,
+  .site-header__subnav-menu {
     transition: none;
   }
-  .account-drawer__panel {
+  .account-drawer__panel,
+  .site-header__subnav-menu {
     transform: none;
   }
 }
@@ -847,8 +890,8 @@ body:has(.account-drawer:not([hidden])) {
   margin-bottom: 30px;
   font-family: "FiraGO-Normal";
   font-size: 12px;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -876,9 +919,10 @@ body:has(.account-drawer:not([hidden])) {
 .site-footer__menu a {
   font-family: "FiraGO-Regular";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #fff;
   transition: color 0.2s ease-in-out;
-  letter-spacing: 0.8px;
 }
 .site-footer__menu a:hover, .site-footer__menu a:focus-visible {
   color: rgba(255, 255, 255, 0.7);
@@ -890,8 +934,8 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #fff;
-  letter-spacing: 0.8px;
 }
 
 .site-footer__channels {
@@ -905,6 +949,8 @@ body:has(.account-drawer:not([hidden])) {
   gap: 5px;
   font-family: "FiraGO-Regular";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #386CFF;
   transition: opacity 0.2s ease-in-out;
 }
@@ -949,8 +995,9 @@ body:has(.account-drawer:not([hidden])) {
   gap: 5px;
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #ffffff;
-  letter-spacing: 0.5px;
 }
 .site-footer__legal a {
   color: inherit;
@@ -1000,9 +1047,10 @@ body:has(.account-drawer:not([hidden])) {
 .button--sm {
   padding: 5px 20px;
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.8px;
   height: 32px;
   display: flex;
   align-items: center;
@@ -1016,8 +1064,9 @@ body:has(.account-drawer:not([hidden])) {
   border-radius: 30px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .button--orange {
@@ -1053,12 +1102,14 @@ body:has(.account-drawer:not([hidden])) {
   color: #000;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .input::placeholder {
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 1.2px;
   color: #9aa3b2;
   -webkit-text-fill-color: #9aa3b2;
   opacity: 1;
@@ -1066,7 +1117,7 @@ body:has(.account-drawer:not([hidden])) {
 .input::-webkit-input-placeholder {
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 1.2px;
   color: #9aa3b2;
   -webkit-text-fill-color: #9aa3b2;
   opacity: 1;
@@ -1074,7 +1125,7 @@ body:has(.account-drawer:not([hidden])) {
 .input::-moz-placeholder {
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 1.2px;
   color: #9aa3b2;
   -webkit-text-fill-color: #9aa3b2;
   opacity: 1;
@@ -1098,7 +1149,6 @@ body:has(.account-drawer:not([hidden])) {
   color: #9aa3b2;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.4px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23303030' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
@@ -1108,7 +1158,6 @@ body:has(.account-drawer:not([hidden])) {
   color: #000;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.6px;
 }
 
 .input-group {
@@ -1199,8 +1248,9 @@ body:has(.account-drawer:not([hidden])) {
 .checkbox__label {
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  color: #000;
   line-height: 1.3;
+  letter-spacing: 0.8px;
+  color: #000;
 }
 
 .floating-field {
@@ -1233,8 +1283,9 @@ body:has(.account-drawer:not([hidden])) {
   white-space: nowrap;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
   color: #9aa3b2;
   pointer-events: none;
   transform: translateY(-50%);
@@ -1293,7 +1344,7 @@ body:has(.account-drawer:not([hidden])) {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.3px;
+  letter-spacing: 2px;
   color: #3c62c1;
   margin-bottom: 0;
 }
@@ -1365,8 +1416,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #000;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.2px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .tabs__tab:last-child,
@@ -1609,8 +1661,6 @@ body:has(.account-drawer:not([hidden])) {
 .accepted-card__weight,
 .accepted-card__fee {
   margin: 0;
-  line-height: 1.35;
-  letter-spacing: 0.4px;
 }
 
 .accepted-card__id,
@@ -1622,18 +1672,21 @@ body:has(.account-drawer:not([hidden])) {
 .accepted-card__id {
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  letter-spacing: 0.8px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
 }
 
 .accepted-card__tracking {
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  line-height: 1.3;
   letter-spacing: 0.8px;
 }
 
 .accepted-card__eta {
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
   letter-spacing: 0.8px;
   color: #000;
 }
@@ -1643,6 +1696,8 @@ body:has(.account-drawer:not([hidden])) {
   margin-top: 2px;
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: #000;
 }
@@ -1651,8 +1706,8 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  line-height: 1.4;
-  letter-spacing: 0.4px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   text-align: right;
   color: #000;
 }
@@ -1680,9 +1735,9 @@ body:has(.account-drawer:not([hidden])) {
   padding: 0;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
   letter-spacing: 0.8px;
+  font-weight: 600;
   color: #27479a;
   text-decoration: none;
   white-space: nowrap;
@@ -1704,7 +1759,8 @@ body:has(.account-drawer:not([hidden])) {
 .accepted-card__link-sep {
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  line-height: 1;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #27479a;
 }
 
@@ -1726,6 +1782,8 @@ body:has(.account-drawer:not([hidden])) {
 .accepted-card__weight {
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: #27479a;
 }
@@ -1744,8 +1802,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #27479a;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: 0.8px;
+  font-weight: 600;
   white-space: nowrap;
   transition: opacity 0.2s ease-in-out;
 }
@@ -1849,8 +1908,9 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.3px;
   color: #000;
 }
 
@@ -2063,11 +2123,12 @@ body:has(.account-drawer:not([hidden])) {
 .dashboard-shipment__price {
   margin: 0;
   font-family: "FiraGO-Regular";
-  line-height: 1.35;
 }
 
 .dashboard-shipment__tracking {
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #27479a;
 }
 
@@ -2075,6 +2136,7 @@ body:has(.account-drawer:not([hidden])) {
   margin-top: 2px;
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
   letter-spacing: 0.8px;
   font-weight: 600;
   color: #000;
@@ -2109,8 +2171,9 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
-  line-height: 1.35;
   color: #000;
 }
 
@@ -2126,8 +2189,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #27479a;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: 0.8px;
+  font-weight: 600;
   transition: opacity 0.2s ease-in-out;
   background-color: #f0f6fc;
   border-radius: 30px;
@@ -2217,9 +2281,9 @@ body:has(.account-drawer:not([hidden])) {
   padding: 10px 20px;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: 0.8px;
-  line-height: 1.4;
+  font-weight: 600;
   color: #ffffff;
   height: 60px;
   border-radius: 16px;
@@ -2297,7 +2361,7 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  line-height: 1.4;
+  line-height: 1.3;
   letter-spacing: 0.8px;
   text-align: right;
   color: #000;
@@ -2343,8 +2407,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #e75656;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: 0.8px;
+  font-weight: 600;
   white-space: nowrap;
   transition: opacity 0.2s ease-in-out;
 }
@@ -2360,9 +2425,9 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0 0 16px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0.3px;
   color: #000;
 }
 
@@ -2419,6 +2484,8 @@ body:has(.account-drawer:not([hidden])) {
 .dashboard-consignment__id {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #27479a;
 }
@@ -2426,8 +2493,9 @@ body:has(.account-drawer:not([hidden])) {
 .dashboard-consignment__eta {
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: 0.8px;
+  font-weight: 600;
   color: #000;
 }
 
@@ -2439,7 +2507,8 @@ body:has(.account-drawer:not([hidden])) {
   gap: 12px;
   margin: 0;
   font-size: 12px;
-  line-height: 1.35;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   text-align: right;
 }
 
@@ -2501,9 +2570,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #ffffff;
   font-family: "FiraGO-Bold";
   font-size: 12px;
-  font-weight: 700;
+  line-height: 1.3;
   letter-spacing: 0.8px;
-  line-height: 1;
+  font-weight: 700;
 }
 
 .dashboard-consignment__table {
@@ -2660,10 +2729,10 @@ body:has(.account-drawer:not([hidden])) {
 .declaration-modal__title {
   margin: 0;
   font-family: "FiraGO-Bold";
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 1.6px;
+  letter-spacing: 4px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2673,8 +2742,8 @@ body:has(.account-drawer:not([hidden])) {
   margin: 15px 0 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: 0.4px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #000;
 }
 
@@ -2689,17 +2758,8 @@ body:has(.account-drawer:not([hidden])) {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: #f16e27;
-  color: #ffffff;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-.declaration-modal__close:hover, .declaration-modal__close:focus-visible {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-.declaration-modal__close:focus-visible {
-  outline: 2px solid #f16e27;
-  outline-offset: 3px;
+  border: 1px solid #f16e27;
+  color: #f16e27;
 }
 
 .declaration-modal__form {
@@ -2788,8 +2848,9 @@ body:has(.account-drawer:not([hidden])) {
   white-space: nowrap;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.6px;
   color: #000;
 }
 
@@ -2842,6 +2903,8 @@ body:has(.account-drawer:not([hidden])) {
   height: 40px;
   padding-inline: 10px;
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
 }
 .search-select__search::-webkit-search-cancel-button {
   display: none;
@@ -2861,6 +2924,8 @@ body:has(.account-drawer:not([hidden])) {
   padding: 10px 20px;
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #9aa3b2;
   text-align: center;
 }
@@ -2871,8 +2936,9 @@ body:has(.account-drawer:not([hidden])) {
   cursor: pointer;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
   color: #000;
   transition: background-color 0.2s ease-in-out;
 }
@@ -2912,9 +2978,9 @@ body:has(.account-drawer:not([hidden])) {
   margin: 0 0 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0.6px;
   color: #000;
 }
 
@@ -2923,8 +2989,8 @@ body:has(.account-drawer:not([hidden])) {
   max-width: 280px;
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  line-height: 1.45;
-  letter-spacing: 0.4px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #000;
 }
 
@@ -2939,8 +3005,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #27479a;
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
-  letter-spacing: 0.4px;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
@@ -2956,6 +3023,8 @@ body:has(.account-drawer:not([hidden])) {
   margin: 10px 0 0;
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #27479a;
   word-break: break-word;
 }
@@ -2973,8 +3042,9 @@ body:has(.account-drawer:not([hidden])) {
   border-radius: 30px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .declaration-modal__cancel {
@@ -2985,8 +3055,9 @@ body:has(.account-drawer:not([hidden])) {
   color: #27479a;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.3px;
 }
 .declaration-modal__cancel:hover, .declaration-modal__cancel:focus-visible {
   opacity: 0.75;
@@ -3157,6 +3228,12 @@ body:has(.declaration-modal:not([hidden])) {
     width: 100%;
   }
 }
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .container {
   width: min(100% - 2rem, 1280px);
   margin-inline: auto;
@@ -3207,13 +3284,6 @@ body:has(.declaration-modal:not([hidden])) {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-.hero-slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3098039216);
-  pointer-events: none;
 }
 
 .hero-slide--1 {
@@ -3319,8 +3389,9 @@ body:has(.declaration-modal:not([hidden])) {
   background: transparent;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  line-height: 1;
   color: #ffffff;
   transition: color 0.2s ease-in-out;
 }
@@ -3403,6 +3474,8 @@ body:has(.declaration-modal:not([hidden])) {
 .login-card__recover {
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: #000;
   text-decoration: underline;
@@ -3484,17 +3557,8 @@ body:has(.declaration-modal:not([hidden])) {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: #f16e27;
-  color: #ffffff;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-.login-modal__close:hover, .login-modal__close:focus-visible {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-.login-modal__close:focus-visible {
-  outline: 2px solid #f16e27;
-  outline-offset: 3px;
+  border: 1px solid #f16e27;
+  color: #f16e27;
 }
 
 .login-modal__grid {
@@ -3539,6 +3603,8 @@ body:has(.declaration-modal:not([hidden])) {
 .login-modal__recover {
   font-family: "FiraGO-Bold";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: #000;
   text-decoration: underline;
@@ -3565,8 +3631,9 @@ body:has(.declaration-modal:not([hidden])) {
   border-radius: 30px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .login-modal__cancel {
@@ -3577,8 +3644,9 @@ body:has(.declaration-modal:not([hidden])) {
   color: #3c62c1;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.3px;
 }
 .login-modal__cancel:hover, .login-modal__cancel:focus-visible {
   opacity: 0.75;
@@ -3793,7 +3861,7 @@ body:has(.login-modal:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
   color: #5a6270;
 }
 
@@ -3804,8 +3872,9 @@ body:has(.login-modal:not([hidden])) {
   margin-top: auto;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.5px;
   color: #3c62c1;
   text-decoration: none;
 }
@@ -3870,7 +3939,7 @@ body:has(.login-modal:not([hidden])) {
 .tariffs__title {
   margin: 0 0 20px;
   font-family: "FiraGO-Bold";
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(28px, 3.5vw, 38px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 4px;
@@ -4010,9 +4079,9 @@ body:has(.login-modal:not([hidden])) {
   max-width: 20ch;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+  line-height: 1.6;
   letter-spacing: 1.2px;
+  font-weight: 600;
   color: #000;
 }
 .tariff-card__flag {
@@ -4045,9 +4114,9 @@ body:has(.login-modal:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1;
-  font-weight: 600;
+  line-height: 1.6;
   letter-spacing: 1.2px;
+  font-weight: 600;
   color: #3c62c1;
 }
 .tariff-card__delivery-block {
@@ -4058,7 +4127,7 @@ body:has(.login-modal:not([hidden])) {
 .tariff-card__delivery-label {
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: 1.2px;
   font-weight: 600;
   color: #000;
@@ -4067,9 +4136,9 @@ body:has(.login-modal:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Regular";
   font-size: 14px;
-  line-height: 1;
-  font-weight: 400;
+  line-height: 1.6;
   letter-spacing: 1.2px;
+  font-weight: 400;
   color: #000;
 }
 
@@ -4121,7 +4190,7 @@ body:has(.login-modal:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
   color: #5a6270;
   transition-duration: 0.75s;
   transition-delay: 0.28s;
@@ -4173,7 +4242,8 @@ body:has(.login-modal:not([hidden])) {
   margin: 0;
   font-family: "FiraGO-Regular";
   font-size: 14px;
-  letter-spacing: 0.8px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: rgba(255, 255, 255, 0.95);
 }
 .calculator__result-price {
@@ -4364,8 +4434,9 @@ body:has(.login-modal:not([hidden])) {
   cursor: pointer;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
   color: #000;
   transition: background-color 0.2s ease-in-out;
 }
@@ -4400,8 +4471,8 @@ body:has(.login-modal:not([hidden])) {
 .calc-field__label {
   font-family: "FiraGO-Regular";
   font-size: 12px;
-  line-height: 1.2;
-  letter-spacing: 0.4px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #8a93a3;
 }
 
@@ -4445,9 +4516,9 @@ body:has(.login-modal:not([hidden])) {
   flex-shrink: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.4px;
   color: #000;
   pointer-events: none;
 }
@@ -4481,6 +4552,8 @@ body:has(.login-modal:not([hidden])) {
   .calc-field__input,
   .calc-field__unit {
     font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1.2px;
   }
 }
 

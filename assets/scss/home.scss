@@ -57,13 +57,13 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:#0000004f;
-    pointer-events: none;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
+  //   background:#0000004f;
+  //   pointer-events: none;
+  // }
 }
 
 .hero-slide--1 {
@@ -170,9 +170,8 @@
     border-radius: 50%;
     background: transparent;
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
+    @include font-sm;
     font-weight: 600;
-    line-height: 1;
     color: $color-surface;
     transition: color $transition-base;
 
@@ -261,7 +260,7 @@
 
 .login-card__recover {
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
   color: $color-text;
   text-decoration: underline;
@@ -345,22 +344,8 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: $color-orange;
-  color: $color-surface;
-  transition:
-    transform $transition-base,
-    opacity $transition-base;
-
-  &:hover,
-  &:focus-visible {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-orange;
-    outline-offset: 3px;
-  }
+  border: 1px solid $color-orange;
+  color: $color-orange;
 }
 
 .login-modal__grid {
@@ -404,7 +389,7 @@
 
 .login-modal__recover {
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
   color: $color-text;
   text-decoration: underline;
@@ -433,18 +418,16 @@
   padding-inline: 28px;
   border-radius: $radius-lg;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .login-modal__cancel {
   @include button-reset;
   color: $color-primary;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  letter-spacing: 0.3px;
 
   &:hover,
   &:focus-visible {
@@ -712,9 +695,7 @@ body:has(.login-modal:not([hidden])) {
 .why-apos__item-text {
   margin: 0;
   font-family: $font-family-regular;
-  font-size: $font-size-sm;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
+  @include font-sm;
   color: #5a6270;
 }
 
@@ -724,9 +705,8 @@ body:has(.login-modal:not([hidden])) {
   gap: $spacing-xs;
   margin-top: auto;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  letter-spacing: 0.5px;
   color: $color-primary;
   text-decoration: none;
 
@@ -807,7 +787,7 @@ body:has(.login-modal:not([hidden])) {
   &__title {
     margin: 0 0 $spacing-md;
     font-family: $font-family-bold;
-    font-size: clamp(28px, 3.5vw, 40px);
+    font-size: clamp(28px, 3.5vw, 38px);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: 4px;
@@ -819,9 +799,7 @@ body:has(.login-modal:not([hidden])) {
   &__description {
     margin: 0 0 $spacing-xl;
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
-    line-height: 1.6;
-    letter-spacing: 1.2px;
+    @include font-sm;
     color: $color-surface;
     max-width: 600px;
     transition-duration: 0.75s;
@@ -940,10 +918,8 @@ body:has(.login-modal:not([hidden])) {
     margin: 0;
     max-width: 20ch;
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
+    @include font-sm;
     font-weight: 600;
-    line-height: 1;
-    letter-spacing: 1.2px;
     color: $color-text;
   }
 
@@ -980,10 +956,8 @@ body:has(.login-modal:not([hidden])) {
   &__unit {
     margin: 0;
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
-    line-height: 1;
+    @include font-sm;
     font-weight: 600;
-    letter-spacing: 1.2px;
     color: $color-primary;
   }
 
@@ -995,19 +969,15 @@ body:has(.login-modal:not([hidden])) {
 
   &__delivery-label {
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
-    line-height: 1.5;
-    letter-spacing: 1.2px;
+    @include font-sm;
     font-weight: 600;
     color: $color-text;
   }
   &__delivery-value {
     margin: 0;
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
-    line-height: 1;
+    @include font-sm;
     font-weight: 400;
-    letter-spacing: 1.2px;
     color: $color-text;
   }
 }
@@ -1067,9 +1037,7 @@ body:has(.login-modal:not([hidden])) {
     max-width: 520px;
     text-align: center;
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
+    @include font-sm;
     color: #5a6270;
     transition-duration: 0.75s;
     transition-delay: 0.28s;
@@ -1126,8 +1094,7 @@ body:has(.login-modal:not([hidden])) {
   &__result-label {
     margin: 0;
     font-family: $font-family-regular;
-    font-size: $font-size-sm;
-    letter-spacing: 0.8px;
+    @include font-sm;
     color: rgba($color-surface, 0.95);
   }
 
@@ -1332,9 +1299,8 @@ body:has(.login-modal:not([hidden])) {
   border-radius: 8px;
   cursor: pointer;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  letter-spacing: 0.4px;
   color: $color-text;
   transition: background-color $transition-base;
 
@@ -1374,9 +1340,7 @@ body:has(.login-modal:not([hidden])) {
 
 .calc-field__label {
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
-  line-height: 1.2;
-  letter-spacing: 0.4px;
+  @include font-xs;
   color: #8a93a3;
 }
 
@@ -1419,10 +1383,8 @@ body:has(.login-modal:not([hidden])) {
 .calc-field__unit {
   flex-shrink: 0;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.4px;
   color: $color-text;
   pointer-events: none;
 }
@@ -1463,6 +1425,6 @@ body:has(.login-modal:not([hidden])) {
 
   .calc-field__input,
   .calc-field__unit {
-    font-size: $font-size-sm;
+    @include font-sm;
   }
 }

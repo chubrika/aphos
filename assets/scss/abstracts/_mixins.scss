@@ -3,6 +3,18 @@
   margin-inline: auto;
 }
 
+@mixin font-xs {
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  letter-spacing: $letter-spacing-xs;
+}
+
+@mixin font-sm {
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+  letter-spacing: $letter-spacing-sm;
+}
+
 @mixin button-reset {
   border: 0;
   background: transparent;

@@ -26,7 +26,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.6px;
+  letter-spacing: 4px;
 }
 
 .flights .tabs__nav {
@@ -92,19 +92,15 @@
 .flight-card__title {
   margin: 0 0 6px;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.8px;
   color: $color-primary-dark-2;
 }
 
 .flight-card__status {
   margin: 0;
   font-family: $font-family-regular;
-  font-size: $font-size-sm;
-  line-height: 1.45;
-  letter-spacing: 0.8px;
+  @include font-sm;
   color: #303030;
 }
 

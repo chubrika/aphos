@@ -1,7 +1,7 @@
 @mixin input-placeholder {
   font-family: $font-family-bold;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: $letter-spacing-sm;
   color: #9aa3b2;              // შეცვალეთ ეს
   -webkit-text-fill-color: #9aa3b2;
   opacity: 1;
@@ -16,7 +16,7 @@
   background-color: $color-surface;
   color: $color-text;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   transition: border-color $transition-base, box-shadow $transition-base;
 
   &::placeholder {
@@ -54,7 +54,6 @@
   color: #9aa3b2;
   font-family: $font-family-bold;
   font-weight: 600;
-  letter-spacing: 0.4px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23303030' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
@@ -64,7 +63,6 @@
     color: $color-text;
     font-family: $font-family-bold;
     font-weight: 600;
-    letter-spacing: 0.6px;
   }
   
 }
@@ -160,7 +158,6 @@
 
 .checkbox__label {
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
+  @include font-xs;
   color: $color-text;
-  line-height: 1.3;
 }

@@ -87,6 +87,7 @@ p {
 .site-header {
   position: relative;
   background-color: #fff;
+  border-bottom: 1px solid #CDD7E3;
 }
 
 .registration-page .site-header {
@@ -130,6 +131,8 @@ p {
   align-self: stretch;
   gap: 30px;
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
 }
 
 .site-header__menu a {
@@ -137,7 +140,6 @@ p {
   display: inline-block;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.8px;
   transition: color 0.2s ease-in-out;
 }
 
@@ -174,7 +176,8 @@ p {
   visibility: hidden;
   pointer-events: none;
   background-color: #e3eaf2;
-  transition: max-height 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  opacity: 0;
+  transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.55s ease, visibility 0.7s;
   transition-delay: 0.08s;
 }
 
@@ -187,6 +190,9 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
+  transform: translateY(-12px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0.08s;
 }
 
 .site-header__subnav a {
@@ -195,8 +201,9 @@ p {
   padding-block: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.8px;
   color: #000;
   transition: color 0.2s ease-in-out;
 }
@@ -224,9 +231,17 @@ p {
 .site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav,
 .site-header--subnav-visible .site-header__subnav,
 .faq-page .site-header__subnav {
-  max-height: 80px;
+  max-height: 48px;
+  opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition-delay: 0s;
+}
+.site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__subnav .site-header__subnav-menu,
+.site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav .site-header__subnav-menu,
+.site-header--subnav-visible .site-header__subnav .site-header__subnav-menu,
+.faq-page .site-header__subnav .site-header__subnav-menu {
+  transform: translateY(0);
   transition-delay: 0s;
 }
 
@@ -257,6 +272,8 @@ p {
   border-left: 1px solid #CDD7E3;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #000;
   white-space: nowrap;
@@ -301,6 +318,8 @@ p {
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -367,6 +386,8 @@ p {
   font-weight: 600;
   color: #000;
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   margin: 0;
 }
 
@@ -376,6 +397,8 @@ p {
   font-weight: 600;
   margin: 0;
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
 }
 
 .site-header__profile-id {
@@ -408,6 +431,8 @@ p {
   gap: 8px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #000;
   cursor: pointer;
@@ -474,6 +499,8 @@ p {
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   text-align: left;
   text-transform: lowercase;
   color: #000;
@@ -519,6 +546,12 @@ p {
     flex-wrap: wrap;
     gap: 10px 20px;
     padding-inline: 10px;
+  }
+  .site-header:has(.site-header__has-subnav:is(:hover, :focus-within)) .site-header__subnav,
+  .site-header:has(.site-header__subnav:is(:hover, :focus-within)) .site-header__subnav,
+  .site-header--subnav-visible .site-header__subnav,
+  .faq-page .site-header__subnav {
+    max-height: 160px;
   }
   .site-header__auth {
     display: none;
@@ -646,11 +679,15 @@ p {
 
 .account-drawer__name {
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #000;
 }
 
 .account-drawer__balance {
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #000;
 }
 
@@ -700,8 +737,9 @@ p {
 .account-drawer__menu a {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  letter-spacing: 0.3px;
   color: #27479a;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
@@ -724,6 +762,8 @@ p {
   border-radius: 999px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
 }
 
@@ -733,10 +773,13 @@ body:has(.account-drawer:not([hidden])) {
 
 @media (prefers-reduced-motion: reduce) {
   .account-drawer__overlay,
-  .account-drawer__panel {
+  .account-drawer__panel,
+  .site-header__subnav,
+  .site-header__subnav-menu {
     transition: none;
   }
-  .account-drawer__panel {
+  .account-drawer__panel,
+  .site-header__subnav-menu {
     transform: none;
   }
 }
@@ -846,8 +889,8 @@ body:has(.account-drawer:not([hidden])) {
   margin-bottom: 30px;
   font-family: "FiraGO-Normal";
   font-size: 12px;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -875,9 +918,10 @@ body:has(.account-drawer:not([hidden])) {
 .site-footer__menu a {
   font-family: "FiraGO-Regular";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #fff;
   transition: color 0.2s ease-in-out;
-  letter-spacing: 0.8px;
 }
 .site-footer__menu a:hover, .site-footer__menu a:focus-visible {
   color: rgba(255, 255, 255, 0.7);
@@ -889,8 +933,8 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #fff;
-  letter-spacing: 0.8px;
 }
 
 .site-footer__channels {
@@ -904,6 +948,8 @@ body:has(.account-drawer:not([hidden])) {
   gap: 5px;
   font-family: "FiraGO-Regular";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #386CFF;
   transition: opacity 0.2s ease-in-out;
 }
@@ -948,8 +994,9 @@ body:has(.account-drawer:not([hidden])) {
   gap: 5px;
   font-family: "FiraGO-Regular";
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   color: #ffffff;
-  letter-spacing: 0.5px;
 }
 .site-footer__legal a {
   color: inherit;
@@ -999,9 +1046,10 @@ body:has(.account-drawer:not([hidden])) {
 .button--sm {
   padding: 5px 20px;
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.8px;
   height: 32px;
   display: flex;
   align-items: center;
@@ -1015,8 +1063,9 @@ body:has(.account-drawer:not([hidden])) {
   border-radius: 30px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .button--orange {

@@ -88,8 +88,9 @@
   color: #000;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.6px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .registration__tab:last-child {
@@ -113,6 +114,115 @@
   white-space: nowrap;
 }
 
+@keyframes registration-field-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.registration__field,
+.registration__label,
+.registration__hint,
+.registration__terms,
+.registration__actions {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+}
+.registration__panel.is-revealed .registration__field,
+.registration__panel.is-revealed .registration__label,
+.registration__panel.is-revealed .registration__hint,
+.registration__panel.is-revealed .registration__terms,
+.registration__panel.is-revealed .registration__actions {
+  animation-name: registration-field-in;
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(7) {
+  animation-delay: 0.3s;
+}
+
+.registration__panel.is-revealed .registration__grid .registration__field:nth-child(8) {
+  animation-delay: 0.35s;
+}
+
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(2) .registration__label {
+  animation-delay: 0.25s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(2) .registration__field:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(2) .registration__field:nth-child(2) {
+  animation-delay: 0.35s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(2) .registration__field:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(2) .registration__field:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__label {
+  animation-delay: 0.5s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(2) .registration__field {
+  animation-delay: 0.55s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(3) .registration__field:nth-child(1) {
+  animation-delay: 0.6s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(3) .registration__field:nth-child(2) {
+  animation-delay: 0.65s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__hint {
+  animation-delay: 0.7s;
+}
+.registration__panel.is-revealed .registration__terms {
+  animation-delay: 0.75s;
+}
+.registration__panel.is-revealed .registration__actions {
+  animation-delay: 0.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registration__field,
+  .registration__label,
+  .registration__hint,
+  .registration__terms,
+  .registration__actions {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
 .registration__form {
   display: flex;
   flex-direction: column;
@@ -142,8 +252,9 @@
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  letter-spacing: 0.3px;
   color: #000;
 }
 
@@ -170,10 +281,10 @@
 }
 .registration__terms .checkbox__label {
   font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   font-family: "FiraGO-Bold";
   font-weight: 600;
-  letter-spacing: 0.4px;
-  line-height: 1.45;
 }
 
 .registration__terms-link {
@@ -200,10 +311,11 @@
 .registration__cancel {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
   color: #3c62c1;
   text-decoration: none;
-  letter-spacing: 0.3px;
   transition: opacity 0.2s ease-in-out;
 }
 .registration__cancel:hover, .registration__cancel:focus-visible {
@@ -231,6 +343,8 @@
     min-width: max-content;
     padding-inline: 16px;
     font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 0.8px;
   }
   .registration__grid,
   .registration__dates {

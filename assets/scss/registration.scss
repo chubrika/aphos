@@ -85,9 +85,8 @@
   border-bottom: 1px solid #CDD7E3;
   color: $color-text;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
-  letter-spacing: 0.6px;
   transition:
     background-color $transition-base,
     color $transition-base,
@@ -117,6 +116,96 @@
 
 .registration__tab-label {
   white-space: nowrap;
+}
+
+@keyframes registration-field-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.registration__field,
+.registration__label,
+.registration__hint,
+.registration__terms,
+.registration__actions {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+
+  .registration__panel.is-revealed & {
+    animation-name: registration-field-in;
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+  }
+}
+
+@for $i from 1 through 8 {
+  .registration__panel.is-revealed .registration__grid .registration__field:nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 0.05s};
+  }
+}
+
+.registration__panel.is-revealed {
+  .registration__form > .registration__section:nth-child(2) {
+    .registration__label {
+      animation-delay: 0.25s;
+    }
+
+    @for $i from 1 through 4 {
+      .registration__field:nth-child(#{$i}) {
+        animation-delay: #{0.3s + ($i - 1) * 0.05s};
+      }
+    }
+  }
+
+  .registration__form > .registration__section:nth-child(3) {
+    .registration__label {
+      animation-delay: 0.5s;
+    }
+
+    .registration__grid:nth-child(2) .registration__field {
+      animation-delay: 0.55s;
+    }
+
+    .registration__grid:nth-child(3) .registration__field:nth-child(1) {
+      animation-delay: 0.6s;
+    }
+
+    .registration__grid:nth-child(3) .registration__field:nth-child(2) {
+      animation-delay: 0.65s;
+    }
+
+    .registration__hint {
+      animation-delay: 0.7s;
+    }
+  }
+
+  .registration__terms {
+    animation-delay: 0.75s;
+  }
+
+  .registration__actions {
+    animation-delay: 0.8s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registration__field,
+  .registration__label,
+  .registration__hint,
+  .registration__terms,
+  .registration__actions {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 .registration__form {
@@ -151,9 +240,8 @@
 .registration__label {
   margin: 0;
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 700;
-  letter-spacing: 0.3px;
   color: $color-text;
 }
 
@@ -180,11 +268,9 @@
   }
 
   .checkbox__label {
-    font-size: $font-size-xs;
+    @include font-xs;
     font-family: $font-family-bold;
     font-weight: 600;
-    letter-spacing: 0.4px;
-    line-height: 1.45;
   }
 }
 
@@ -214,11 +300,10 @@
 
 .registration__cancel {
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
+  @include font-sm;
   font-weight: 600;
   color: $color-primary;
   text-decoration: none;
-  letter-spacing: 0.3px;
   transition: opacity $transition-base;
 
   &:hover,
@@ -250,7 +335,7 @@
     flex: 1 0 auto;
     min-width: max-content;
     padding-inline: 16px;
-    font-size: $font-size-xs;
+    @include font-xs;
   }
 
   .registration__grid,

@@ -124,8 +124,6 @@
 .accepted-card__weight,
 .accepted-card__fee {
   margin: 0;
-  line-height: 1.35;
-  letter-spacing: 0.4px;
 }
 
 .accepted-card__id,
@@ -136,20 +134,17 @@
 
 .accepted-card__id {
   font-family: $font-family-bold;
-  font-size: $font-size-sm;
-  letter-spacing: 0.8px;
+  @include font-sm;
 }
 
 .accepted-card__tracking {
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
-  letter-spacing: 0.8px;
+  @include font-xs;
 }
 
 .accepted-card__eta {
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
-  letter-spacing: 0.8px;
+  @include font-xs;
   color: $color-text;
 }
 
@@ -157,7 +152,7 @@
 .accepted-card__fee {
   margin-top: 2px;
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
   color: $color-text;
 }
@@ -165,9 +160,7 @@
 .accepted-card__status {
   margin: 0;
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
-  line-height: 1.4;
-  letter-spacing: 0.4px;
+  @include font-xs;
   text-align: right;
   color: $color-text;
 }
@@ -191,10 +184,8 @@
   @include button-reset;
   padding: 0;
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: 0.8px;
   color: $color-primary-dark-2;
   text-decoration: none;
   white-space: nowrap;
@@ -217,8 +208,7 @@
 }
 .accepted-card__link-sep {
   font-family: $font-family-regular;
-  font-size: $font-size-xs;
-  line-height: 1;
+  @include font-xs;
   color: $color-primary-dark-2;
 }
 
@@ -239,7 +229,7 @@
 
 .accepted-card__weight {
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
   color: $color-primary-dark-2;
 }
@@ -254,9 +244,8 @@
   background-color: #f0f6fc;
   color: $color-primary-dark-2;
   font-family: $font-family-bold;
-  font-size: $font-size-xs;
+  @include font-xs;
   font-weight: 600;
-  letter-spacing: 0.8px;
   white-space: nowrap;
   transition: opacity $transition-base;
 

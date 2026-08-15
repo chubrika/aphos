@@ -1,0 +1,92 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.content-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-surface;
+  background-image: radial-gradient(
+    ellipse 80% 60% at 100% 46%,
+    rgba(176, 192, 230, 0.62) 0%,
+    rgba(200, 210, 235, 0.28) 38%,
+    transparent 72%
+  );
+  background-repeat: no-repeat;
+}
+
+@keyframes content-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.content {
+  flex: 1;
+  padding: clamp(40px, 6vh, 72px) 0 $spacing-4xl;
+}
+
+.content__title,
+.content__body p {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+  animation-name: content-in;
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.content__title {
+  margin: 0 0 $spacing-lg;
+  font-family: $font-family-bold;
+  font-size: clamp(28px, 4.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 4px;
+  background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation-delay: 0.06s;
+}
+
+.content__body {
+  display: grid;
+  gap: $spacing-md;
+  max-width: 1000px;
+
+  p {
+    margin: 0;
+    font-family: $font-family-regular;
+    @include font-sm;
+    color: $color-text;
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.18s + ($i - 1) * 0.1s};
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content__title,
+  .content__body p {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@include mobile {
+  .content {
+    padding: 36px 0 $spacing-2xl;
+  }
+}

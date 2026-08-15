@@ -34,7 +34,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.4px;
+  letter-spacing: 4px;
   color: #27479a;
 }
 
@@ -54,8 +54,9 @@
   padding: 5px 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.3px;
   color: #27479a;
   transition: color 0.2s ease-in-out;
 }
@@ -114,6 +115,8 @@
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   text-align: left;
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -237,9 +240,9 @@
 .transaction-card__title {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.3px;
   color: #27479a;
 }
 
@@ -247,8 +250,8 @@
   margin-top: 4px;
   font-family: "FiraGO-Regular";
   font-size: 14px;
-  line-height: 1.35;
-  letter-spacing: 0.3px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   color: #1B1B1B;
 }
 
@@ -262,8 +265,9 @@
 .transaction-card__amount {
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  letter-spacing: 0.6px;
   white-space: nowrap;
 }
 
@@ -411,16 +415,16 @@
   font-family: "FiraGO-Regular";
   font-size: 12px;
   line-height: 1.3;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.8px;
   color: #303030;
 }
 .transaction-modal__row dd {
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.2px;
   color: #000;
 }
 
@@ -484,12 +488,16 @@ body:has(.transaction-modal:not([hidden])) {
   }
   .transaction-card__title {
     font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1.2px;
   }
   .transaction-card__aside {
     gap: 14px;
   }
   .transaction-card__amount {
     font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1.2px;
   }
   .transaction-card__view {
     width: 40px;

@@ -14,7 +14,7 @@
     font-size: clamp(18px, 3vw, 24px);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: 0.3px;
+    letter-spacing: 2px;
     color: $color-primary;
     margin-bottom: 0;
 
@@ -82,9 +82,8 @@
     background-color: var(--tabs-tab-bg);
     color: $color-text;
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
+    @include font-sm;
     font-weight: 600;
-    letter-spacing: 0.2px;
     transition:
       background-color $transition-base,
       color $transition-base,

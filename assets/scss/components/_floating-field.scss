@@ -33,9 +33,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-family: $font-family-bold;
-    font-size: $font-size-sm;
+    @include font-sm;
     font-weight: 600;
-    letter-spacing: 0.4px;
     color: #9aa3b2;
     pointer-events: none;
     transform: translateY(-50%);

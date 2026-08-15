@@ -12,7 +12,7 @@
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.3px;
+  letter-spacing: 2px;
   color: #3c62c1;
   margin-bottom: 0;
 }
@@ -84,8 +84,9 @@
   color: #000;
   font-family: "FiraGO-Bold";
   font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   font-weight: 600;
-  letter-spacing: 0.2px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .tabs__tab:last-child,
