@@ -11,7 +11,7 @@ function initVerificationCode(group) {
   const code = group.querySelector("[data-verification-code-input]");
   const button = group.querySelector("[data-verification-code-btn]");
 
-  if (!form || !email || !code || !button) {
+  if (!form || !code || !button) {
     return;
   }
 
@@ -82,7 +82,7 @@ function initVerificationCode(group) {
       return;
     }
 
-    if (!email.checkValidity()) {
+    if (email && !email.checkValidity()) {
       email.reportValidity();
       return;
     }
