@@ -51,12 +51,112 @@ const SHOP_OPTIONS = [
   "Balenciaga",
 ];
 
+const FAVORITES_STORAGE_PREFIX = "aphos:search-select-favorites:";
+const STAR_ICON = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+`;
+
 function slugifyOptionValue(label) {
   return label
     .toLowerCase()
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+function normalizeOptionLabel(value) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function getFavoritesKey(select) {
+  const id =
+    select.querySelector('input[type="hidden"]')?.id ||
+    select.querySelector(".search-select__list")?.id ||
+    "default";
+  return `${FAVORITES_STORAGE_PREFIX}${id}`;
+}
+
+function loadFavorites(key) {
+  try {
+    const stored = JSON.parse(localStorage.getItem(key) || "[]");
+    return new Set(Array.isArray(stored) ? stored : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveFavorites(key, favorites) {
+  try {
+    localStorage.setItem(key, JSON.stringify([...favorites]));
+  } catch {
+    // Ignore storage failures (private mode, quota, etc.)
+  }
+}
+
+function getOptionLabelText(option) {
+  const label = option.querySelector(".search-select__option-label");
+  return normalizeOptionLabel(label?.textContent || option.textContent || "");
+}
+
+function syncFavoriteButton(button, isFavorite) {
+  button.setAttribute("aria-pressed", String(isFavorite));
+  button.setAttribute("aria-label", isFavorite ? "ფავორიტიდან მოხსნა" : "ფავორიტად მონიშვნა");
+  button.classList.toggle("is-active", isFavorite);
+}
+
+function enhanceOption(option, index, favorites) {
+  if (option.dataset.originalIndex == null) {
+    option.dataset.originalIndex = String(index);
+  }
+
+  let label = option.querySelector(".search-select__option-label");
+  if (!label) {
+    const text = getOptionLabelText(option);
+    option.replaceChildren();
+    label = document.createElement("span");
+    label.className = "search-select__option-label";
+    label.textContent = text;
+    option.append(label);
+  }
+
+  let favoriteButton = option.querySelector(".search-select__favorite");
+  if (!favoriteButton) {
+    favoriteButton = document.createElement("button");
+    favoriteButton.type = "button";
+    favoriteButton.className = "search-select__favorite";
+    favoriteButton.innerHTML = STAR_ICON;
+    option.append(favoriteButton);
+  }
+
+  const isFavorite = favorites.has(option.dataset.value);
+  option.classList.toggle("is-favorite", isFavorite);
+  syncFavoriteButton(favoriteButton, isFavorite);
+}
+
+function sortOptionsByFavorite(list, favorites) {
+  const options = Array.from(list.querySelectorAll(".search-select__option"));
+
+  options.sort((a, b) => {
+    const aFavorite = favorites.has(a.dataset.value) ? 0 : 1;
+    const bFavorite = favorites.has(b.dataset.value) ? 0 : 1;
+
+    if (aFavorite !== bFavorite) {
+      return aFavorite - bFavorite;
+    }
+
+    return Number(a.dataset.originalIndex || 0) - Number(b.dataset.originalIndex || 0);
+  });
+
+  options.forEach((option) => list.append(option));
+}
+
+function enhanceAndSortOptions(list, favorites) {
+  Array.from(list.querySelectorAll(".search-select__option")).forEach((option, index) => {
+    enhanceOption(option, index, favorites);
+  });
+  sortOptionsByFavorite(list, favorites);
 }
 
 function populateShopOptions(select) {
@@ -105,8 +205,12 @@ function initSearchSelects(root = document) {
 
     const menuTransitionMs = 250;
     let menuCloseTimer = null;
+    const favoritesKey = getFavoritesKey(select);
+    const favorites = loadFavorites(favoritesKey);
 
-    const getOptionLabel = (option) => option.textContent.trim();
+    const getOptionLabel = (option) => getOptionLabelText(option);
+
+    enhanceAndSortOptions(list, favorites);
 
     const setPlaceholderState = (hasValue) => {
       trigger.classList.toggle("is-placeholder", !hasValue);
@@ -188,6 +292,7 @@ function initSearchSelects(root = document) {
 
     const openSelect = () => {
       window.clearTimeout(menuCloseTimer);
+      enhanceAndSortOptions(list, favorites);
       menu.hidden = false;
       menu.setAttribute("aria-hidden", "false");
       void menu.offsetHeight;
@@ -195,6 +300,22 @@ function initSearchSelects(root = document) {
       trigger.setAttribute("aria-expanded", "true");
       searchInput?.focus();
       searchInput?.select();
+    };
+
+    const toggleFavorite = (option) => {
+      const value = option.dataset.value;
+      if (!value) {
+        return;
+      }
+
+      if (favorites.has(value)) {
+        favorites.delete(value);
+      } else {
+        favorites.add(value);
+      }
+
+      saveFavorites(favoritesKey, favorites);
+      enhanceAndSortOptions(list, favorites);
     };
 
     trigger.addEventListener("click", (event) => {
@@ -233,6 +354,17 @@ function initSearchSelects(root = document) {
     });
 
     list.addEventListener("click", (event) => {
+      const favoriteButton = event.target.closest(".search-select__favorite");
+      if (favoriteButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const option = favoriteButton.closest(".search-select__option");
+        if (option && !option.hidden) {
+          toggleFavorite(option);
+        }
+        return;
+      }
+
       const option = event.target.closest(".search-select__option");
       if (!option || option.hidden) {
         return;
