@@ -187,10 +187,48 @@
                                             placeholder=" " autocomplete="address-level2" required>
                                         <label class="floating-field__label" for="city">ქალაქი*</label>
                                     </div>
-                                    <div class="registration__field floating-field">
-                                        <input class="input floating-field__control" id="zip" name="zip" type="text"
-                                            placeholder=" " autocomplete="postal-code" data-digits-only required>
-                                        <label class="floating-field__label" for="zip">საფოსტო ინდექსი*</label>
+                                    <div class="registration__field">
+                                        <label class="visually-hidden" for="legal-service-center">სერვის ცენტრი</label>
+                                        <div class="search-select" data-search-select>
+                                            <input type="hidden" id="legal-service-center" name="service_center" value=""
+                                                required>
+                                            <button class="search-select__trigger input" type="button"
+                                                aria-expanded="false" aria-haspopup="listbox"
+                                                aria-controls="legal-service-center-list">
+                                                <span class="search-select__label" data-search-label
+                                                    data-placeholder="სერვის ცენტრი">სერვის ცენტრი</span>
+                                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg"
+                                                    width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="6 9 12 15 18 9" />
+                                                </svg>
+                                            </button>
+                                            <div class="search-select__menu" hidden aria-hidden="true">
+                                                <input class="search-select__search input" type="search"
+                                                    placeholder="ძებნა..." autocomplete="off"
+                                                    aria-label="სერვის ცენტრის ძებნა">
+                                                <ul class="search-select__list" id="legal-service-center-list"
+                                                    role="listbox">
+                                                    <li role="option" class="search-select__option" data-value="freedom"
+                                                        tabindex="-1" aria-selected="false">თავისუფლების მოედანი 2</li>
+                                                    <li role="option" class="search-select__option" data-value="vake"
+                                                        tabindex="-1" aria-selected="false">ვაკე, ჭავჭავაძის 37</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="saburtalo" tabindex="-1" aria-selected="false">
+                                                        საბურთალო, ვაჟა-ფშაველას 71</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="batumi-center" tabindex="-1" aria-selected="false">
+                                                        ბათუმი, ცენტრი</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="kutaisi-center" tabindex="-1" aria-selected="false">
+                                                        ქუთაისი, ცენტრი</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="rustavi-center" tabindex="-1" aria-selected="false">
+                                                        რუსთავი, ცენტრი</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="registration__field registration__field--full floating-field">
                                         <input class="input floating-field__control" id="address" name="address"
@@ -217,6 +255,17 @@
                                             data-latin-email required>
                                         <label class="floating-field__label" for="email">ელ. ფოსტა (მომხმარებლის
                                             სახელი)*</label>
+                                    </div>
+                                    <div class="registration__field floating-field registration__code"
+                                        data-verification-code>
+                                        <input class="input floating-field__control" id="email-code" name="code"
+                                            type="text" placeholder=" " inputmode="numeric" autocomplete="one-time-code"
+                                            data-verification-code-input required>
+                                        <label class="floating-field__label" for="email-code">ვერიფიკაციის კოდი</label>
+                                        <button class="registration__code-btn button button--sm button--outline"
+                                            type="button" data-verification-code-btn>
+                                            კოდის მიღება
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="registration__grid">
@@ -299,10 +348,48 @@
                                             type="text" placeholder=" " autocomplete="address-level2" required>
                                         <label class="floating-field__label" for="legal-city">ქალაქი*</label>
                                     </div>
-                                    <div class="registration__field floating-field">
-                                        <input class="input floating-field__control" id="legal-zip" name="zip"
-                                            type="text" placeholder=" " autocomplete="postal-code" data-digits-only required>
-                                        <label class="floating-field__label" for="legal-zip">საფოსტო ინდექსი*</label>
+                                    <div class="registration__field">
+                                        <label class="visually-hidden" for="legal-service-center">სერვის ცენტრი</label>
+                                        <div class="search-select" data-search-select>
+                                            <input type="hidden" id="legal-service-center" name="service_center" value=""
+                                                required>
+                                            <button class="search-select__trigger input" type="button"
+                                                aria-expanded="false" aria-haspopup="listbox"
+                                                aria-controls="legal-service-center-list">
+                                                <span class="search-select__label" data-search-label
+                                                    data-placeholder="სერვის ცენტრი">სერვის ცენტრი</span>
+                                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg"
+                                                    width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="6 9 12 15 18 9" />
+                                                </svg>
+                                            </button>
+                                            <div class="search-select__menu" hidden aria-hidden="true">
+                                                <input class="search-select__search input" type="search"
+                                                    placeholder="ძებნა..." autocomplete="off"
+                                                    aria-label="სერვის ცენტრის ძებნა">
+                                                <ul class="search-select__list" id="legal-service-center-list"
+                                                    role="listbox">
+                                                    <li role="option" class="search-select__option" data-value="freedom"
+                                                        tabindex="-1" aria-selected="false">თავისუფლების მოედანი 2</li>
+                                                    <li role="option" class="search-select__option" data-value="vake"
+                                                        tabindex="-1" aria-selected="false">ვაკე, ჭავჭავაძის 37</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="saburtalo" tabindex="-1" aria-selected="false">
+                                                        საბურთალო, ვაჟა-ფშაველას 71</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="batumi-center" tabindex="-1" aria-selected="false">
+                                                        ბათუმი, ცენტრი</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="kutaisi-center" tabindex="-1" aria-selected="false">
+                                                        ქუთაისი, ცენტრი</li>
+                                                    <li role="option" class="search-select__option"
+                                                        data-value="rustavi-center" tabindex="-1" aria-selected="false">
+                                                        რუსთავი, ცენტრი</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="registration__field registration__field--full floating-field">
                                         <input class="input floating-field__control" id="legal-address" name="address"
@@ -330,6 +417,18 @@
                                             data-latin-email required>
                                         <label class="floating-field__label" for="legal-email">ელ. ფოსტა (მომხმარებლის
                                             სახელი)*</label>
+                                    </div>
+                                    <div class="registration__field floating-field registration__code"
+                                        data-verification-code>
+                                        <input class="input floating-field__control" id="legal-email-code" name="code"
+                                            type="text" placeholder=" " inputmode="numeric" autocomplete="one-time-code"
+                                            data-verification-code-input required>
+                                        <label class="floating-field__label" for="legal-email-code">ვერიფიკაციის
+                                            კოდი</label>
+                                        <button class="registration__code-btn button button--sm button--outline"
+                                            type="button" data-verification-code-btn>
+                                            კოდის მიღება
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="registration__grid">
@@ -518,6 +617,8 @@
     <script src="assets/js/modules/header.js"></script>
     <script src="assets/js/modules/footer.js"></script>
     <script src="assets/js/modules/tabs.js"></script>
+    <script src="assets/js/modules/search-select.js"></script>
+    <script src="assets/js/modules/verification-code.js"></script>
     <script src="assets/js/registration.js"></script>
 </body>
 

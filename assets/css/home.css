@@ -2888,8 +2888,8 @@ body:has(.account-drawer:not([hidden])) {
 }
 .tracking-modal__icon img {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   transform: rotate(90deg);
   filter: brightness(0) invert(1);
 }

@@ -193,8 +193,11 @@
 .registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__label {
   animation-delay: 0.5s;
 }
-.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(2) .registration__field {
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(2) .registration__field:nth-child(1) {
   animation-delay: 0.55s;
+}
+.registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(2) .registration__field:nth-child(2) {
+  animation-delay: 0.6s;
 }
 .registration__panel.is-revealed .registration__form > .registration__section:nth-child(3) .registration__grid:nth-child(3) .registration__field:nth-child(1) {
   animation-delay: 0.6s;
@@ -235,10 +238,39 @@
 }
 .registration__field {
   min-width: 0;
+  position: relative;
+}
+.registration__field:has(.search-select.is-open) {
+  z-index: 5;
 }
 
 .registration__field--full {
   grid-column: 1/-1;
+}
+
+.registration__code .floating-field__control {
+  padding-right: 178px;
+}
+.registration__code .floating-field__label {
+  right: 178px;
+  max-width: calc(100% - 20px - 178px);
+}
+
+.registration__code-btn {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 2;
+  min-width: 122px;
+  padding: 0 14px;
+  transform: translateY(-50%);
+}
+.registration__code-btn:hover, .registration__code-btn:focus-visible {
+  transform: translateY(-50%);
+}
+.registration__code-btn.button--primary {
+  min-width: 158px;
+  color: #fff;
 }
 
 .registration__section {
