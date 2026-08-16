@@ -556,6 +556,27 @@ function initCourierModal() {
   });
 }
 
+function initTrackingModal() {
+  initSheetModal({
+    modalId: "tracking-modal",
+    openSelector: ".dashboard-shipment__icon-btn--tracking",
+    onOpen({ modal, trigger }) {
+      const flightEl = modal.querySelector("[data-tracking-flight]");
+      const consignment = trigger?.closest(".dashboard-consignment, .accepted-card");
+      const flight = consignment
+        ?.querySelector(".dashboard-consignment__id, .accepted-card__id")
+        ?.textContent
+        ?.trim();
+
+      if (flightEl && flight) {
+        flightEl.textContent = flight;
+      }
+
+      return modal.querySelector(".declaration-modal__close");
+    },
+  });
+}
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     initDashboardTabs();
@@ -563,6 +584,7 @@ if (document.readyState === "loading") {
     initDeclarationModal();
     initPickupModal();
     initCourierModal();
+    initTrackingModal();
   });
 } else {
   initDashboardTabs();
@@ -570,4 +592,5 @@ if (document.readyState === "loading") {
   initDeclarationModal();
   initPickupModal();
   initCourierModal();
+  initTrackingModal();
 }

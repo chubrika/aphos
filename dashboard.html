@@ -289,18 +289,16 @@
                                                 <div class="dashboard-shipment__actions">
                                                     <button class="dashboard-shipment__declare"
                                                         type="button">დეკლარირება</button>
-                                                    <button class="dashboard-shipment__delete" type="button"
-                                                        aria-label="წაშლა">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" aria-hidden="true">
-                                                            <polyline points="3 6 5 6 21 6" />
-                                                            <path
-                                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                                        </svg>
+                                                    <button class="dashboard-shipment__icon-btn dashboard-shipment__icon-btn--invoice"
+                                                        type="button" aria-label="ინვოისი">
+                                                        <img src="assets/images/invoice.svg" alt="" width="18"
+                                                            height="18">
+                                                    </button>
+                                                    <button class="dashboard-shipment__icon-btn dashboard-shipment__icon-btn--tracking"
+                                                        type="button" aria-label="თრექინგი" aria-haspopup="dialog"
+                                                        aria-controls="tracking-modal">
+                                                        <img src="assets/images/traking.svg" alt="" width="18"
+                                                            height="18">
                                                     </button>
                                                 </div>
                                             </td>
@@ -1762,6 +1760,113 @@
                         <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="declaration-modal declaration-modal--tracking" id="tracking-modal" hidden aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="tracking-modal-title"
+            aria-describedby="tracking-modal-eta" tabindex="-1">
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 class="declaration-modal__title" id="tracking-modal-title">თრექინგი</h2>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <div class="tracking-modal__flight">
+                    <span class="tracking-modal__flag" aria-hidden="true">
+                        <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                    </span>
+                    <div class="tracking-modal__flight-copy">
+                        <p class="tracking-modal__flight-id">რეისი <span data-tracking-flight>H0103930</span> -
+                            13.08.2026</p>
+                        <p class="tracking-modal__flight-eta" id="tracking-modal-eta">სავარაუდო ჩამოსვლა: 26.08.2026</p>
+                    </div>
+                </div>
+
+                <!-- state: გამოგზავნილია -->
+                <!-- <ol class="tracking-modal__timeline">
+                    <li class="tracking-modal__step tracking-modal__step--past">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">გამოიგზავნა</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tracking-modal__step tracking-modal__step--current">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">შემოვიდა ქვეყანაში</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tracking-modal__step tracking-modal__step--next">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">საბაჟო პროცედურები</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                </ol> -->
+
+
+                <!-- State: ჩამოსულია ამანათი -->
+                <ol class="tracking-modal__timeline">
+                    <li class="tracking-modal__step tracking-modal__step--past">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">გამოიგზავნა</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tracking-modal__step tracking-modal__step--past">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">შემოვიდა ქვეყანაში</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tracking-modal__step tracking-modal__step--past">
+                        <span class="tracking-modal__dot" aria-hidden="true"></span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">საბაჟო პროცედურები</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tracking-modal__step tracking-modal__step--arrived">
+                        <span class="tracking-modal__icon" aria-hidden="true">
+                            <img src="assets/images/airplane.svg" alt="">
+                        </span>
+                        <div class="tracking-modal__body">
+                            <p class="tracking-modal__status">ჩამოსულია</p>
+                            <p class="tracking-modal__meta">
+                                <time datetime="2026-08-26">26.08.2026</time>
+                            </p>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
