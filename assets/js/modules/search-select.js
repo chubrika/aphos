@@ -152,7 +152,11 @@ function sortOptionsByFavorite(list, favorites) {
   options.forEach((option) => list.append(option));
 }
 
-function enhanceAndSortOptions(list, favorites) {
+function enhanceAndSortOptions(list, favorites, showFavorites) {
+  if (!showFavorites) {
+    return;
+  }
+
   Array.from(list.querySelectorAll(".search-select__option")).forEach((option, index) => {
     enhanceOption(option, index, favorites);
   });
@@ -205,12 +209,13 @@ function initSearchSelects(root = document) {
 
     const menuTransitionMs = 250;
     let menuCloseTimer = null;
-    const favoritesKey = getFavoritesKey(select);
-    const favorites = loadFavorites(favoritesKey);
+    const showFavorites = select.hasAttribute("data-search-select-favorites");
+    const favoritesKey = showFavorites ? getFavoritesKey(select) : "";
+    const favorites = showFavorites ? loadFavorites(favoritesKey) : new Set();
 
     const getOptionLabel = (option) => getOptionLabelText(option);
 
-    enhanceAndSortOptions(list, favorites);
+    enhanceAndSortOptions(list, favorites, showFavorites);
 
     const setPlaceholderState = (hasValue) => {
       trigger.classList.toggle("is-placeholder", !hasValue);
@@ -292,7 +297,7 @@ function initSearchSelects(root = document) {
 
     const openSelect = () => {
       window.clearTimeout(menuCloseTimer);
-      enhanceAndSortOptions(list, favorites);
+      enhanceAndSortOptions(list, favorites, showFavorites);
       menu.hidden = false;
       menu.setAttribute("aria-hidden", "false");
       void menu.offsetHeight;
@@ -303,6 +308,10 @@ function initSearchSelects(root = document) {
     };
 
     const toggleFavorite = (option) => {
+      if (!showFavorites) {
+        return;
+      }
+
       const value = option.dataset.value;
       if (!value) {
         return;
@@ -315,7 +324,7 @@ function initSearchSelects(root = document) {
       }
 
       saveFavorites(favoritesKey, favorites);
-      enhanceAndSortOptions(list, favorites);
+      enhanceAndSortOptions(list, favorites, showFavorites);
     };
 
     trigger.addEventListener("click", (event) => {
