@@ -72,6 +72,7 @@ function normalizeOptionLabel(value) {
 
 function getFavoritesKey(select) {
   const id =
+    select.getAttribute("data-search-select-favorites-key") ||
     select.querySelector('input[type="hidden"]')?.id ||
     select.querySelector(".search-select__list")?.id ||
     "default";
@@ -386,13 +387,17 @@ function initSearchSelects(root = document) {
 
     document.addEventListener("click", (event) => {
       window.setTimeout(() => {
-        if (!select.contains(event.target)) {
+        if (!select.isConnected || !select.contains(event.target)) {
           closeSelect();
         }
       }, 0);
     });
 
     document.addEventListener("keydown", (event) => {
+      if (!select.isConnected) {
+        return;
+      }
+
       if (event.key === "Escape" && select.classList.contains("is-open")) {
         event.preventDefault();
         event.stopImmediatePropagation();

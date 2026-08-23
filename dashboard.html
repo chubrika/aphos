@@ -673,8 +673,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -726,8 +727,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -780,8 +782,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -839,8 +842,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -892,8 +896,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -946,8 +951,9 @@
                                                 <p class="dashboard-shipment__fee">17 ლარი</p>
                                             </div>
                                             <div class="dashboard-consignment__buttons">
-                                                <button class="dashboard-shipment__clearance"
-                                                    type="button">განბაჟება</button>
+                                                <button class="dashboard-shipment__clearance" type="button"
+                                                    data-clearance-open aria-haspopup="dialog"
+                                                    aria-controls="clearance-modal">განბაჟება</button>
                                                 <button class="dashboard-shipment__declare" type="button">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1488,8 +1494,8 @@
                                     aria-expanded="false" aria-haspopup="listbox" aria-controls="declaration-shop-list">
                                     <span class="search-select__label" data-search-label
                                         data-placeholder="Shop name*">Shop name*</span>
-                                    <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                                         aria-hidden="true">
                                         <polyline points="6 9 12 15 18 9" />
@@ -1502,76 +1508,20 @@
                                 </div>
                             </div>
 
-                            <label class="visually-hidden" for="declaration-category">კატეგორია</label>
-                            <div class="search-select" data-search-select data-search-select-favorites>
-                                <input type="hidden" id="declaration-category" name="category" value="makeup" required>
-                                <button class="search-select__trigger input" type="button" aria-expanded="false"
-                                    aria-haspopup="listbox" aria-controls="declaration-category-list">
-                                    <span class="search-select__label" data-search-label>Makeup Brushes, Eyeshadows,
-                                        Blushes, Mascaras</span>
-                                    <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                        aria-hidden="true">
-                                        <polyline points="6 9 12 15 18 9" />
+                            <div class="declaration-products">
+                                <p class="declaration-products__title" id="declaration-products-title">პროდუქტები</p>
+                                <div class="declaration-products__list" data-declaration-products
+                                    aria-labelledby="declaration-products-title"></div>
+                                <button class="declaration-products__add" type="button"
+                                    data-declaration-add-product hidden>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <line x1="12" y1="5" x2="12" y2="19" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
                                     </svg>
+                                    ახლის დამატება
                                 </button>
-                                <div class="search-select__menu" hidden aria-hidden="true">
-                                    <input class="search-select__search input" type="search" placeholder="ძებნა..."
-                                        autocomplete="off" aria-label="კატეგორიის ძებნა">
-                                    <ul class="search-select__list" id="declaration-category-list" role="listbox">
-                                        <li role="option" class="search-select__option is-selected" data-value="makeup"
-                                            tabindex="-1" aria-selected="true">Makeup Brushes, Eyeshadows, Blushes,
-                                            Mascaras</li>
-                                        <li role="option" class="search-select__option" data-value="clothes"
-                                            tabindex="-1" aria-selected="false">Clothes / Apparel</li>
-                                        <li role="option" class="search-select__option" data-value="shoes" tabindex="-1"
-                                            aria-selected="false">Shoes</li>
-                                        <li role="option" class="search-select__option" data-value="electronics"
-                                            tabindex="-1" aria-selected="false">Electronics</li>
-                                        <li role="option" class="search-select__option" data-value="accessories"
-                                            tabindex="-1" aria-selected="false">Accessories</li>
-                                        <li role="option" class="search-select__option" data-value="books" tabindex="-1"
-                                            aria-selected="false">Books</li>
-                                        <li role="option" class="search-select__option" data-value="toys" tabindex="-1"
-                                            aria-selected="false">Toys</li>
-                                        <li role="option" class="search-select__option" data-value="other" tabindex="-1"
-                                            aria-selected="false">Other</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="declaration-modal__row">
-                                <div class="floating-field">
-                                    <input class="input floating-field__control" id="declaration-price" name="price"
-                                        type="number" inputmode="decimal" placeholder=" ">
-                                    <label class="floating-field__label" for="declaration-price">ფასი</label>
-                                </div>
-
-                                <div class="declaration-modal__select declaration-modal__select--currency">
-                                    <div class="floating-field">
-                                        <select class="input floating-field__control" id="declaration-currency"
-                                            name="currency">
-                                            <option value="USD" selected>USD ($)</option>
-                                            <option value="EUR">EUR (€)</option>
-                                            <option value="GBP">GBP (£)</option>
-                                            <option value="GEL">GEL (₾)</option>
-                                        </select>
-                                        <label class="floating-field__label" for="declaration-currency">ვალუტა</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-field">
-                                <input class="input floating-field__control" id="declaration-quantity" name="quantity"
-                                    type="number" inputmode="numeric" placeholder=" ">
-                                <label class="floating-field__label" for="declaration-quantity">რაოდენობა</label>
-                            </div>
-
-                            <div class="floating-field floating-field--textarea">
-                                <textarea class="input floating-field__control declaration-modal__textarea"
-                                    id="declaration-comment" name="comment" rows="4" placeholder=" "></textarea>
-                                <label class="floating-field__label" for="declaration-comment">კომენტარი</label>
                             </div>
                         </div>
 
@@ -1608,6 +1558,104 @@
                         <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
                     </div>
                 </form>
+
+                <template id="declaration-product-template">
+                    <div class="declaration-product" data-declaration-product>
+                        <label class="visually-hidden" data-product-label>პროდუქტი</label>
+                        <div class="declaration-product__select search-select" data-search-select
+                            data-search-select-favorites
+                            data-search-select-favorites-key="declaration-category">
+                            <input type="hidden" data-product-category value="" required>
+                            <button class="search-select__trigger input" type="button" aria-expanded="false"
+                                aria-haspopup="listbox">
+                                <span class="search-select__label" data-search-label
+                                    data-placeholder="პროდუქტი">პროდუქტი</span>
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="search-select__menu" hidden aria-hidden="true">
+                                <input class="search-select__search input" type="search" placeholder="ძებნა..."
+                                    autocomplete="off" aria-label="პროდუქტის ძებნა">
+                                <ul class="search-select__list" data-product-category-list role="listbox">
+                                    <li role="option" class="search-select__option" data-value="makeup" tabindex="-1"
+                                        aria-selected="false">Makeup Brushes, Eyeshadows, Blushes, Mascaras</li>
+                                    <li role="option" class="search-select__option" data-value="clothes" tabindex="-1"
+                                        aria-selected="false">Clothes / Apparel</li>
+                                    <li role="option" class="search-select__option" data-value="shoes" tabindex="-1"
+                                        aria-selected="false">Shoes</li>
+                                    <li role="option" class="search-select__option" data-value="electronics"
+                                        tabindex="-1" aria-selected="false">Electronics</li>
+                                    <li role="option" class="search-select__option" data-value="accessories"
+                                        tabindex="-1" aria-selected="false">Accessories</li>
+                                    <li role="option" class="search-select__option" data-value="books" tabindex="-1"
+                                        aria-selected="false">Books</li>
+                                    <li role="option" class="search-select__option" data-value="toys" tabindex="-1"
+                                        aria-selected="false">Toys</li>
+                                    <li role="option" class="search-select__option" data-value="other" tabindex="-1"
+                                        aria-selected="false">Other</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="declaration-product__price floating-field">
+                            <input class="input floating-field__control" data-product-price type="text"
+                                inputmode="decimal" autocomplete="off" placeholder=" ">
+                            <label class="floating-field__label" data-product-price-label>ფასი</label>
+                        </div>
+
+                        <div class="declaration-product__currency declaration-modal__select declaration-modal__select--compact">
+                            <select class="input" data-product-currency aria-label="ვალუტა">
+                                <option value="USD" selected>$</option>
+                                <option value="EUR">€</option>
+                                <option value="GBP">£</option>
+                                <option value="GEL">₾</option>
+                            </select>
+                        </div>
+
+                        <div class="declaration-product__actions">
+                            <button class="declaration-product__action declaration-product__action--add" type="button"
+                                data-product-add aria-label="დამატება">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                            <button class="declaration-product__action declaration-product__action--edit" type="button"
+                                data-product-edit hidden aria-label="რედაქტირება">
+                                <svg class="declaration-product__icon declaration-product__icon--edit"
+                                    data-product-edit-icon xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 20h9" />
+                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                </svg>
+                                <svg class="declaration-product__icon declaration-product__icon--save"
+                                    data-product-save-icon xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </button>
+                            <button class="declaration-product__action declaration-product__action--delete"
+                                type="button" data-product-delete hidden aria-label="წაშლა">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="3 6 5 6 21 6" />
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
@@ -1642,8 +1690,8 @@
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-city-list">
                                 <span class="search-select__label" data-search-label
                                     data-placeholder="ქალაქი*">ქალაქი*</span>
-                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
@@ -1671,8 +1719,8 @@
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="pickup-branch-list">
                                 <span class="search-select__label" data-search-label
                                     data-placeholder="ფილიალი*">ფილიალი*</span>
-                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
@@ -1725,8 +1773,8 @@
                                 aria-expanded="false" aria-haspopup="listbox" aria-controls="courier-city-list">
                                 <span class="search-select__label" data-search-label
                                     data-placeholder="ქალაქი*">ქალაქი*</span>
-                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12"
-                                    height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9" />
                                 </svg>
@@ -1867,6 +1915,162 @@
                         </div>
                     </li>
                 </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="declaration-modal declaration-modal--clearance" id="clearance-modal" hidden aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="clearance-modal-title"
+            aria-describedby="clearance-modal-hints" tabindex="-1">
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 id="clearance-modal-title"><span class="declaration-modal__title">განბაჟება</span></h2>
+                        <div class="clearance-modal__hints" id="clearance-modal-hints">
+                            <p>Each file must not exceed 2 MB.</p>
+                            <p>Only PDF, JPG, PNG and Files cannot be password protected</p>
+                        </div>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <form class="declaration-modal__form" id="clearance-form" novalidate>
+                    <div class="clearance-modal__list">
+                        <div class="clearance-modal__row" data-clearance-upload>
+                            <p class="clearance-modal__label">პირადობის წინა მხარე</p>
+                            <div class="clearance-modal__control">
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="id-front"
+                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <div class="clearance-modal__file">
+                                    <span class="clearance-modal__file-name" data-file-name></span>
+                                    <button class="clearance-modal__remove" type="button" data-file-remove
+                                        aria-label="წაშლა">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6" />
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearance-modal__row" data-clearance-upload>
+                            <p class="clearance-modal__label">პირადობის უკანა მხარე</p>
+                            <div class="clearance-modal__control">
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="id-back"
+                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <div class="clearance-modal__file">
+                                    <span class="clearance-modal__file-name" data-file-name></span>
+                                    <button class="clearance-modal__remove" type="button" data-file-remove
+                                        aria-label="წაშლა">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6" />
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearance-modal__row" data-clearance-upload>
+                            <p class="clearance-modal__label">rs.ge ქვითარი</p>
+                            <div class="clearance-modal__control">
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="rs-receipt"
+                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <div class="clearance-modal__file">
+                                    <span class="clearance-modal__file-name" data-file-name></span>
+                                    <button class="clearance-modal__remove" type="button" data-file-remove
+                                        aria-label="წაშლა">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6" />
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearance-modal__row" data-clearance-upload>
+                            <p class="clearance-modal__label">ამონაწერი იურიდიული პირების რეესტრიდან</p>
+                            <div class="clearance-modal__control">
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="legal-registry"
+                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <div class="clearance-modal__file">
+                                    <span class="clearance-modal__file-name" data-file-name></span>
+                                    <button class="clearance-modal__remove" type="button" data-file-remove
+                                        aria-label="წაშლა">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6" />
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearance-modal__row" data-clearance-upload>
+                            <p class="clearance-modal__label">მინდობილობა</p>
+                            <div class="clearance-modal__control">
+                                <label class="declaration-modal__attach">
+                                    <input class="visually-hidden" type="file" name="power-of-attorney"
+                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                                    <span>ფაილის მიბმა</span>
+                                </label>
+                                <div class="clearance-modal__file">
+                                    <span class="clearance-modal__file-name" data-file-name></span>
+                                    <button class="clearance-modal__remove" type="button" data-file-remove
+                                        aria-label="წაშლა">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6" />
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="declaration-modal__actions">
+                        <button class="button button--primary declaration-modal__submit"
+                            type="submit">დასტური</button>
+                        <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

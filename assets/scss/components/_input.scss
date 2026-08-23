@@ -46,6 +46,14 @@
     background-color: #FBE4E4;
     border-color: #DD4A4A;
   }
+
+  &:disabled,
+  &[readonly] {
+    background-color: #f3f5f8;
+    color: $color-text;
+    cursor: default;
+    box-shadow: none;
+  }
 }
 
 .input--select {
