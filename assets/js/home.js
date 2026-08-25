@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       rewind: true,
       // Instant index change — visual motion is ours
       speed: 0,
-      allowTouchMove: true,
+      allowTouchMove: false,
       preventInteractionOnTransition: true,
       autoplay: {
         delay: 5500,
