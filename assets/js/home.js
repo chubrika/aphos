@@ -31,12 +31,131 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const heroSwiper = document.querySelector(".hero-swiper");
+  const heroRoot = document.querySelector(".hero-swiper");
 
-  if (heroSwiper && typeof Swiper !== "undefined") {
-    new Swiper(".hero-swiper", {
-      loop: true,
-      speed: 700,
+  if (heroRoot && typeof Swiper !== "undefined") {
+    const HERO_TRANSITION_MS = 900;
+    let busy = false;
+    let ready = false;
+    let runId = 0;
+
+    const getSlides = () =>
+      Array.from(heroRoot.querySelectorAll(".swiper-wrapper > .swiper-slide"));
+
+    const resetSlide = (slide) => {
+      slide.removeAttribute("data-hero");
+      slide.removeAttribute("data-dir");
+      slide.classList.remove("is-animating");
+      slide.style.transform = "";
+      slide.style.opacity = "";
+      slide.style.transition = "";
+    };
+
+    const settle = (index) => {
+      getSlides().forEach((slide, i) => {
+        resetSlide(slide);
+        if (i === index) {
+          slide.setAttribute("data-hero", "current");
+        }
+      });
+      busy = false;
+    };
+
+    /**
+     * Crossfade + directional slide.
+     * @param {number} currentIndex
+     * @param {number} nextIndex
+     * @param {'next'|'prev'} direction
+     * @param {import('swiper').Swiper} [swiper]
+     */
+    const transitionHeroSlides = (currentIndex, nextIndex, direction, swiper) => {
+      const slides = getSlides();
+      const outgoing = slides[currentIndex];
+      const incoming = slides[nextIndex];
+
+      if (!outgoing || !incoming || outgoing === incoming) {
+        settle(nextIndex);
+        return;
+      }
+
+      if (busy) {
+        // Snap unfinished transition, then start the new one clean
+        settle(currentIndex);
+      }
+
+      busy = true;
+      const id = ++runId;
+      swiper?.autoplay?.pause?.();
+
+      slides.forEach((slide) => {
+        if (slide !== outgoing && slide !== incoming) {
+          resetSlide(slide);
+        }
+      });
+
+      // 1) Place both slides in start positions (no transition yet)
+      outgoing.setAttribute("data-hero", "out");
+      outgoing.setAttribute("data-dir", direction);
+      outgoing.classList.remove("is-animating");
+
+      incoming.setAttribute("data-hero", "in");
+      incoming.setAttribute("data-dir", direction);
+      incoming.classList.remove("is-animating");
+
+      // Force reflow so start styles paint before we animate
+      void incoming.offsetWidth;
+
+      // 2) Animate to end positions
+      requestAnimationFrame(() => {
+        if (id !== runId) {
+          return;
+        }
+
+        outgoing.classList.add("is-animating");
+        incoming.classList.add("is-animating");
+      });
+
+      const finish = () => {
+        if (id !== runId) {
+          return;
+        }
+
+        incoming.removeEventListener("transitionend", onTransitionEnd);
+        settle(nextIndex);
+        swiper?.autoplay?.resume?.();
+      };
+
+      const onTransitionEnd = (event) => {
+        if (event.target !== incoming) {
+          return;
+        }
+        if (event.propertyName !== "opacity" && event.propertyName !== "transform") {
+          return;
+        }
+        finish();
+      };
+
+      incoming.addEventListener("transitionend", onTransitionEnd);
+      window.setTimeout(finish, HERO_TRANSITION_MS + 100);
+    };
+
+    const resolveDirection = (from, to, total) => {
+      if (from === total - 1 && to === 0) {
+        return "next";
+      }
+      if (from === 0 && to === total - 1) {
+        return "prev";
+      }
+      return to > from ? "next" : "prev";
+    };
+
+    new Swiper(heroRoot, {
+      loop: false,
+      rewind: true,
+      // Instant index change — visual motion is ours
+      speed: 0,
+      allowTouchMove: true,
+      preventInteractionOnTransition: true,
       autoplay: {
         delay: 5500,
         disableOnInteraction: false,
@@ -46,6 +165,31 @@ document.addEventListener("DOMContentLoaded", () => {
         clickable: true,
         renderBullet(index, className) {
           return `<button type="button" class="${className}" aria-label="Go to slide ${index + 1}">${index + 1}</button>`;
+        },
+      },
+      on: {
+        init(swiper) {
+          settle(swiper.activeIndex);
+          ready = true;
+        },
+        slideChange(swiper) {
+          if (!ready) {
+            return;
+          }
+
+          const from = swiper.previousIndex;
+          const to = swiper.activeIndex;
+
+          if (from === to) {
+            return;
+          }
+
+          transitionHeroSlides(
+            from,
+            to,
+            resolveDirection(from, to, swiper.slides.length),
+            swiper
+          );
         },
       },
     });

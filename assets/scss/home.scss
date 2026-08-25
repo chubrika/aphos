@@ -42,28 +42,107 @@
   border-radius: $radius-lg;
 }
 
+$hero-min-height: clamp(28rem, 72vh, 645px);
+$hero-transition-duration: 0.9s;
+$hero-transition-ease: cubic-bezier(0.75, 0, 0.25, 1);
+
 .hero-swiper {
+  position: relative;
+  overflow: hidden;
   width: 100%;
+  height: $hero-min-height;
+
+  // Kill Swiper’s own translate so our stacked transition owns motion
+  .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100% !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .swiper-slide {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    transform: translateX(0);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+    pointer-events: none;
+    transition: none;
+  }
+
+  // Settled current slide
+  .swiper-slide[data-hero="current"] {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  // Outgoing: start visible at rest
+  .swiper-slide[data-hero="out"] {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    pointer-events: none;
+    transform: translateX(0);
+  }
+
+  // Incoming: start offset + faded, always above outgoing
+  .swiper-slide[data-hero="in"] {
+    opacity: 0;
+    visibility: visible;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .swiper-slide[data-hero="in"][data-dir="next"] {
+    transform: translateX(50%);
+  }
+
+  .swiper-slide[data-hero="in"][data-dir="prev"] {
+    transform: translateX(-50%);
+  }
+
+  // Animate both once .is-animating is added (after reflow)
+  .swiper-slide[data-hero].is-animating {
+    transition:
+      transform $hero-transition-duration $hero-transition-ease,
+      opacity $hero-transition-duration $hero-transition-ease;
+  }
+
+  .swiper-slide[data-hero="out"][data-dir="next"].is-animating {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .swiper-slide[data-hero="out"][data-dir="prev"].is-animating {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .swiper-slide[data-hero="in"].is-animating {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .hero-slide {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: clamp(28rem, 72vh, 645px);
+  width: 100%;
+  height: 100%;
+  min-height: $hero-min-height;
   padding: $spacing-2xl 0 calc(#{$spacing-2xl} + 3rem);
   background-color: #1a1f2e;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   background:#0000004f;
-  //   pointer-events: none;
-  // }
 }
 
 .hero-slide--1 {
@@ -111,7 +190,8 @@
   }
 }
 
-.swiper-slide-active .hero-slide__title {
+.swiper-slide[data-hero="current"] .hero-slide__title,
+.swiper-slide[data-hero="in"].is-animating .hero-slide__title {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition-delay: 0.2s;
@@ -122,6 +202,10 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero-swiper .swiper-slide[data-hero].is-animating {
+    transition-duration: 0.01ms;
   }
 }
 
@@ -721,6 +805,10 @@ body:has(.login-modal:not([hidden])) {
 }
 
 @include mobile {
+  .hero-swiper {
+    height: 24rem;
+  }
+
   .hero-slide {
     min-height: 24rem;
     padding: $spacing-xl 0 calc(#{$spacing-xl} + 2.5rem);

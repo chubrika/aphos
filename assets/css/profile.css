@@ -144,11 +144,11 @@
 }
 
 .profile-section__actions {
-  display: none;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  pointer-events: none;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s 0.35s;
 }
 .profile-section__actions .button {
   width: auto;
@@ -156,7 +156,29 @@
 }
 
 .profile-section.is-editing .profile-section__actions {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  pointer-events: auto;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+
+.profile-section__actions-inner {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 8px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profile-section.is-editing .profile-section__actions-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.04s;
 }
 
 .profile-section__cancel {
@@ -195,6 +217,17 @@
   }
   .profile-section__actions .button {
     width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-section__actions,
+  .profile-section.is-editing .profile-section__actions,
+  .profile-section__actions-inner,
+  .profile-section.is-editing .profile-section__actions-inner {
+    transition: none;
+  }
+  .profile-section__actions-inner {
+    transform: none;
   }
 }
 
