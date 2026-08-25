@@ -3604,7 +3604,7 @@ body:has(.account-drawer:not([hidden])) {
   border-radius: 50%;
   overflow: hidden;
 }
-.declaration-view__icon .airplane-icon {
+.declaration-view__icon .img-icon-declaration {
   filter: invert(23%) sepia(62%) saturate(1480%) hue-rotate(205deg) brightness(90%) contrast(92%);
 }
 
