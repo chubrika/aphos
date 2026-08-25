@@ -132,7 +132,7 @@ p {
   gap: 30px;
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
 }
 
 .site-header__menu a {
@@ -202,7 +202,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
   color: #000;
   transition: color 0.2s ease-in-out;
@@ -273,7 +273,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
   color: #000;
   white-space: nowrap;
@@ -319,7 +319,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -398,7 +398,7 @@ p {
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
 }
 
 .site-header__profile-id {
@@ -432,7 +432,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
   color: #000;
   cursor: pointer;
@@ -500,7 +500,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-align: left;
   text-transform: lowercase;
   color: #000;
@@ -687,7 +687,7 @@ p {
 .account-drawer__balance {
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #000;
 }
 
@@ -738,7 +738,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 700;
   color: #27479a;
   text-decoration: none;
@@ -763,7 +763,7 @@ p {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 700;
 }
 
@@ -919,7 +919,7 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #fff;
   transition: color 0.2s ease-in-out;
 }
@@ -933,7 +933,7 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #fff;
 }
 
@@ -949,7 +949,7 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #386CFF;
   transition: opacity 0.2s ease-in-out;
 }
@@ -1064,7 +1064,7 @@ body:has(.account-drawer:not([hidden])) {
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
 }
 

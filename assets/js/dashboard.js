@@ -662,6 +662,51 @@ function initClearanceModal() {
   initClearanceUploads(sheet?.form);
 }
 
+function initDeclarationViewModal() {
+  initSheetModal({
+    modalId: "declaration-view-modal",
+    openSelector: "[data-declaration-view-open]",
+    onOpen({ modal, trigger }) {
+      const card = trigger?.closest(".accepted-card, .dashboard-consignment, .dashboard-shipment");
+      const tracking = card
+        ?.querySelector(".accepted-card__tracking, .dashboard-shipment__tracking")
+        ?.textContent
+        ?.trim();
+      const weight = card
+        ?.querySelector(".accepted-card__weight, .dashboard-shipment__weight")
+        ?.textContent
+        ?.trim();
+      const flight = card
+        ?.querySelector(".accepted-card__id, .dashboard-consignment__id")
+        ?.textContent
+        ?.trim();
+
+      const trackingEl = modal.querySelector("[data-view-tracking]");
+      const weightEl = modal.querySelector("[data-view-weight]");
+      const flightEl = modal.querySelector("[data-view-flight]");
+      const invoiceEl = modal.querySelector("[data-view-invoice]");
+
+      if (trackingEl && tracking) {
+        trackingEl.textContent = tracking;
+      }
+
+      if (weightEl && weight) {
+        weightEl.textContent = weight;
+      }
+
+      if (flightEl && flight) {
+        flightEl.textContent = flight;
+      }
+
+      if (invoiceEl && flight) {
+        invoiceEl.textContent = flight;
+      }
+
+      return modal.querySelector(".declaration-modal__close");
+    },
+  });
+}
+
 function initTrackingModal() {
   initSheetModal({
     modalId: "tracking-modal",
@@ -691,6 +736,7 @@ if (document.readyState === "loading") {
     initPickupModal();
     initCourierModal();
     initClearanceModal();
+    initDeclarationViewModal();
     initTrackingModal();
   });
 } else {
@@ -700,5 +746,6 @@ if (document.readyState === "loading") {
   initPickupModal();
   initCourierModal();
   initClearanceModal();
+  initDeclarationViewModal();
   initTrackingModal();
 }

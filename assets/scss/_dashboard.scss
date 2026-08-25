@@ -1681,6 +1681,125 @@
   }
 }
 
+.declaration-view {
+  margin: 0;
+  max-width: 560px;
+}
+
+.declaration-view__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccd7e3;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.declaration-view__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  .airplane-icon {
+    filter: invert(23%) sepia(62%) saturate(1480%) hue-rotate(205deg) brightness(90%) contrast(92%);
+  }
+}
+
+.declaration-view__icon--flag {
+  box-shadow: 0 0 0 1px rgba(61, 81, 136, 0.08);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.declaration-view__icon--amazon {
+  background-color: #fff4e8;
+  color: #ff9900;
+  font-family: $font-family-bold;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.declaration-view__icon--outline {
+  color: $color-primary-dark-2;
+
+  svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.declaration-view__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.declaration-view__label {
+  margin: 0;
+  font-family: $font-family-regular;
+  @include font-sm;
+  color: #858585;
+}
+
+.declaration-view__value {
+  font-family: $font-family-bold;
+  @include font-sm;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.declaration-view__items {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: $font-family-regular;
+    @include font-xs;
+    color: $color-text;
+  }
+
+  span:last-child {
+    flex-shrink: 0;
+    font-family: $font-family-bold;
+    font-weight: 600;
+  }
+}
+
+.declaration-view__link {
+  color: $color-primary-dark-2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
 body:has(.declaration-modal:not([hidden])) {
   overflow: hidden;
 }
@@ -1900,6 +2019,15 @@ body:has(.declaration-modal:not([hidden])) {
     flex-wrap: wrap;
     gap: 12px;
     padding: 10px 0;
+  }
+
+  .declaration-view {
+    max-width: none;
+  }
+
+  .declaration-view__row {
+    gap: 12px;
+    padding: 14px 0;
   }
 }
 

@@ -85,7 +85,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }

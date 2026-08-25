@@ -471,15 +471,16 @@
                                             <p class="accepted-card__weight">0.7 კგ</p>
                                             <p class="accepted-card__fee">17 ლარი</p>
                                         </div>
-                                        <button class="accepted-card__declare dashboard-shipment__declare"
-                                            type="button">
+                                        <button class="accepted-card__declare" type="button"
+                                            data-declaration-view-open aria-haspopup="dialog"
+                                            aria-controls="declaration-view-modal">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                                 <circle cx="12" cy="12" r="3" />
                                             </svg>
-                                            დეკლარირება
+                                            დეკლარირების ნახვა
                                         </button>
                                     </div>
                                 </div>
@@ -522,15 +523,16 @@
                                             <p class="accepted-card__weight">0.7 კგ</p>
                                             <p class="accepted-card__fee">17 ლარი</p>
                                         </div>
-                                        <button class="accepted-card__declare dashboard-shipment__declare"
-                                            type="button">
+                                        <button class="accepted-card__declare" type="button"
+                                            data-declaration-view-open aria-haspopup="dialog"
+                                            aria-controls="declaration-view-modal">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                                 <circle cx="12" cy="12" r="3" />
                                             </svg>
-                                            დეკლარირება
+                                            დეკლარირების ნახვა
                                         </button>
                                     </div>
                                 </div>
@@ -573,15 +575,16 @@
                                             <p class="accepted-card__weight">0.7 კგ</p>
                                             <p class="accepted-card__fee">17 ლარი</p>
                                         </div>
-                                        <button class="accepted-card__declare dashboard-shipment__declare"
-                                            type="button">
+                                        <button class="accepted-card__declare" type="button"
+                                            data-declaration-view-open aria-haspopup="dialog"
+                                            aria-controls="declaration-view-modal">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                                 <circle cx="12" cy="12" r="3" />
                                             </svg>
-                                            დეკლარირება
+                                            დეკლარირების ნახვა
                                         </button>
                                     </div>
                                 </div>
@@ -620,15 +623,16 @@
                                             <p class="accepted-card__weight">0.7 კგ</p>
                                             <p class="accepted-card__fee">17 ლარი</p>
                                         </div>
-                                        <button class="accepted-card__declare dashboard-shipment__declare"
-                                            type="button">
+                                        <button class="accepted-card__declare" type="button"
+                                            data-declaration-view-open aria-haspopup="dialog"
+                                            aria-controls="declaration-view-modal">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                                 <circle cx="12" cy="12" r="3" />
                                             </svg>
-                                            დეკლარირება
+                                            დეკლარირების ნახვა
                                         </button>
                                     </div>
                                 </div>
@@ -2075,6 +2079,122 @@
         </div>
     </div>
 
+    <div class="declaration-modal declaration-modal--declaration-view" id="declaration-view-modal" hidden
+        aria-hidden="true">
+        <div class="declaration-modal__overlay" data-modal-close></div>
+        <div class="declaration-modal__panel" role="dialog" aria-modal="true"
+            aria-labelledby="declaration-view-modal-title" tabindex="-1">
+            <div class="container declaration-modal__inner">
+                <header class="declaration-modal__header">
+                    <div class="declaration-modal__heading">
+                        <h2 class="declaration-modal__title" id="declaration-view-modal-title">დეტალები</h2>
+                    </div>
+                    <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </header>
+
+                <dl class="declaration-view">
+                    <div class="declaration-view__row">
+                        <span class="declaration-view__icon declaration-view__icon--flag" aria-hidden="true">
+                            <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                        </span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">თრექინგი</dt>
+                            <dd class="declaration-view__value" data-view-tracking>TBAACY504175789</dd>
+                        </div>
+                    </div>
+
+                    <div class="declaration-view__row">
+                        <span class="declaration-view__icon declaration-view__icon--amazon" aria-hidden="true">a</span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">გამომგზავნი / მაღაზია</dt>
+                            <dd class="declaration-view__value" data-view-shop>Amazon.com</dd>
+                        </div>
+                    </div>
+
+                    <div class="declaration-view__row">
+                        <span class="declaration-view__icon declaration-view__icon--outline" aria-hidden="true">
+                            <img class="airplane-icon" src="assets/images/airplane.svg" alt="" width="22" height="22">
+                        </span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">რეისი</dt>
+                            <dd class="declaration-view__value" data-view-flight>H57789</dd>
+                        </div>
+                    </div>
+
+                    <div class="declaration-view__row">
+                        <span class="declaration-view__icon declaration-view__icon--outline" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 3v3" />
+                                <path d="M5 10h14" />
+                                <path d="M7 10l-2 8h4l-2-8z" />
+                                <path d="M17 10l-2 8h4l-2-8z" />
+                                <circle cx="12" cy="7" r="1" />
+                            </svg>
+                        </span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">წონა</dt>
+                            <dd class="declaration-view__value" data-view-weight>1.4 კგ</dd>
+                        </div>
+                    </div>
+
+                    <div class="declaration-view__row declaration-view__row--amount">
+                        <span class="declaration-view__icon declaration-view__icon--outline" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
+                                <path d="M7 7h.01" />
+                            </svg>
+                        </span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">ჯამური თანხა</dt>
+                            <dd class="declaration-view__value" data-view-total>$ 87,50</dd>
+                            <ul class="declaration-view__items" data-view-items>
+                                <li>
+                                    <span>ავტომობილის ნაწილები, საბურავები და ა.შ.</span>
+                                    <span>$ 78.90</span>
+                                </li>
+                                <li>
+                                    <span>პარფიუმერია, კოსმეტიკა და მსგავსი ნაწარმი</span>
+                                    <span>$ 12.11</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="declaration-view__row">
+                        <span class="declaration-view__icon declaration-view__icon--outline" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="8" y1="13" x2="16" y2="13" />
+                                <line x1="8" y1="17" x2="16" y2="17" />
+                                <line x1="8" y1="9" x2="10" y2="9" />
+                            </svg>
+                        </span>
+                        <div class="declaration-view__body">
+                            <dt class="declaration-view__label">ინვოისი</dt>
+                            <dd class="declaration-view__value">
+                                <a class="declaration-view__link" href="#" data-view-invoice>H57789</a>
+                            </dd>
+                        </div>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
     <div class="account-drawer" id="account-drawer" hidden aria-hidden="true">
         <div class="account-drawer__overlay" data-account-close></div>
         <div class="account-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="account-drawer-title"
@@ -2108,8 +2228,8 @@
                         <li><a href="accepted.html">მიღებული (ისტორია)</a></li>
                         <li><a href="warehouses.html">მისამართები</a></li>
                         <li><a href="transactions.html">ტრანზაქციები</a></li>
-                        <li><a href="#">პირადი მონაცემები</a></li>
-                        <li><a href="#">პაროლი ცვლილება</a></li>
+                        <li><a href="profile.html">პირადი მონაცემები</a></li>
+                        <li><a href="change-password.html">პაროლის ცვლილება</a></li>
                     </ul>
                 </nav>
 

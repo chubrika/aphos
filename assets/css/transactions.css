@@ -10,7 +10,7 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #ffffff;
-  background-image: radial-gradient(ellipse 80% 60% at 100% 46%, rgba(176, 192, 230, 0.62) 0%, rgba(200, 210, 235, 0.28) 38%, transparent 72%), radial-gradient(ellipse 70% 58% at 0% 88%, rgba(253, 214, 184, 0.78) 0%, rgba(255, 232, 212, 0.38) 42%, transparent 70%);
+  background-image: radial-gradient(ellipse 28% 31% at 100% 24%, rgb(176, 192, 230) 0%, rgba(200, 210, 235, 0.28) 50%, transparent 83%), radial-gradient(ellipse 70% 58% at 0% 86%, rgba(253, 214, 184, 0.78) 0%, rgba(255, 232, 212, 0.38) 30%, transparent 50%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -55,7 +55,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 600;
   color: #27479a;
   transition: color 0.2s ease-in-out;
@@ -116,7 +116,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-align: left;
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -241,7 +241,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 700;
   color: #27479a;
 }
@@ -251,7 +251,7 @@
   font-family: "FiraGO-Regular";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #1B1B1B;
 }
 
@@ -266,7 +266,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -423,7 +423,7 @@
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.6;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-weight: 700;
   color: #000;
 }
@@ -489,7 +489,7 @@ body:has(.transaction-modal:not([hidden])) {
   .transaction-card__title {
     font-size: 14px;
     line-height: 1.6;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
   }
   .transaction-card__aside {
     gap: 14px;
@@ -497,7 +497,7 @@ body:has(.transaction-modal:not([hidden])) {
   .transaction-card__amount {
     font-size: 14px;
     line-height: 1.6;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
   }
   .transaction-card__view {
     width: 40px;
