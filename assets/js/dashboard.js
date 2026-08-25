@@ -680,11 +680,16 @@ function initDeclarationViewModal() {
         ?.querySelector(".accepted-card__id, .dashboard-consignment__id")
         ?.textContent
         ?.trim();
+      const total = card
+        ?.querySelector(".accepted-card__price, .dashboard-shipment__price")
+        ?.textContent
+        ?.trim();
 
       const trackingEl = modal.querySelector("[data-view-tracking]");
       const weightEl = modal.querySelector("[data-view-weight]");
       const flightEl = modal.querySelector("[data-view-flight]");
       const invoiceEl = modal.querySelector("[data-view-invoice]");
+      const totalEl = modal.querySelector("[data-view-total]");
 
       if (trackingEl && tracking) {
         trackingEl.textContent = tracking;
@@ -700,6 +705,10 @@ function initDeclarationViewModal() {
 
       if (invoiceEl && flight) {
         invoiceEl.textContent = flight;
+      }
+
+      if (totalEl && total) {
+        totalEl.textContent = total;
       }
 
       return modal.querySelector(".declaration-modal__close");
