@@ -1,18 +1,30 @@
 function initHeaderMenu() {
+  const header = document.querySelector(".site-header");
   const toggleButton = document.querySelector(".site-header__toggle");
   const navigation = document.querySelector(".site-header__nav");
   const moreMenu = document.querySelector(".site-header__more-menu");
   const moreTrigger = moreMenu?.querySelector(".site-header__more");
-  const langSwitcher = document.querySelector(".lang-switcher");
-  const langTrigger = document.querySelector(".lang-switcher__trigger");
-  const langLabel = langTrigger?.querySelector(".lang-switcher__label");
-  const langFlag = langTrigger?.querySelector(".lang-switcher__flag");
-  const langOptions = document.querySelectorAll(".lang-switcher__option");
+  const langSwitchers = document.querySelectorAll(".lang-switcher");
 
-  if (toggleButton && navigation) {
+  const closeMenu = () => {
+    if (!navigation || !header || !toggleButton) {
+      return;
+    }
+
+    navigation.classList.remove("is-open");
+    header.classList.remove("site-header--menu-open");
+    toggleButton.setAttribute("aria-expanded", "false");
+  };
+
+  if (toggleButton && navigation && header) {
     toggleButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("is-open");
+      header.classList.toggle("site-header--menu-open", isOpen);
       toggleButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
   }
 
@@ -25,51 +37,74 @@ function initHeaderMenu() {
     moreTrigger.setAttribute("aria-expanded", "false");
   };
 
+  const closeLanguageMenus = (except) => {
+    langSwitchers.forEach((switcher) => {
+      if (switcher === except) {
+        return;
+      }
+
+      switcher.classList.remove("is-open");
+      switcher.querySelector(".lang-switcher__trigger")?.setAttribute("aria-expanded", "false");
+    });
+  };
+
   if (moreMenu && moreTrigger) {
     moreTrigger.addEventListener("click", () => {
       const isOpen = moreMenu.classList.toggle("is-open");
       moreTrigger.setAttribute("aria-expanded", String(isOpen));
 
-      if (isOpen && langSwitcher && langTrigger) {
-        langSwitcher.classList.remove("is-open");
-        langTrigger.setAttribute("aria-expanded", "false");
+      if (isOpen && langSwitchers.length) {
+        closeLanguageMenus();
       }
     });
   }
 
-  const closeLanguageMenu = () => {
-    if (!langSwitcher || !langTrigger) {
-      return;
-    }
-
-    langSwitcher.classList.remove("is-open");
-    langTrigger.setAttribute("aria-expanded", "false");
-  };
-
-  if (langSwitcher && langTrigger && langLabel && langFlag && langOptions.length) {
+  if (langSwitchers.length) {
     const setLanguage = (option) => {
-      langLabel.textContent = option.dataset.lang || "eng";
-      langFlag.src = option.dataset.flagSrc || "assets/images/flag_en.svg";
-      langFlag.alt = option.dataset.flagAlt || "English";
+      const lang = option.dataset.lang || "eng";
+      const flagSrc = option.dataset.flagSrc || "assets/images/flag_en.svg";
+      const flagAlt = option.dataset.flagAlt || "English";
 
-      langOptions.forEach((item) => {
-        item.classList.toggle("is-active", item === option);
+      langSwitchers.forEach((switcher) => {
+        const label = switcher.querySelector(".lang-switcher__label");
+        const flag = switcher.querySelector(".lang-switcher__flag");
+
+        if (label) {
+          label.textContent = lang;
+        }
+
+        if (flag) {
+          flag.src = flagSrc;
+          flag.alt = flagAlt;
+        }
+
+        switcher.querySelectorAll(".lang-switcher__option").forEach((item) => {
+          item.classList.toggle("is-active", item.dataset.lang === lang);
+        });
       });
     };
 
-    langTrigger.addEventListener("click", () => {
-      const isOpen = langSwitcher.classList.toggle("is-open");
-      langTrigger.setAttribute("aria-expanded", String(isOpen));
-
-      if (isOpen) {
-        closeMoreMenu();
+    langSwitchers.forEach((langSwitcher) => {
+      const langTrigger = langSwitcher.querySelector(".lang-switcher__trigger");
+      if (!langTrigger) {
+        return;
       }
-    });
 
-    langOptions.forEach((option) => {
-      option.addEventListener("click", () => {
-        setLanguage(option);
-        closeLanguageMenu();
+      langTrigger.addEventListener("click", () => {
+        const isOpen = langSwitcher.classList.toggle("is-open");
+        langTrigger.setAttribute("aria-expanded", String(isOpen));
+
+        if (isOpen) {
+          closeMoreMenu();
+          closeLanguageMenus(langSwitcher);
+        }
+      });
+
+      langSwitcher.querySelectorAll(".lang-switcher__option").forEach((option) => {
+        option.addEventListener("click", () => {
+          setLanguage(option);
+          closeLanguageMenus();
+        });
       });
     });
   }
@@ -79,15 +114,21 @@ function initHeaderMenu() {
       closeMoreMenu();
     }
 
-    if (langSwitcher && !langSwitcher.contains(event.target)) {
-      closeLanguageMenu();
+    if (langSwitchers.length) {
+      langSwitchers.forEach((switcher) => {
+        if (!switcher.contains(event.target)) {
+          switcher.classList.remove("is-open");
+          switcher.querySelector(".lang-switcher__trigger")?.setAttribute("aria-expanded", "false");
+        }
+      });
     }
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      closeMenu();
       closeMoreMenu();
-      closeLanguageMenu();
+      closeLanguageMenus();
     }
   });
 }

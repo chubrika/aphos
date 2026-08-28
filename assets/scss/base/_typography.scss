@@ -43,3 +43,11 @@ p {
 .container {
   @include container;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 20px;
+    width: 100% !important;
+    max-width: none;
+  }
+}

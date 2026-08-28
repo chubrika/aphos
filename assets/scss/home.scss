@@ -300,7 +300,6 @@ $hero-transition-ease: cubic-bezier(0.75, 0, 0.25, 1);
   margin-inline: auto;
 }
 
-
 .title-gradient {
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
@@ -806,22 +805,20 @@ body:has(.login-modal:not([hidden])) {
 
 @include mobile {
   .hero-swiper {
-    height: 24rem;
+    height: 430px;
   }
 
   .hero-slide {
-    min-height: 24rem;
+    min-height: 430px;
+    align-items: flex-end;
     padding: $spacing-xl 0 calc(#{$spacing-xl} + 2.5rem);
   }
 
   .hero-slide__inner {
     padding-right: 0;
-    padding-bottom: 22rem;
+    padding-bottom: 0px;
   }
 
-  .hero-slide__title {
-    max-width: 14ch;
-  }
 
   .hero-swiper__controls {
     bottom: $spacing-md;
@@ -832,8 +829,7 @@ body:has(.login-modal:not([hidden])) {
   }
 
   .hero-login {
-    align-items: flex-end;
-    padding-bottom: $spacing-xl;
+    display: none;
   }
 
   .hero-login__inner {
@@ -844,7 +840,12 @@ body:has(.login-modal:not([hidden])) {
     width: 100%;
     padding: $spacing-lg $spacing-md;
   }
-
+  .container-fluid {
+    width: 100%;
+  }
+  .hero {
+    border-radius: 0;
+  }
   .why-apos {
     padding-block: $spacing-xl $spacing-3xl;
   }
@@ -862,7 +863,7 @@ body:has(.login-modal:not([hidden])) {
 .tariffs {
   padding-block: $spacing-4xl;
   background-color: $color-primary-dark-2;
-
+  margin-top: 40px;
   &__title,
   &__description {
     opacity: 0;
@@ -1072,21 +1073,32 @@ body:has(.login-modal:not([hidden])) {
 
 @include mobile {
   .tariffs {
-    padding-block: $spacing-2xl $spacing-3xl;
-
+    padding-block: $spacing-2xl $spacing-2xl;
+    margin-top: 0;
     &__description {
-      margin-bottom: $spacing-lg;
+      display: none;
     }
 
     &__nav-btn {
       width: 44px;
       height: 44px;
     }
+    &__nav{
+      margin-top: 20px;
+    }
   }
 
   .tariff-card {
     min-height: 200px;
     padding: $spacing-md;
+  }
+  .calculator {
+    &__title {
+      text-align: left !important;
+    }
+    &__description {
+      text-align: left !important;
+    }
   }
 }
 
@@ -1479,10 +1491,10 @@ body:has(.login-modal:not([hidden])) {
 
 @include mobile {
   .calculator {
-    padding-block: $spacing-2xl $spacing-3xl;
+    padding-block: $spacing-2xl $spacing-2xl;
 
     &__description {
-      margin-bottom: $spacing-lg;
+      margin-bottom: 25px;
     }
 
     &__form {
@@ -1498,7 +1510,7 @@ body:has(.login-modal:not([hidden])) {
 
     &__result {
       min-height: 140px;
-      padding: $spacing-lg $spacing-md;
+      padding: 50px $spacing-md;
     }
 
     &__dims {

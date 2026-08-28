@@ -54,7 +54,7 @@
   padding: 5px 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 600;
   color: #27479a;
@@ -115,7 +115,7 @@
   border-radius: 10px;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   text-align: left;
   color: #000;
@@ -240,7 +240,7 @@
 .transaction-card__title {
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 700;
   color: #27479a;
@@ -250,7 +250,7 @@
   margin-top: 4px;
   font-family: "FiraGO-Regular";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   color: #1B1B1B;
 }
@@ -265,7 +265,7 @@
 .transaction-card__amount {
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 700;
   white-space: nowrap;
@@ -422,7 +422,7 @@
   margin: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 700;
   color: #000;
@@ -488,7 +488,7 @@ body:has(.transaction-modal:not([hidden])) {
   }
   .transaction-card__title {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.4;
     letter-spacing: 1px;
   }
   .transaction-card__aside {
@@ -496,7 +496,7 @@ body:has(.transaction-modal:not([hidden])) {
   }
   .transaction-card__amount {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.4;
     letter-spacing: 1px;
   }
   .transaction-card__view {
