@@ -277,7 +277,7 @@
 }
 @media (max-width: 768px) {
   .faq {
-    padding: 36px 0 60px;
+    padding: 60px 0 60px;
   }
   .faq__header {
     align-items: flex-start;

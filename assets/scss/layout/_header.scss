@@ -517,7 +517,7 @@ body:has(.site-header) {
   .site-header__inner {
     flex-wrap: wrap;
     gap: 12px;
-    padding: $spacing-sm;
+    padding:  0px $spacing-md;
     min-height: $site-header-height-mobile;
   }
 
@@ -672,7 +672,7 @@ body:has(.site-header) {
       .button--outline {
         position: fixed;
         top: 19px;
-        right: 54px;
+        right: 64px;
         z-index: 1002;
         border-color: #fff;
         color: #fff;

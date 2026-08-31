@@ -260,7 +260,7 @@
 
 @include mobile {
   .faq {
-    padding: 36px 0 $spacing-2xl;
+    padding: $spacing-2xl 0 $spacing-2xl;
   }
 
   .faq__header {

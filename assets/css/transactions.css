@@ -513,10 +513,10 @@ body:has(.transaction-modal:not([hidden])) {
   }
   .transaction-modal__close {
     top: 0;
-    right: 0;
+    right: 20px;
   }
   .transaction-modal__title {
-    padding-right: 48px;
+    padding-right: 80px;
     font-size: 24px;
   }
   .transaction-modal__details {

@@ -1829,7 +1829,9 @@ body:has(.declaration-modal:not([hidden])) {
     padding-left: 0px;
     padding-right: 0px;
   }
-
+  .dashboard-hero__bg{
+    background-color: transparent;
+  }
   .dashboard-hero__inner,
   .dashboard-hero__summary,
   .dashboard-hero__stats {
@@ -1977,12 +1979,11 @@ body:has(.declaration-modal:not([hidden])) {
   .declaration-modal__panel {
     max-height: 94vh;
     padding: 24px 0 28px;
-    border-radius: 20px 20px 0 0;
   }
 
   .declaration-modal__header {
     margin-bottom: 20px;
-    padding-right: 48px;
+    padding-right: 0px;
   }
 
   .declaration-modal__row,
@@ -2003,7 +2004,6 @@ body:has(.declaration-modal:not([hidden])) {
   }
 
   .declaration-modal__actions {
-    flex-wrap: wrap;
     gap: 14px;
   }
 
@@ -2016,7 +2016,6 @@ body:has(.declaration-modal:not([hidden])) {
   }
 
   .clearance-modal__row {
-    flex-wrap: wrap;
     gap: 12px;
     padding: 10px 0;
   }

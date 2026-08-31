@@ -412,7 +412,6 @@ $hero-transition-ease: cubic-bezier(0.75, 0, 0.25, 1);
 
 .login-modal__inner {
   position: relative;
-  padding-right: 56px;
 }
 
 .login-modal__close {
@@ -528,7 +527,7 @@ $hero-transition-ease: cubic-bezier(0.75, 0, 0.25, 1);
   flex-direction: column;
   align-items: flex-start;
   gap: $spacing-lg;
-  padding-top: 8px;
+  padding-top: 65px;
   max-width: 600px;
 }
 
@@ -566,16 +565,11 @@ body:has(.login-modal:not([hidden])) {
   .login-modal__panel {
     max-height: 94vh;
     padding: 24px 0 28px;
-    border-radius: 20px 20px 0 0;
-  }
-
-  .login-modal__inner {
-    padding-right: 0;
   }
 
   .login-modal__close {
-    top: 0;
-    right: 0;
+    top: -4px;
+    right: 20px;
   }
 
   .login-modal__grid {
@@ -1153,14 +1147,18 @@ body:has(.login-modal:not([hidden])) {
     align-items: stretch;
     gap: $spacing-md;
     width: 100%;
+    overflow: visible;
   }
 
   &__fields {
+    position: relative;
+    z-index: 2;
     display: grid;
     flex: 1 1 0;
     gap: $spacing-sm;
     width: 0;
     min-width: 0;
+    overflow: visible;
     transition-duration: 0.7s;
     transition-delay: 0.55s;
   }
@@ -1173,6 +1171,8 @@ body:has(.login-modal:not([hidden])) {
   }
 
   &__result {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex: 1 1 0;
     flex-direction: column;
@@ -1288,8 +1288,13 @@ body:has(.login-modal:not([hidden])) {
 
 .calc-select {
   position: relative;
+  z-index: 1;
   min-width: 0;
   max-width: 100%;
+}
+
+.calc-select.is-open {
+  z-index: 4;
 }
 
 .calc-select__trigger {
@@ -1365,7 +1370,7 @@ body:has(.login-modal:not([hidden])) {
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 6;
   margin: 0;
   padding: $spacing-xs;
   list-style: none;
