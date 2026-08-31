@@ -6,6 +6,11 @@
   z-index: 50;
   border-bottom: 1px solid $color-border;
   overflow: visible;
+  transition: top 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body:has(.alert.is-visible) .site-header {
+  top: $alert-height;
 }
 
 .registration-page .site-header {
@@ -24,6 +29,10 @@
 
 body:has(.site-header) {
   padding-top: $site-header-height-desktop;
+}
+
+body:has(.site-header):has(.alert.is-visible) {
+  padding-top: calc(#{$site-header-height-desktop} + #{$alert-height});
 }
 
 .site-header__brand {
@@ -580,6 +589,10 @@ body:has(.site-header) {
     padding-top: $site-header-height-mobile;
   }
 
+  body:has(.site-header):has(.alert.is-visible) {
+    padding-top: calc(#{$site-header-height-mobile} + #{$alert-height});
+  }
+
   .site-header__inner {
     flex-wrap: wrap;
     gap: 12px;
@@ -1101,6 +1114,7 @@ body:has(.account-drawer:not([hidden])) {
 @media (prefers-reduced-motion: reduce) {
   .account-drawer__overlay,
   .account-drawer__panel,
+  .site-header,
   .site-header__subnav,
   .site-header__subnav-overlay,
   .site-header__nav,

@@ -1,0 +1,91 @@
+.alert {
+  position: fixed;
+  top: 0px;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  color: #fff;
+  opacity: 0;
+  height: $alert-height;
+  transform: translate3d(0, -12px, 0);
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+  }
+}
+
+.alert--success {
+  background-color: $color-success;
+}
+
+.alert--error {
+  background-color: $color-error;
+}
+
+.alert__icon {
+  display: none;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.alert--success .alert__icon--success,
+.alert--error .alert__icon--error {
+  display: block;
+}
+
+.alert__message {
+  flex: 1;
+  margin: 0;
+  font-family: $font-family-bold;
+  @include font-sm;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+.alert__close {
+  @include button-reset;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: -6px;
+  border-radius: 50%;
+  color: inherit;
+  opacity: 0.85;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    transition: none;
+    transform: none;
+  }
+}

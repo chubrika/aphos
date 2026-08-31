@@ -660,6 +660,14 @@ function initClearanceModal() {
   });
 
   initClearanceUploads(sheet?.form);
+
+  sheet?.form?.addEventListener("submit", () => {
+    window.showAlert?.("success", "დოკუმენტები წარმატებით გაიგზავნა");
+  });
+
+  sheet?.modal?.querySelector(".declaration-modal__cancel")?.addEventListener("click", () => {
+    window.showAlert?.("error", "დაფიქსირდა შეცდომა");
+  });
 }
 
 function initDeclarationViewModal() {

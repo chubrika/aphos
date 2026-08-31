@@ -100,6 +100,11 @@ p {
   z-index: 50;
   border-bottom: 1px solid #CDD7E3;
   overflow: visible;
+  transition: top 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body:has(.alert.is-visible) .site-header {
+  top: 40px;
 }
 
 .registration-page .site-header {
@@ -118,6 +123,10 @@ p {
 
 body:has(.site-header) {
   padding-top: 100px;
+}
+
+body:has(.site-header):has(.alert.is-visible) {
+  padding-top: calc(100px + 40px);
 }
 
 .site-header__brand {
@@ -655,6 +664,9 @@ body:has(.site-header) {
   body:has(.site-header) {
     padding-top: 70px;
   }
+  body:has(.site-header):has(.alert.is-visible) {
+    padding-top: calc(70px + 40px);
+  }
   .site-header__inner {
     flex-wrap: wrap;
     gap: 12px;
@@ -1150,6 +1162,7 @@ body:has(.account-drawer:not([hidden])) {
 @media (prefers-reduced-motion: reduce) {
   .account-drawer__overlay,
   .account-drawer__panel,
+  .site-header,
   .site-header__subnav,
   .site-header__subnav-overlay,
   .site-header__nav,
@@ -1833,6 +1846,94 @@ body:has(.account-drawer:not([hidden])) {
   color: #000;
 }
 
+.alert {
+  position: fixed;
+  top: 0px;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  color: #fff;
+  opacity: 0;
+  height: 40px;
+  transform: translate3d(0, -12px, 0);
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.alert[hidden] {
+  display: none;
+}
+.alert.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.alert--success {
+  background-color: #2bb3a0;
+}
+
+.alert--error {
+  background-color: #e75656;
+}
+
+.alert__icon {
+  display: none;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.alert--success .alert__icon--success,
+.alert--error .alert__icon--error {
+  display: block;
+}
+
+.alert__message {
+  flex: 1;
+  margin: 0;
+  font-family: "FiraGO-Bold";
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+.alert__close {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: -6px;
+  border-radius: 50%;
+  color: inherit;
+  opacity: 0.85;
+}
+.alert__close:hover, .alert__close:focus-visible {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.alert__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    transition: none;
+    transform: none;
+  }
+}
 .tabs,
 .dashboard-tabs {
   --tabs-bg: transparent;
