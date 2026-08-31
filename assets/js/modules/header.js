@@ -5,6 +5,37 @@ function initHeaderMenu() {
   const moreMenu = document.querySelector(".site-header__more-menu");
   const moreTrigger = moreMenu?.querySelector(".site-header__more");
   const langSwitchers = document.querySelectorAll(".lang-switcher");
+  const subnavItem = document.querySelector(".site-header__has-subnav");
+  const subnavTrigger = subnavItem?.querySelector(".site-header__subnav-trigger");
+
+  if (header && (subnavItem || moreMenu) && !header.querySelector(".site-header__subnav-overlay")) {
+    const overlay = document.createElement("div");
+    overlay.className = "site-header__subnav-overlay";
+    overlay.setAttribute("data-subnav-close", "");
+    header.append(overlay);
+  }
+
+  const isDesktopNav = () => window.matchMedia("(min-width: 769px)").matches;
+
+  const syncPageBlur = () => {
+    if (!header) {
+      return;
+    }
+
+    const anyOpen =
+      subnavItem?.classList.contains("is-open") || moreMenu?.classList.contains("is-open");
+    header.classList.toggle("site-header--subnav-open", Boolean(anyOpen) && isDesktopNav());
+  };
+
+  const closeInformationMenu = () => {
+    if (!subnavItem || !subnavTrigger || !header) {
+      return;
+    }
+
+    subnavItem.classList.remove("is-open");
+    subnavTrigger.setAttribute("aria-expanded", "false");
+    syncPageBlur();
+  };
 
   const closeMenu = () => {
     if (!navigation || !header || !toggleButton) {
@@ -14,6 +45,7 @@ function initHeaderMenu() {
     navigation.classList.remove("is-open");
     header.classList.remove("site-header--menu-open");
     toggleButton.setAttribute("aria-expanded", "false");
+    closeInformationMenu();
   };
 
   if (toggleButton && navigation && header) {
@@ -35,6 +67,7 @@ function initHeaderMenu() {
 
     moreMenu.classList.remove("is-open");
     moreTrigger.setAttribute("aria-expanded", "false");
+    syncPageBlur();
   };
 
   const closeLanguageMenus = (except) => {
@@ -49,13 +82,21 @@ function initHeaderMenu() {
   };
 
   if (moreMenu && moreTrigger) {
+    moreTrigger.setAttribute("aria-haspopup", "true");
     moreTrigger.addEventListener("click", () => {
-      const isOpen = moreMenu.classList.toggle("is-open");
-      moreTrigger.setAttribute("aria-expanded", String(isOpen));
+      const isOpen = !moreMenu.classList.contains("is-open");
 
-      if (isOpen && langSwitchers.length) {
+      if (isOpen) {
+        closeInformationMenu();
         closeLanguageMenus();
+        moreMenu.classList.add("is-open");
+        moreTrigger.setAttribute("aria-expanded", "true");
+      } else {
+        moreMenu.classList.remove("is-open");
+        moreTrigger.setAttribute("aria-expanded", "false");
       }
+
+      syncPageBlur();
     });
   }
 
@@ -96,6 +137,7 @@ function initHeaderMenu() {
 
         if (isOpen) {
           closeMoreMenu();
+          closeInformationMenu();
           closeLanguageMenus(langSwitcher);
         }
       });
@@ -109,9 +151,29 @@ function initHeaderMenu() {
     });
   }
 
+  if (subnavItem && subnavTrigger && header) {
+    subnavTrigger.addEventListener("click", () => {
+      const isOpen = !subnavItem.classList.contains("is-open");
+
+      if (isOpen) {
+        closeMoreMenu();
+        closeLanguageMenus();
+        subnavItem.classList.add("is-open");
+        subnavTrigger.setAttribute("aria-expanded", "true");
+        syncPageBlur();
+      } else {
+        closeInformationMenu();
+      }
+    });
+  }
+
   document.addEventListener("click", (event) => {
     if (moreMenu && !moreMenu.contains(event.target)) {
       closeMoreMenu();
+    }
+
+    if (subnavItem && !subnavItem.contains(event.target)) {
+      closeInformationMenu();
     }
 
     if (langSwitchers.length) {
@@ -128,6 +190,7 @@ function initHeaderMenu() {
     if (event.key === "Escape") {
       closeMenu();
       closeMoreMenu();
+      closeInformationMenu();
       closeLanguageMenus();
     }
   });
