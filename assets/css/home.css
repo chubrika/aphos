@@ -318,8 +318,6 @@ body:has(.site-header) {
   left: 0;
   z-index: 1;
   background: rgba(16, 48, 94, 0.41);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
