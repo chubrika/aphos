@@ -31,6 +31,52 @@
   opacity: 0;
   transform: translate3d(0, 1.75rem, 0);
 
+  &:has(.accepted-card__links) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    > .accepted-card__row:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    > .accepted-card__links {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    > .accepted-card__row:nth-child(2) {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+
+  &:has(> .dashboard-consignment__delivery) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    > .dashboard-consignment__delivery {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    > .accepted-card__body {
+      display: contents;
+    }
+
+    .accepted-card__body > .accepted-card__row:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .accepted-card__body > .accepted-card__row:nth-child(2) {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+
   .accepted.is-revealed &,
   .dashboard-tabs__panel.is-revealed & {
     animation-name: accepted-card-in;
@@ -264,6 +310,14 @@
   .accepted-card {
     gap: 14px;
     padding: 16px;
+
+    &:has(.accepted-card__links) {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
+    }
   }
 
   .accepted-card__row {
@@ -272,13 +326,147 @@
     gap: 12px;
   }
 
+  .accepted-card:has(.accepted-card__links) {
+    > .accepted-card__row:first-child {
+      flex-direction: row;
+      width: 100%;
+      padding: 16px 16px 14px;
+      border-bottom: 1px solid $color-border;
+    }
+
+    > .accepted-card__row:nth-child(2) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 16px 16px;
+      position: relative;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      background: white;
+      border-bottom: 1px solid #cdd7e3;
+      bottom: -10px;
+      border-top: none;
+    }
+
+    .accepted-card__actions {
+      flex-direction: column;
+      align-items: flex-end;
+      width: auto;
+      gap: 10px;
+    }
+
+    .accepted-card__meta {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .accepted-card__tracking {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .accepted-card:has(> .dashboard-consignment__delivery) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+    box-shadow: none;
+    background-color: transparent;
+
+    > .dashboard-consignment__delivery {
+      padding: 10px 16px;
+      height: 55px;
+      border-radius: 16px;
+      background-color: #e8eef4;
+      color: $color-text;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    > .accepted-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      bottom: 25px;
+      border: 1px solid rgba(61, 81, 136, 0.1);
+      border-radius: 16px;
+      background-color: $color-surface;
+      box-shadow: 0 10px 28px rgba(61, 81, 136, 0.08);
+    }
+
+    .accepted-card__row:first-child {
+      flex-direction: row;
+      width: 100%;
+      padding: 16px 16px 14px;
+      border-bottom: 1px solid $color-border;
+    }
+
+    .accepted-card__row:nth-child(2) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 16px 16px;
+    }
+
+    .accepted-card__actions {
+      flex-direction: column;
+      align-items: flex-end;
+      width: auto;
+      gap: 10px;
+    }
+
+    .accepted-card__meta {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .accepted-card__tracking {
+      overflow-wrap: anywhere;
+    }
+  }
+
   .accepted-card__status {
     text-align: left;
   }
 
   .accepted-card__links {
-    justify-content: flex-start;
-    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    background-color: #f0f6fc;
+    border-top: 1px solid $color-border;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+  }
+
+  .accepted-card__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px 10px;
+    white-space: normal;
+    text-align: center;
+    padding-bottom: 7px;
+    &:last-child {
+      border-left: 1px solid $color-border;
+    }
+  }
+
+  .accepted-card__link-sep {
+    display: none;
   }
 
   .accepted-card__actions {
