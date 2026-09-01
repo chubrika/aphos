@@ -3012,6 +3012,10 @@ body:has(.tabs-picker-modal:not([hidden])) {
   padding-bottom: 20px;
 }
 
+.dashboard-hero__cta.mobile-declaration {
+  display: none;
+}
+
 .dashboard-hero__inner {
   display: flex;
   align-items: center;
@@ -4196,6 +4200,9 @@ body:has(.declaration-modal:not([hidden])) {
   }
 }
 @media (max-width: 768px) {
+  .dashboard-hero__cta.mobile-declaration {
+    display: inline-flex;
+  }
   .dashboard-hero {
     display: none;
   }

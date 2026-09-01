@@ -8,6 +8,9 @@
     padding-bottom: 20px;
   }
 }
+.dashboard-hero__cta.mobile-declaration {
+  display: none;
+}
 .dashboard-hero__inner {
   display: flex;
   align-items: center;
@@ -411,7 +414,6 @@
   @include font-sm;
   color: $color-text;
 }
-
 .declaration-modal__close {
   @include button-reset;
   display: inline-flex;
@@ -1208,6 +1210,9 @@ body:has(.declaration-modal:not([hidden])) {
 }
 
 @include mobile {
+  .dashboard-hero__cta.mobile-declaration {
+    display: inline-flex;
+  }
   .dashboard-hero {
     display: none;
   }
