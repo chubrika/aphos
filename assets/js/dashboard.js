@@ -488,14 +488,14 @@ function initDeclarationProducts(form) {
 function initDeclarationModal() {
   const sheet = initSheetModal({
     modalId: "declaration-modal",
-    openSelector: ".dashboard-shipment__declare, .dashboard-hero__cta",
+    openSelector: ".dashboard-shipment__declare:not([data-declaration-view-open]), .dashboard-hero__cta",
     onOpen({ modal, trigger }) {
       const trackingInput = modal.querySelector("#declaration-tracking");
       const shopTrigger = modal.querySelector("#declaration-shop")
         ?.closest("[data-search-select]")
         ?.querySelector(".search-select__trigger");
-      const shipment = trigger?.closest(".dashboard-shipment, .accepted-card, .dashboard-consignment");
-      const tracking = shipment?.querySelector(".dashboard-shipment__tracking, .accepted-card__tracking")?.textContent?.trim();
+      const shipment = trigger?.closest(".dashboard-shipment, .dashboard-consignment");
+      const tracking = shipment?.querySelector(".dashboard-shipment__tracking")?.textContent?.trim();
 
       if (trackingInput) {
         trackingInput.value = tracking || "";
@@ -675,21 +675,21 @@ function initDeclarationViewModal() {
     modalId: "declaration-view-modal",
     openSelector: "[data-declaration-view-open]",
     onOpen({ modal, trigger }) {
-      const card = trigger?.closest(".accepted-card, .dashboard-consignment, .dashboard-shipment");
+      const card = trigger?.closest(".dashboard-consignment, .dashboard-shipment");
       const tracking = card
-        ?.querySelector(".accepted-card__tracking, .dashboard-shipment__tracking")
+        ?.querySelector(".dashboard-shipment__tracking")
         ?.textContent
         ?.trim();
       const weight = card
-        ?.querySelector(".accepted-card__weight, .dashboard-shipment__weight")
+        ?.querySelector(".dashboard-shipment__weight")
         ?.textContent
         ?.trim();
       const flight = card
-        ?.querySelector(".accepted-card__id, .dashboard-consignment__id")
+        ?.querySelector(".dashboard-consignment__id")
         ?.textContent
         ?.trim();
       const total = card
-        ?.querySelector(".accepted-card__price, .dashboard-shipment__price")
+        ?.querySelector(".dashboard-shipment__price")
         ?.textContent
         ?.trim();
 
@@ -730,9 +730,9 @@ function initTrackingModal() {
     openSelector: ".dashboard-shipment__icon-btn--tracking",
     onOpen({ modal, trigger }) {
       const flightEl = modal.querySelector("[data-tracking-flight]");
-      const consignment = trigger?.closest(".dashboard-consignment, .accepted-card");
+      const consignment = trigger?.closest(".dashboard-consignment");
       const flight = consignment
-        ?.querySelector(".dashboard-consignment__id, .accepted-card__id")
+        ?.querySelector(".dashboard-consignment__id")
         ?.textContent
         ?.trim();
 
