@@ -1646,7 +1646,6 @@ body:has(.account-drawer:not([hidden])) {
 .input:focus {
   outline: none;
   border-color: #3c62c1;
-  box-shadow: 0 0 0 3px rgba(60, 98, 193, 0.12);
 }
 .input:user-invalid, .input.is-invalid {
   background-color: #FBE4E4;
@@ -1944,13 +1943,13 @@ body:has(.account-drawer:not([hidden])) {
 .tabs__title,
 .dashboard-tabs__title {
   margin: 0 0 30px;
+  margin: 0 0 30px;
   font-family: "FiraGO-Bold";
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 2px;
+  line-height: 1.15;
+  letter-spacing: 0.4px;
   color: #3c62c1;
-  margin-bottom: 0;
 }
 .tabs__title.mt-20,
 .dashboard-tabs__title.mt-20 {
@@ -1960,10 +1959,24 @@ body:has(.account-drawer:not([hidden])) {
 .tabs__title-text,
 .dashboard-tabs__title-text {
   font-family: "FiraGO-Bold";
+  font-size: clamp(28px, 4.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  color: #3c62c1;
+  background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tabs__title-text--sm,
+.dashboard-tabs__title-text--sm {
+  font-family: "FiraGO-Bold";
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.3px;
+  letter-spacing: 2px;
+  margin: 20px 0 22px;
   color: #000;
 }
 .tabs__header,
@@ -2452,6 +2465,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
 }
 
 .dashboard-consignment:has(> .dashboard-consignment__status) {
+  --consignment-status-overlap: 25px;
   border: 0;
   overflow: visible;
   box-shadow: none;
@@ -2460,8 +2474,9 @@ body:has(.tabs-picker-modal:not([hidden])) {
 
 .dashboard-consignment__status {
   margin: 0;
-  padding: 10px 20px;
-  height: 60px;
+  padding: 10px 20px calc(10px + var(--consignment-status-overlap, 25px));
+  min-height: 58px;
+  height: auto;
   border-radius: 16px;
   font-family: "FiraGO-Bold";
   font-size: 12px;
@@ -2488,7 +2503,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 25px;
+  bottom: var(--consignment-status-overlap, 25px);
   overflow: hidden;
   border: 1px solid rgba(61, 81, 136, 0.1);
   border-radius: 16px;
@@ -2871,6 +2886,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
     gap: 0;
   }
   .dashboard-consignment:has(> .dashboard-consignment__delivery) {
+    --consignment-delivery-overlap: 25px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -2882,8 +2898,9 @@ body:has(.tabs-picker-modal:not([hidden])) {
     background-color: transparent;
   }
   .dashboard-consignment:has(> .dashboard-consignment__delivery) > .dashboard-consignment__delivery {
-    padding: 10px 16px;
-    height: 55px;
+    padding: 10px 16px calc(8px + var(--consignment-delivery-overlap, 25px));
+    min-height: 55px;
+    height: auto;
     border-radius: 16px;
     background-color: #e8eef4;
     color: #000;
@@ -2895,7 +2912,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
     flex-direction: column;
     gap: 0;
     position: relative;
-    bottom: 25px;
+    bottom: var(--consignment-delivery-overlap, 25px);
     overflow: hidden;
     border: 1px solid rgba(61, 81, 136, 0.1);
     border-radius: 16px;
@@ -2903,8 +2920,9 @@ body:has(.tabs-picker-modal:not([hidden])) {
     box-shadow: 0 10px 28px rgba(61, 81, 136, 0.08);
   }
   .dashboard-consignment:has(> .dashboard-consignment__status) .dashboard-consignment__status {
-    padding: 10px 16px;
-    height: 68px;
+    padding: 10px 16px calc(10px + var(--consignment-status-overlap, 25px));
+    min-height: 58px;
+    height: auto;
     font-size: 10px;
   }
   .dashboard-consignment__head {
@@ -3139,7 +3157,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
 .dashboard-hero__cta-subtitle {
   display: block;
   margin: 0;
-  font-family: "FiraGO-Normal";
+  font-family: "FiraGO-Bold";
   font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
@@ -3395,7 +3413,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
   padding-right: 56px;
 }
 
@@ -3405,7 +3423,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -3448,7 +3466,6 @@ body:has(.tabs-picker-modal:not([hidden])) {
   grid-template-columns: minmax(280px, 560px) minmax(0, 1fr);
   gap: 48px 64px;
   align-items: start;
-  margin-bottom: 150px;
 }
 
 .declaration-modal__fields {
@@ -3692,7 +3709,6 @@ body:has(.tabs-picker-modal:not([hidden])) {
 
 .search-select.is-open .search-select__trigger {
   border-color: #3c62c1;
-  box-shadow: 0 0 0 3px rgba(60, 98, 193, 0.12);
 }
 
 .search-select__label {
@@ -3853,7 +3869,6 @@ body:has(.tabs-picker-modal:not([hidden])) {
 }
 .input--required:hover, .input--required:focus {
   border-color: #e75656;
-  box-shadow: 0 0 0 3px rgba(231, 86, 86, 0.12);
 }
 
 .declaration-modal__textarea {
@@ -4195,7 +4210,7 @@ body:has(.declaration-modal:not([hidden])) {
 @media (max-width: 1100px) {
   .declaration-modal__grid {
     grid-template-columns: 1fr;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     gap: 28px;
   }
 }
@@ -4241,7 +4256,7 @@ body:has(.declaration-modal:not([hidden])) {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 20;
     width: 90%;
     max-width: 100%;
     height: 50px;
@@ -4259,16 +4274,17 @@ body:has(.declaration-modal:not([hidden])) {
     margin-bottom: 12px;
   }
   .declaration-modal__close {
-    top: 18px;
+    position: absolute;
+    top: -30px;
     right: 16px;
   }
   .declaration-modal__panel {
     max-height: 94vh;
-    padding: 24px 0 28px;
+    padding: 50px 0 28px;
     background-image: none;
   }
   .declaration-modal__header {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding-right: 0px;
   }
   .declaration-modal__row,
@@ -4729,7 +4745,7 @@ body:has(.declaration-modal:not([hidden])) {
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.4px;
+  letter-spacing: 2px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -4846,10 +4862,10 @@ body:has(.login-modal:not([hidden])) {
 @media (max-width: 768px) {
   .login-modal__panel {
     max-height: 94vh;
-    padding: 24px 0 28px;
+    padding: 50px 0 28px;
   }
   .login-modal__close {
-    top: -4px;
+    top: -28px;
     right: 20px;
   }
   .login-modal__grid {
@@ -4861,6 +4877,7 @@ body:has(.login-modal:not([hidden])) {
     margin-bottom: 20px;
   }
   .login-modal__actions {
+    justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -5033,10 +5050,10 @@ body:has(.login-modal:not([hidden])) {
 
 @media (max-width: 768px) {
   .hero-swiper {
-    height: 430px;
+    height: 470px;
   }
   .hero-slide {
-    min-height: 430px;
+    min-height: 470px;
     align-items: flex-end;
     padding: 50px 0 calc(50px + 2.5rem);
   }
@@ -5338,7 +5355,7 @@ body:has(.login-modal:not([hidden])) {
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5534,7 +5551,6 @@ body:has(.login-modal:not([hidden])) {
 
 .calc-select.is-open .calc-select__trigger {
   border-color: #3c62c1;
-  box-shadow: 0 0 0 3px rgba(60, 98, 193, 0.12);
 }
 
 .calc-select__flag {

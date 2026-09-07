@@ -2,25 +2,39 @@
 @import "abstracts/mixins";
 
 .accepted {
-  padding: 40px 0 80px;
+  padding: 50px 0 80px;
 }
 
 .accepted__group + .accepted__group {
   margin-top: 40px;
 }
-
+.mb-30{
+  margin-bottom: 30px;
+}
 .accepted__title {
-  margin: 0 0 22px;
-  font-family: $font-family-bold;
-  font-size: clamp(18px, 3vw, 24px);
+  margin: 0 0 30px;
+  font-family: "FiraGO-Bold";
+  font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1.2px;
-  color: $color-text;
+  line-height: 1.15;
+  letter-spacing: 0.4px;
+  color: #3c62c1;
+  &-text{
+    font-family: "FiraGO-Bold";
+    font-size: clamp(28px, 4.2vw, 38px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 2px;
+    color: #000;
+    background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @include mobile {
   .accepted {
-    padding: 28px 0 48px;
+    padding: 50px 0 48px;
   }
 }

@@ -110,6 +110,7 @@
 }
 
 .dashboard-consignment:has(> .dashboard-consignment__status) {
+  --consignment-status-overlap: 25px;
   border: 0;
   overflow: visible;
   box-shadow: none;
@@ -118,8 +119,9 @@
 
 .dashboard-consignment__status {
   margin: 0;
-  padding: 10px 20px;
-  height: 60px;
+  padding: 10px 20px calc(10px + var(--consignment-status-overlap, 25px));
+  min-height: 58px;
+  height: auto;
   border-radius: 16px;
   font-family: $font-family-bold;
   @include font-xs;
@@ -145,7 +147,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 25px;
+  bottom: var(--consignment-status-overlap, 25px);
   overflow: hidden;
   border: 1px solid rgba(61, 81, 136, 0.1);
   border-radius: 16px;
@@ -516,6 +518,7 @@
   }
 
   .dashboard-consignment:has(> .dashboard-consignment__delivery) {
+    --consignment-delivery-overlap: 25px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -527,8 +530,9 @@
     background-color: transparent;
 
     > .dashboard-consignment__delivery {
-      padding: 10px 16px;
-      height: 55px;
+      padding: 10px 16px calc(8px + var(--consignment-delivery-overlap, 25px));
+      min-height: 55px;
+      height: auto;
       border-radius: 16px;
       background-color: #e8eef4;
       color: $color-text;
@@ -541,7 +545,7 @@
       flex-direction: column;
       gap: 0;
       position: relative;
-      bottom: 25px;
+      bottom: var(--consignment-delivery-overlap, 25px);
       overflow: hidden;
       border: 1px solid rgba(61, 81, 136, 0.1);
       border-radius: 16px;
@@ -552,8 +556,9 @@
 
   .dashboard-consignment:has(> .dashboard-consignment__status) {
     .dashboard-consignment__status {
-      padding: 10px 16px;
-      height: 68px;
+      padding: 10px 16px calc(10px + var(--consignment-status-overlap, 25px));
+      min-height: 58px;
+      height: auto;
       font-size: 10px;
     }
   }

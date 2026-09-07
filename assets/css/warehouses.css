@@ -13,7 +13,7 @@
 
 .warehouses {
   flex: 1;
-  padding: 48px 0 80px;
+  padding: 50px 0 80px;
 }
 
 .warehouses__title {
@@ -22,7 +22,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .warehouses .tabs__nav {
@@ -184,7 +184,7 @@
 }
 @media (max-width: 768px) {
   .warehouses {
-    padding: 28px 0 48px;
+    padding: 50px 0 48px;
   }
   .warehouses__title {
     margin-bottom: 20px;

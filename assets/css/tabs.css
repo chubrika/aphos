@@ -8,13 +8,13 @@
 .tabs__title,
 .dashboard-tabs__title {
   margin: 0 0 30px;
+  margin: 0 0 30px;
   font-family: "FiraGO-Bold";
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 2px;
+  line-height: 1.15;
+  letter-spacing: 0.4px;
   color: #3c62c1;
-  margin-bottom: 0;
 }
 .tabs__title.mt-20,
 .dashboard-tabs__title.mt-20 {
@@ -24,10 +24,24 @@
 .tabs__title-text,
 .dashboard-tabs__title-text {
   font-family: "FiraGO-Bold";
+  font-size: clamp(28px, 4.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  color: #3c62c1;
+  background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tabs__title-text--sm,
+.dashboard-tabs__title-text--sm {
+  font-family: "FiraGO-Bold";
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.3px;
+  letter-spacing: 2px;
+  margin: 20px 0 22px;
   color: #000;
 }
 .tabs__header,

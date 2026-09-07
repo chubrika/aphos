@@ -194,7 +194,7 @@
 }
 @media (max-width: 768px) {
   .flights {
-    padding: 28px 0 48px;
+    padding: 50px 0 48px;
   }
   .flights__title {
     margin-bottom: 20px;
@@ -209,6 +209,7 @@
   }
   .flight-card__desc {
     margin-top: 10px;
+    margin-left: auto;
   }
   .flight-card__icon {
     width: 25px;

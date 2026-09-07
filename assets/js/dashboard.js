@@ -724,6 +724,16 @@ function initDeclarationViewModal() {
   });
 }
 
+function initDeleteModal() {
+  initSheetModal({
+    modalId: "delete-modal",
+    openSelector: "[data-delete-open]",
+    onOpen({ modal }) {
+      return modal.querySelector(".declaration-modal__submit");
+    },
+  });
+}
+
 function initTrackingModal() {
   initSheetModal({
     modalId: "tracking-modal",
@@ -755,6 +765,7 @@ if (document.readyState === "loading") {
     initClearanceModal();
     initDeclarationViewModal();
     initTrackingModal();
+    initDeleteModal();
   });
 } else {
   initDashboardTabs();
@@ -765,4 +776,5 @@ if (document.readyState === "loading") {
   initClearanceModal();
   initDeclarationViewModal();
   initTrackingModal();
+  initDeleteModal();
 }

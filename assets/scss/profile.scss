@@ -17,7 +17,7 @@
 
 .profile {
   flex: 1;
-  padding: clamp(40px, 6vh, 72px) 0 $spacing-4xl;
+  padding: 50px 0 $spacing-4xl;
 }
 
 .profile__title {
@@ -26,7 +26,7 @@
   font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .profile-section {
@@ -223,7 +223,7 @@
 
 @include mobile {
   .profile {
-    padding: 32px 0 $spacing-2xl;
+    padding: 50px 0 $spacing-2xl;
   }
 
   .profile__title {
@@ -240,6 +240,9 @@
 
   .profile-section__actions .button {
     width: 100%;
+  }
+  .profile-section__actions-inner{
+    justify-content: center;
   }
 }
 

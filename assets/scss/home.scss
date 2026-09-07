@@ -449,7 +449,7 @@ $hero-transition-ease: cubic-bezier(0.75, 0, 0.25, 1);
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.4px;
+  letter-spacing: 2px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -565,11 +565,11 @@ body:has(.login-modal:not([hidden])) {
 @include mobile {
   .login-modal__panel {
     max-height: 94vh;
-    padding: 24px 0 28px;
+    padding: 50px 0 28px;
   }
 
   .login-modal__close {
-    top: -4px;
+    top: -28px;
     right: 20px;
   }
 
@@ -584,6 +584,7 @@ body:has(.login-modal:not([hidden])) {
   }
 
   .login-modal__actions {
+    justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -800,11 +801,11 @@ body:has(.login-modal:not([hidden])) {
 
 @include mobile {
   .hero-swiper {
-    height: 430px;
+    height: 470px;
   }
 
   .hero-slide {
-    min-height: 430px;
+    min-height: 470px;
     align-items: flex-end;
     padding: $spacing-xl 0 calc(#{$spacing-xl} + 2.5rem);
   }
@@ -1118,7 +1119,7 @@ body:has(.login-modal:not([hidden])) {
     font-size: clamp(28px, 3.5vw, 40px);
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1328,7 +1329,6 @@ body:has(.login-modal:not([hidden])) {
 
 .calc-select.is-open .calc-select__trigger {
   border-color: $color-primary;
-  box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
 }
 
 .calc-select__flag {

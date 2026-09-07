@@ -10,7 +10,7 @@
 
 .registration {
   flex: 1;
-  padding: clamp(40px, 6vh, 72px) 0 100px;
+  padding: 50px 0 100px;
 }
 
 .registration__inner {
@@ -32,7 +32,7 @@
   font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: #3c62c1;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
@@ -360,10 +360,13 @@
 
 @media (max-width: 768px) {
   .registration {
-    padding: 32px 0 60px;
+    padding: 50px 0 60px;
   }
   .registration__inner {
     width: 100%;
+  }
+  .registration__actions {
+    justify-content: center;
   }
   .registration__tabs {
     overflow-x: auto;

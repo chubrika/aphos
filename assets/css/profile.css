@@ -17,7 +17,7 @@
 
 .profile {
   flex: 1;
-  padding: clamp(40px, 6vh, 72px) 0 100px;
+  padding: 50px 0 100px;
 }
 
 .profile__title {
@@ -26,7 +26,7 @@
   font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .profile-section {
@@ -204,7 +204,7 @@
 
 @media (max-width: 768px) {
   .profile {
-    padding: 32px 0 60px;
+    padding: 50px 0 60px;
   }
   .profile__title {
     margin-bottom: 30px;
@@ -217,6 +217,9 @@
   }
   .profile-section__actions .button {
     width: 100%;
+  }
+  .profile-section__actions-inner {
+    justify-content: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {

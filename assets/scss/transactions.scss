@@ -15,7 +15,7 @@
 
 .transactions {
   flex: 1;
-  padding: 48px 0 80px;
+  padding: 50px 0 80px;
 }
 
 .transactions__header {
@@ -32,7 +32,7 @@
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: $color-primary-dark-2;
 }
 
@@ -446,7 +446,7 @@ body:has(.transaction-modal:not([hidden])) {
 
 @include mobile {
   .transactions {
-    padding: 28px 0 48px;
+    padding: 50px 0 48px;
   }
 
   .transactions__header {
