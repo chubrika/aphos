@@ -227,9 +227,19 @@ body:has(.site-header):has(.alert.is-visible) {
     background-color $transition-base,
     color $transition-base;
 
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-primary, 0.08);
+    color: $color-primary;
+  }
+
   &[aria-current="page"] {
     background-color: rgba($color-primary, 0.12);
     color: $color-primary;
+  }
+
+  &::after {
+    display: none;
   }
 }
 

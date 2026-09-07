@@ -314,9 +314,16 @@ body:has(.site-header):has(.alert.is-visible) {
   color: #000;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
+.site-header__subnav a:hover, .site-header__subnav a:focus-visible {
+  background-color: rgba(60, 98, 193, 0.08);
+  color: #3c62c1;
+}
 .site-header__subnav a[aria-current=page] {
   background-color: rgba(60, 98, 193, 0.12);
   color: #3c62c1;
+}
+.site-header__subnav a::after {
+  display: none;
 }
 
 .site-header__subnav-overlay {
