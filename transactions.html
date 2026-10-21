@@ -362,6 +362,31 @@
                         </div>
                     </li>
                 </ul>
+
+                <nav class="pagination" aria-label="გვერდები">
+                    <button class="pagination__control" type="button" data-page-prev aria-label="წინა გვერდი">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"
+                            aria-hidden="true">
+                            <path d="M8 1.5 2 8l6 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ol class="pagination__list">
+                        <li><button class="pagination__page" type="button" data-page="3"><span>1</span></button></li>
+                        <li><button class="pagination__page" type="button" data-page="4"><span> 2</span></button></li>
+                        <li><button class="pagination__page is-active" type="button" data-page="5" aria-current="page"><span>3</span></button></li>
+                        <li><button class="pagination__page" type="button" data-page="6"><span>4</span></button></li>
+                        <li><button class="pagination__page" type="button" data-page="7"><span>5</span></button></li>
+                        <li><button class="pagination__page" type="button" data-page="8"><span>6</span></button></li>
+                    </ol>
+                    <button class="pagination__control" type="button" data-page-next aria-label="შემდეგი გვერდი">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"
+                            aria-hidden="true">
+                            <path d="M2 1.5 8 8l-6 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </nav>
             </div>
         </section>
     </main>

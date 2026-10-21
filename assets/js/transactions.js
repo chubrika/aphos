@@ -189,13 +189,20 @@ function initTransactions() {
     yearTrigger.setAttribute("aria-expanded", "false");
   };
 
-  const revealCards = () => {
+  const revealCards = (direction) => {
+    root.classList.remove("is-revealed", "is-page-next", "is-page-prev");
+
+    if (direction === "next") {
+      root.classList.add("is-page-next");
+    } else if (direction === "prev") {
+      root.classList.add("is-page-prev");
+    }
+
     if (prefersReducedMotion) {
       root.classList.add("is-revealed");
       return;
     }
 
-    root.classList.remove("is-revealed");
     void root.offsetWidth;
     root.classList.add("is-revealed");
   };
@@ -245,6 +252,77 @@ function initTransactions() {
         closeYearMenu();
       }
     });
+  }
+
+  const pagination = root.querySelector(".pagination");
+
+  if (pagination) {
+    const pageButtons = Array.from(pagination.querySelectorAll("[data-page]"));
+    const prevButton = pagination.querySelector("[data-page-prev]");
+    const nextButton = pagination.querySelector("[data-page-next]");
+    const pages = pageButtons.map((button) => Number(button.dataset.page));
+    let currentPage = Number(
+      pageButtons.find((button) => button.classList.contains("is-active"))?.dataset.page || pages[0]
+    );
+
+    const syncControls = () => {
+      const index = pages.indexOf(currentPage);
+
+      if (prevButton) {
+        prevButton.disabled = index <= 0;
+      }
+
+      if (nextButton) {
+        nextButton.disabled = index >= pages.length - 1;
+      }
+    };
+
+    const setPage = (page) => {
+      if (!pages.includes(page) || page === currentPage) {
+        return;
+      }
+
+      const direction = page > currentPage ? "next" : "prev";
+      currentPage = page;
+
+      pageButtons.forEach((button) => {
+        const isActive = Number(button.dataset.page) === page;
+        button.classList.toggle("is-active", isActive);
+
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      syncControls();
+      revealCards(direction);
+    };
+
+    pageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setPage(Number(button.dataset.page));
+      });
+    });
+
+    prevButton?.addEventListener("click", () => {
+      const index = pages.indexOf(currentPage);
+
+      if (index > 0) {
+        setPage(pages[index - 1]);
+      }
+    });
+
+    nextButton?.addEventListener("click", () => {
+      const index = pages.indexOf(currentPage);
+
+      if (index < pages.length - 1) {
+        setPage(pages[index + 1]);
+      }
+    });
+
+    syncControls();
   }
 
   const activeOption = yearOptions.find((option) => option.classList.contains("is-active")) || yearOptions[0];

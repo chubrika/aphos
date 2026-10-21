@@ -152,8 +152,98 @@
   display: block;
 }
 
-.transactions.is-empty .transactions__list {
+.transactions.is-empty .transactions__list,
+.transactions.is-empty .pagination {
   display: none;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-top: 70px;
+  color: $color-primary-dark-2;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__control,
+.pagination__page {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: $font-family-regular;
+  font-size: 16px;
+  line-height: 1;
+  color: inherit;
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+    border-radius: 50%;
+  }
+}
+
+.pagination__control {
+  width: 24px;
+  height: 45px;
+}
+
+.pagination__control:disabled,
+.pagination__control:disabled:hover {
+  opacity: 0.35;
+  color: inherit;
+  cursor: default;
+}
+
+.pagination__page {
+  position: relative;
+  width: 16px;
+  height: 45px;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  span {
+    color: #000;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.65);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.2s ease;
+    pointer-events: none;
+  }
+}
+
+.pagination__page.is-active {
+  width: 45px;
+  color: $color-primary-dark-2;
+
+  &::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes transaction-card-in {
@@ -197,6 +287,42 @@
 
   .transactions.is-revealed &:nth-child(n + 13) {
     animation-delay: 0.84s;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.transactions.is-revealed.is-page-next .transaction-card {
+  animation-name: transaction-page-next;
+}
+
+.transactions.is-revealed.is-page-prev .transaction-card {
+  animation-name: transaction-page-prev;
+}
+
+@keyframes transaction-page-next {
+  from {
+    opacity: 0;
+    transform: translate3d(2.5rem, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes transaction-page-prev {
+  from {
+    opacity: 0;
+    transform: translate3d(-2.5rem, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -433,10 +559,17 @@ body:has(.transaction-modal:not([hidden])) {
     transition: none;
   }
 
-  .transaction-card {
+  .transaction-card,
+  .transactions.is-revealed.is-page-next .transaction-card,
+  .transactions.is-revealed.is-page-prev .transaction-card {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  .pagination__page,
+  .pagination__page::before {
+    transition: none;
   }
 
   .transaction-modal__panel {
