@@ -1,4 +1,78 @@
+const initCatalogNotice = () => {
+  const notice = document.getElementById("catalog-notice");
+
+  if (!notice) {
+    return;
+  }
+
+  const panel = notice.querySelector(".catalog-notice__panel");
+  const closeTriggers = notice.querySelectorAll("[data-catalog-close]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let closeTimer = 0;
+
+  const finishClose = () => {
+    notice.hidden = true;
+    notice.setAttribute("aria-hidden", "true");
+  };
+
+  const closeNotice = () => {
+    if (notice.hidden || !notice.classList.contains("is-open")) {
+      return;
+    }
+
+    notice.classList.remove("is-open");
+    window.clearTimeout(closeTimer);
+
+    if (prefersReducedMotion) {
+      finishClose();
+      return;
+    }
+
+    closeTimer = window.setTimeout(finishClose, 450);
+  };
+
+  const openNotice = () => {
+    window.clearTimeout(closeTimer);
+    notice.hidden = false;
+    notice.setAttribute("aria-hidden", "false");
+    void notice.offsetWidth;
+    notice.classList.add("is-open");
+    panel?.focus();
+  };
+
+  closeTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeNotice();
+    });
+  });
+
+  panel?.addEventListener("transitionend", (event) => {
+    if (event.target !== panel || event.propertyName !== "transform") {
+      return;
+    }
+
+    if (!notice.classList.contains("is-open")) {
+      window.clearTimeout(closeTimer);
+      finishClose();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (notice.hidden || !notice.classList.contains("is-open") || event.key !== "Escape") {
+      return;
+    }
+
+    event.preventDefault();
+    closeNotice();
+  });
+
+  openNotice();
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+  initCatalogNotice();
+
   const selects = Array.from(document.querySelectorAll("[data-calc-select]"));
 
   if (!selects.length) {
