@@ -1,0 +1,207 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "FiraGO-Normal";
+  src: url("../fonts/firago-latin-300-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FiraGO-Regular";
+  src: url("../fonts/firago-latin-400-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FiraGO-Bold";
+  src: url("../fonts/firago-latin-600-normal.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+body {
+  font-family: "FiraGO-Normal";
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.container {
+  width: min(100% - 2rem, 1280px);
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 20px;
+    width: 100% !important;
+    max-width: none;
+  }
+}
+.maintenance-page {
+  min-height: 100vh;
+  background-color: #fff;
+  background-image: radial-gradient(ellipse 52% 78% at 100% 8%, rgba(92, 138, 222, 0.78) 0%, rgba(156, 182, 228, 0.34) 42%, transparent 74%), radial-gradient(ellipse 46% 72% at -4% 58%, rgba(255, 184, 152, 0.72) 0%, rgba(255, 218, 198, 0.3) 44%, transparent 74%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #000;
+}
+
+.maintenance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(56px, 16vh, 170px) 24px clamp(36px, 6vh, 72px);
+  text-align: center;
+}
+
+.maintenance__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maintenance__brand {
+  display: block;
+  width: min(250px, 68vw);
+  aspect-ratio: 680.53/201.5;
+  background-color: #204392;
+  mask-image: url("../images/logo_ge.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  mask-mode: alpha;
+  -webkit-mask-image: url("../images/logo_ge.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+}
+
+.maintenance__logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.maintenance__title {
+  margin: 60px 0 0;
+  font-family: "FiraGO-Normal";
+  font-size: clamp(20px, 2.1vw, 38px);
+  line-height: 1.3;
+  letter-spacing: 1.6px;
+  color: #3c62c1;
+}
+
+.maintenance__lead {
+  margin: 20px 0 0;
+  font-family: "FiraGO-Bold";
+  font-size: 14px;
+  line-height: 1.45;
+  color: #000;
+}
+
+.maintenance__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 210px;
+}
+
+.maintenance__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "FiraGO-Regular";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #3c62c1;
+  transition: color 0.2s ease-in-out;
+}
+.maintenance__link:hover {
+  color: #27479a;
+}
+.maintenance__link svg {
+  flex: 0 0 auto;
+}
+
+.maintenance__copyright {
+  margin: 60px 0 0;
+  font-family: "FiraGO-Regular";
+  font-size: 12px;
+  line-height: 1.4;
+  color: #1b2636;
+}
+
+@media (max-width: 768px) {
+  .maintenance {
+    padding-top: 64px;
+  }
+  .maintenance__title {
+    letter-spacing: 0.04em;
+  }
+  .maintenance__lead {
+    max-width: 18rem;
+  }
+}
+
+/*# sourceMappingURL=maintenance.css.map */
