@@ -70,7 +70,7 @@
   min-height: 48px;
   padding: 8px 14px 8px 12px;
   border-radius: 12px;
-  border: 1px solid #CDD7E3;
+  border: 1px solid #cdd7e3;
 }
 
 .catalog-select--country .calc-select__trigger {
@@ -126,7 +126,7 @@
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0 10px 24px rgba(61, 81, 136, 0.08);
-  border: 1px solid #CDD7E3;
+  border: 1px solid #cdd7e3;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .catalog-brand img {
@@ -179,6 +179,7 @@
   }
   .catalog-section__group {
     margin-top: 32px;
+    font-size: 18px;
   }
   .catalog-brands {
     grid-template-columns: repeat(2, minmax(0, 1fr));

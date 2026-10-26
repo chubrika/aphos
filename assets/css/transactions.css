@@ -608,9 +608,9 @@ body:has(.transaction-modal:not([hidden])) {
     font-size: 24px;
   }
   .transaction-card {
-    gap: 16px;
+    gap: 15px;
     min-height: 0;
-    padding: 16px 18px;
+    padding: 15px;
     border-radius: 18px;
   }
   .transaction-card__title {
@@ -649,6 +649,19 @@ body:has(.transaction-modal:not([hidden])) {
   .transaction-modal__details {
     margin-top: 28px;
   }
+}
+.flex-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.flex-title .circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #dd4949;
 }
 
 /*# sourceMappingURL=transactions.css.map */
