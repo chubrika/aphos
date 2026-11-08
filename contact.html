@@ -82,26 +82,58 @@
   <main>
     <section class="contact-section">
       <div class="container">
-        <h1>Contact Us</h1>
-        <p>
-          This contact page uses its own SCSS and JavaScript entry points while
-          reusing shared layout and component modules.
-        </p>
-        <form class="contact-form">
-          <div class="contact-form__group">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name">
+        <h1 class="contact__title"><span class="title-gradient">კონტაქტი</span></h1>
+
+        <div class="contact__group">
+          <h2 class="contact__label">მისამართი</h2>
+          <div class="contact__addresses">
+            <p>
+              16 ალ. ყაზბეგის გამზ.,<br>
+              თბილისი 0160, საქართველო
+            </p>
+            <p>
+              2 ბუდაპეშტის ქუჩა,<br>
+              თბილისი 0160, საქართველო
+            </p>
           </div>
-          <div class="contact-form__group">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com">
-          </div>
-          <div class="contact-form__group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
-          </div>
-          <button class="button" type="submit">Send message</button>
-        </form>
+        </div>
+
+        <div class="contact__group">
+          <h2 class="contact__label">ტელეფონი</h2>
+          <ul class="contact__list">
+            <li><a href="tel:+995322121413">032 212 14 13</a></li>
+            <li><a href="tel:+995511261413">+995 511 26 14 13</a></li>
+          </ul>
+        </div>
+
+        <div class="contact__group">
+          <h2 class="contact__label">ელ ფოსტა</h2>
+          <a class="contact__email" href="mailto:info@apos.ge">info@apos.ge</a>
+        </div>
+
+        <div class="contact__group">
+          <h2 class="contact__label">სოც. ქსელები</h2>
+          <ul class="contact__social" aria-label="სოციალური ქსელები">
+            <li>
+              <a href="#" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 16.99 22 12z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
