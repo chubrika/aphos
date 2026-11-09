@@ -31,7 +31,9 @@
 
 .addresses__title {
   margin: 0;
-  font-family: $font-family-bold;
+  font-family: $font-family-bold, sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -256,7 +258,9 @@
 
 .address-modal__title {
     margin: 0;
-    font-family: "FiraGO-Bold";
+    font-family: $font-family-bold, sans-serif;
+    -webkit-font-feature-settings: "case" on;
+    font-feature-settings: "case" on;
     font-size: clamp(28px, 4vw, 38px);
     font-weight: 700;
     line-height: 1.15;
@@ -408,10 +412,13 @@ body:has(.address-modal:not([hidden])) {
     font-size: 24px;
   }
 
+  .address-modal__actions{
+    flex-direction: column;
+  }
   .address-modal__submit{
-    width: 50%;
+    width: 100%;
   }
   .address-modal__cancel{
-    width: 50%;
+    width: 100%;
   }
 }

@@ -22,11 +22,13 @@
 
 .flights__title {
   margin: 0 0 28px;
-  font-family: $font-family-bold;
+  font-family: $font-family-bold, sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .flights .tabs__nav {

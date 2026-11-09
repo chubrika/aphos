@@ -44,11 +44,13 @@
 
 .content__title {
   margin: 0 0 $spacing-lg;
-  font-family: $font-family-bold;
+  font-family: $font-family-bold, sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   background-image: linear-gradient(90deg, #4e75d4 0%, #234394 100%);
   background-clip: text;
   -webkit-background-clip: text;

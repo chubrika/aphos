@@ -18,7 +18,9 @@
 
 .warehouses__title {
   margin: 0 0 28px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;

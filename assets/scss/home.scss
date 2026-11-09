@@ -871,7 +871,9 @@ body:has(.login-modal:not([hidden])) {
 
   &__title {
     margin: 0 0 $spacing-md;
-    font-family: $font-family-bold;
+    font-family: $font-family-bold, sans-serif;
+    -webkit-font-feature-settings: "case" on;
+    font-feature-settings: "case" on;
     font-size: clamp(28px, 3.5vw, 38px);
     font-weight: 600;
     line-height: 1.2;
@@ -1115,7 +1117,9 @@ body:has(.login-modal:not([hidden])) {
   &__title {
     margin: 0 0 $spacing-md;
     text-align: center;
-    font-family: $font-family-bold;
+    font-family: $font-family-bold, sans-serif;
+    -webkit-font-feature-settings: "case" on;
+    font-feature-settings: "case" on;
     font-size: clamp(28px, 3.5vw, 40px);
     font-weight: 600;
     line-height: 1.2;

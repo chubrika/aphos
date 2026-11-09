@@ -1951,7 +1951,9 @@ body:has(.account-drawer:not([hidden])) {
 .dashboard-tabs__title {
   margin: 0 0 30px;
   margin: 0 0 30px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -3426,7 +3428,9 @@ body:has(.tabs-picker-modal:not([hidden])) {
 
 .declaration-modal__title {
   margin: 0;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -5115,7 +5119,9 @@ body:has(.login-modal:not([hidden])) {
 }
 .tariffs__title {
   margin: 0 0 20px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 3.5vw, 38px);
   font-weight: 600;
   line-height: 1.2;
@@ -5358,7 +5364,9 @@ body:has(.login-modal:not([hidden])) {
 .calculator__title {
   margin: 0 0 20px;
   text-align: center;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 600;
   line-height: 1.2;

@@ -44,7 +44,9 @@
 
 .catalog-section__title {
   margin: 0 0 40px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -267,7 +269,9 @@
 
 .catalog-notice__title {
   margin-bottom: 40px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: 38px;
   font-weight: 700;
   line-height: 1.2;

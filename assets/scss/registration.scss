@@ -19,7 +19,9 @@
 
 .registration__title {
   margin: 0 0 $spacing-lg;
-  font-family: $font-family-bold;
+  font-family: $font-family-bold, sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.2vw, 38px);
   font-weight: 700;
   line-height: 1.15;

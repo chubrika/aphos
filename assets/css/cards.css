@@ -31,7 +31,9 @@
 
 .cards__title {
   margin: 0;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4.5vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -283,7 +285,9 @@
 
 .card-modal__title {
   margin: 0 0 40px;
-  font-family: "FiraGO-Bold";
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
@@ -408,11 +412,14 @@ body:has(.card-modal:not([hidden])) {
     padding-right: 56px;
     font-size: 24px;
   }
+  .card-modal__actions {
+    flex-direction: column;
+  }
   .card-modal__submit {
-    width: 50%;
+    width: 100%;
   }
   .card-modal__cancel {
-    width: 50%;
+    width: 100%;
   }
 }
 
