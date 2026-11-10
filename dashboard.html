@@ -7,6 +7,7 @@
     <title>Dashboard | My Project</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
 </head>
 
 <body>
@@ -182,8 +183,8 @@
                                 <p class="dashboard-stat__value">34</p>
 
                                 <div class="dashboard-hero__tools">
-                                    <a class="button button--orange button--sm dashboard-stat__action"
-                                        href="#">გადახდა</a>
+                                    <button class="button button--orange button--sm dashboard-stat__action"
+                                        type="button" data-payment-open>გადახდა</button>
                                     <a class="button button--sm button--outline dashboard-hero__tool-button" href="#">
                                         ქულებით გადახდა
                                     </a>
@@ -2711,6 +2712,162 @@
                         <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-modal" id="payment-modal" hidden aria-hidden="true">
+        <div class="card-modal__overlay" data-payment-close></div>
+        <div class="card-modal__panel" role="dialog" aria-modal="true" aria-labelledby="payment-step-invoice-title"
+            tabindex="-1">
+            <div class="container card-modal__inner">
+                <button class="card-modal__close" type="button" aria-label="დახურვა" data-payment-close>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+
+                <div class="payment-step" data-payment-step="invoice">
+                    <h2 class="payment-modal__title" id="payment-step-invoice-title">ტრანსპორტირების ინვოისის გადახდა</h2>
+                    <p class="payment-modal__due">7.31 ₾</p>
+
+                    <div class="payment-modal__field">
+                        <p class="payment-modal__label" id="payment-card-label">დამახსოვრებული ბარათები</p>
+                        <div class="search-select" data-search-select>
+                            <input type="hidden" id="payment-card" name="card" value="visa-3456">
+                            <button class="search-select__trigger input" type="button" aria-expanded="false"
+                                aria-haspopup="listbox" aria-controls="payment-card-list">
+                                <span class="search-select__label" data-search-label data-placeholder="აირჩიეთ ბარათი">
+                                    <span class="payment-card__name">Visa Gold *** **** **** 3456</span><span
+                                        class="payment-card__sep"> / </span><span class="payment-card__tag">პირადი</span>
+                                </span>
+                                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="search-select__menu" hidden aria-hidden="true">
+                                <ul class="search-select__list" id="payment-card-list" role="listbox"
+                                    aria-labelledby="payment-card-label">
+                                    <li role="option" class="search-select__option" data-value="visa-3456" tabindex="-1"
+                                        aria-selected="false">
+                                        <span class="payment-card__name">Visa Gold *** **** **** 3456</span><span
+                                            class="payment-card__sep"> / </span><span
+                                            class="payment-card__tag">პირადი</span>
+                                    </li>
+                                    <li role="option" class="search-select__option" data-value="mastercard-2218"
+                                        tabindex="-1" aria-selected="false">
+                                        <span class="payment-card__name">Mastercard *** **** **** 2218</span><span
+                                            class="payment-card__sep"> / </span><span
+                                            class="payment-card__tag">სამსახური</span>
+                                    </li>
+                                    <li role="option" class="search-select__option" data-value="visa-9044" tabindex="-1"
+                                        aria-selected="false">
+                                        <span class="payment-card__name">Visa *** **** **** 9044</span><span
+                                            class="payment-card__sep"> / </span><span
+                                            class="payment-card__tag">საოჯახო</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="button button--outline payment-modal__add" href="cards.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        ახალი ბარათი
+                    </a>
+
+                    <div class="payment-modal__meta">
+                        <p class="payment-modal__label">თარიღი</p>
+                        <p class="payment-modal__value">2024-12-23 16:09:43</p>
+                    </div>
+
+                    <div class="payment-modal__meta">
+                        <p class="payment-modal__label">ინვოისი</p>
+                        <p class="payment-modal__value">
+                            <a class="payment-modal__invoice" href="#" data-payment-invoice>
+                                10109693
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 3v12" />
+                                    <polyline points="7 11 12 16 17 11" />
+                                    <path d="M5 21h14" />
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="card-modal__actions">
+                        <button class="button button--primary card-modal__submit" type="button"
+                            data-payment-next>შემდეგი</button>
+                        <button class="card-modal__cancel" type="button" data-payment-close>გაუქმება</button>
+                    </div>
+                </div>
+
+                <div class="payment-step" data-payment-step="confirm" hidden>
+                    <h2 class="payment-modal__title" id="payment-step-confirm-title">გადახდის დასტური</h2>
+
+                    <div class="payment-modal__rows">
+                        <div class="payment-modal__row">
+                            <p class="payment-modal__label">თანხა</p>
+                            <p class="payment-modal__value">343 ლარი</p>
+                        </div>
+                        <div class="payment-modal__row">
+                            <p class="payment-modal__label">ბარათი</p>
+                            <p class="payment-modal__value" data-payment-card-summary>
+                                <span class="payment-card__name">Visa Gold *** **** **** 3456</span><span
+                                    class="payment-card__sep"> / </span><span class="payment-card__tag">პირადი</span>
+                            </p>
+                        </div>
+                        <div class="payment-modal__row">
+                            <p class="payment-modal__label">ინვოისი</p>
+                            <p class="payment-modal__value">
+                                <a class="payment-modal__invoice" href="#" data-payment-invoice>
+                                    10109693
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M12 3v12" />
+                                        <polyline points="7 11 12 16 17 11" />
+                                        <path d="M5 21h14" />
+                                    </svg>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="payment-modal__row">
+                            <p class="payment-modal__label">საკომისიო</p>
+                            <p class="payment-modal__note">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-modal__actions">
+                        <button class="button button--primary card-modal__submit" type="button"
+                            data-payment-pay>გადახდა</button>
+                        <button class="card-modal__cancel" type="button" data-payment-back>წინა</button>
+                    </div>
+                </div>
+
+                <div class="payment-step" data-payment-step="success" hidden>
+                    <!-- <h2 class="payment-modal__title payment-modal__title--error" id="payment-step-success-title">დაფიქსირდა შეცდომა</h2> -->
+                    <h2 class="payment-modal__title" id="payment-step-success-title">გმადლობთ</h2>
+                    <p class="payment-modal__success-text">თქვენ გადახდა წარმატებით შესრულდა</p>
+                    <div class="card-modal__actions">
+                        <button class="button button--primary card-modal__submit" type="button"
+                            data-payment-close>დახურვა</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -286,7 +286,11 @@
     bottom: 12px;
     left: 5px;
     width: 7px;
-    background-image: radial-gradient(circle closest-side, #1b2636 100%, transparent 100%);
+    background-image: radial-gradient(
+      circle closest-side,
+      #1b2636 100%,
+      transparent 100%
+    );
     background-size: 2px 10px;
     background-repeat: repeat-y;
     background-position: center top;
@@ -328,10 +332,10 @@
     color: #8a8a8a;
     font-weight: 400;
   }
-  .tracking-modal__status{
+  .tracking-modal__status {
     font-family: $font-family-bold;
   }
-  .tracking-modal__meta{
+  .tracking-modal__meta {
     font-family: $font-family-regular;
   }
 }
@@ -575,7 +579,9 @@
   border-radius: 50%;
   background-color: #f0f6fc;
   color: $color-primary-dark-2;
-  transition: background-color $transition-base, transform $transition-base;
+  transition:
+    background-color $transition-base,
+    transform $transition-base;
 
   &[hidden] {
     display: none;
@@ -626,7 +632,9 @@
   @include font-xs;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity $transition-base, background-color $transition-base;
+  transition:
+    opacity $transition-base,
+    background-color $transition-base;
 
   &[hidden] {
     display: none;
@@ -1049,7 +1057,9 @@
   border-radius: 50%;
   background-color: #f0f6fc;
   color: $color-primary-dark-2;
-  transition: background-color $transition-base, transform $transition-base;
+  transition:
+    background-color $transition-base,
+    transform $transition-base;
 
   svg {
     display: block;
@@ -1092,7 +1102,8 @@
   border-radius: 50%;
   overflow: hidden;
   .img-icon-declaration {
-    filter: invert(23%) sepia(62%) saturate(1480%) hue-rotate(205deg) brightness(90%) contrast(92%);
+    filter: invert(23%) sepia(62%) saturate(1480%) hue-rotate(205deg)
+      brightness(90%) contrast(92%);
   }
 }
 
@@ -1215,7 +1226,7 @@ body:has(.declaration-modal:not([hidden])) {
   .dashboard-hero {
     display: none;
   }
-  .dashboard-hero__bg{
+  .dashboard-hero__bg {
     background-color: transparent;
   }
   .dashboard-hero__inner,
@@ -1251,22 +1262,22 @@ body:has(.declaration-modal:not([hidden])) {
   .dashboard-hero__cta {
     width: 100%;
   }
-  .dashboard-hero__cta{
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   z-index: 20;
-   width: 90%;
-   max-width: 100%;
-   height: 50px;
-   border-radius: 10px;
-   margin: 0 auto;
-   margin-bottom: 10px;
+  .dashboard-hero__cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    width: 90%;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
 
-   &-title{
-    font-size: 14px
-   }
+    &-title {
+      font-size: 14px;
+    }
   }
 
   .dashboard-tabs {
@@ -1345,6 +1356,217 @@ body:has(.declaration-modal:not([hidden])) {
   gap: 10px;
 }
 
-.mb-10{
+.mb-10 {
   margin-bottom: 10px;
+}
+
+#payment-modal {
+  .card-modal__panel {
+
+    &:has(.search-select.is-open) {
+      overflow: visible;
+    }
+  }
+
+  .payment-step {
+    max-width: 520px;
+
+    &[hidden] {
+      display: none;
+    }
+
+    &.is-revealed {
+      animation: payment-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  .payment-modal__title {
+    margin: 0 0 25px;
+    font-family: $font-family-bold, sans-serif;
+    -webkit-font-feature-settings: "case" on;
+    font-feature-settings: "case" on;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #000;
+    &--error{
+      color: #dd4949;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .payment-modal__due {
+    margin: 0 0 40px;
+    font-family: $font-family-bold, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #dd4949;
+  }
+
+  .payment-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 460px;
+  }
+
+  .payment-modal__label {
+    font-family: $font-family-bold, sans-serif;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #000;
+    opacity: 0.5;
+  }
+
+  .payment-modal__value {
+    font-family: $font-family-bold, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000;
+  }
+
+  .payment-modal__add {
+    align-self: flex-start;
+    height: 36px;
+    margin-top: 10px;
+    padding: 0 16px;
+    gap: 6px;
+    font-family: $font-family-bold, sans-serif;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .payment-modal__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 30px;
+  }
+
+  .payment-modal__invoice {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-primary-dark-2;
+    font-family: $font-family-bold, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .card-modal__actions {
+    margin-top: 40px;
+  }
+
+  .payment-modal__rows {
+    max-width: 520px;
+  }
+
+  .payment-modal__row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 0 16px;
+    border-bottom: 1px solid #dae4ee;
+    &:last-child {
+      border-bottom: none;
+      margin-top: 40px;
+    }
+  }
+
+  .payment-modal__note {
+    max-width: 460px;
+    font-family: $font-family-regular, sans-serif;
+    font-size: $font-size-sm;
+    line-height: 1.55;
+    letter-spacing: 0;
+    color: #5d6774;
+  }
+
+  .payment-modal__success-text {
+    margin: 6px 0 8px;
+    font-family: $font-family-regular, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #3a4450;
+  }
+
+  .payment-card__name,
+  .payment-card__sep,
+  .payment-card__tag {
+    font-family: $font-family-bold, sans-serif;
+    font-weight: 700;
+  }
+
+  .payment-card__name,
+  .payment-card__sep {
+    color: #161616;
+  }
+
+  .payment-card__tag {
+    color: $color-primary-dark-2;
+  }
+
+  .search-select__label,
+  .search-select__option {
+    letter-spacing: 0.2px;
+  }
+
+  .search-select__option.is-selected {
+    .payment-card__name,
+    .payment-card__sep {
+      color: $color-primary-dark-2;
+    }
+  }
+}
+
+@keyframes payment-step-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #payment-modal .payment-step.is-revealed {
+    animation: none;
+  }
+}
+
+@include mobile {
+  #payment-modal {
+    .card-modal__panel {
+      min-height: 0;
+    }
+
+    .payment-modal__title {
+      padding-right: 56px;
+      font-size: $font-size-xl;
+    }
+
+    .payment-modal__field,
+    .payment-step {
+      max-width: none;
+    }
+  }
 }

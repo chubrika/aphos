@@ -4343,6 +4343,198 @@ body:has(.declaration-modal:not([hidden])) {
   margin-bottom: 10px;
 }
 
+#payment-modal .card-modal__panel:has(.search-select.is-open) {
+  overflow: visible;
+}
+#payment-modal .payment-step {
+  max-width: 520px;
+}
+#payment-modal .payment-step[hidden] {
+  display: none;
+}
+#payment-modal .payment-step.is-revealed {
+  animation: payment-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#payment-modal .payment-step.is-revealed {
+  animation: payment-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#payment-modal .payment-modal__title {
+  margin: 0 0 25px;
+  font-family: "FiraGO-Bold", sans-serif;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #000;
+}
+#payment-modal .payment-modal__title--error {
+  color: #dd4949;
+}
+#payment-modal p {
+  margin-bottom: 0;
+}
+#payment-modal .payment-modal__due {
+  margin: 0 0 40px;
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #dd4949;
+}
+#payment-modal .payment-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 460px;
+}
+#payment-modal .payment-modal__label {
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #000;
+  opacity: 0.5;
+}
+#payment-modal .payment-modal__value {
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+}
+#payment-modal .payment-modal__add {
+  align-self: flex-start;
+  height: 36px;
+  margin-top: 10px;
+  padding: 0 16px;
+  gap: 6px;
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+#payment-modal .payment-modal__add svg {
+  display: block;
+}
+#payment-modal .payment-modal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 30px;
+}
+#payment-modal .payment-modal__invoice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #27479a;
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+#payment-modal .payment-modal__invoice svg {
+  display: block;
+}
+#payment-modal .card-modal__actions {
+  margin-top: 40px;
+}
+#payment-modal .payment-modal__rows {
+  max-width: 520px;
+}
+#payment-modal .payment-modal__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0 16px;
+  border-bottom: 1px solid #dae4ee;
+}
+#payment-modal .payment-modal__row:last-child {
+  border-bottom: none;
+  margin-top: 40px;
+}
+#payment-modal .payment-modal__note {
+  max-width: 460px;
+  font-family: "FiraGO-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: #5d6774;
+}
+#payment-modal .payment-modal__success-text {
+  margin: 6px 0 8px;
+  font-family: "FiraGO-Regular", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #3a4450;
+}
+#payment-modal .payment-card__name,
+#payment-modal .payment-card__sep,
+#payment-modal .payment-card__tag {
+  font-family: "FiraGO-Bold", sans-serif;
+  font-weight: 700;
+}
+#payment-modal .payment-card__name,
+#payment-modal .payment-card__sep {
+  color: #161616;
+}
+#payment-modal .payment-card__tag {
+  color: #27479a;
+}
+#payment-modal .search-select__label,
+#payment-modal .search-select__option {
+  letter-spacing: 0.2px;
+}
+#payment-modal .search-select__option.is-selected .payment-card__name,
+#payment-modal .search-select__option.is-selected .payment-card__sep {
+  color: #27479a;
+}
+
+@keyframes payment-step-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #payment-modal .payment-step.is-revealed {
+    animation: none;
+  }
+}
+@media (max-width: 768px) {
+  #payment-modal .card-modal__panel {
+    min-height: 0;
+  }
+  #payment-modal .payment-modal__title {
+    padding-right: 56px;
+    font-size: 22px;
+  }
+  #payment-modal .payment-modal__field,
+  #payment-modal .payment-step {
+    max-width: none;
+  }
+}
+
+@keyframes payment-step-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #payment-modal .payment-step.is-revealed {
+    animation: none;
+  }
+}
 .container {
   width: min(100% - 2rem, 1280px);
   margin-inline: auto;

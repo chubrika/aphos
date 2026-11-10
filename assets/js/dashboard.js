@@ -755,6 +755,237 @@ function initTrackingModal() {
   });
 }
 
+function initPaymentModal() {
+  const modal = document.getElementById("payment-modal");
+  if (!modal) {
+    return;
+  }
+
+  const panel = modal.querySelector(".card-modal__panel");
+  const cardSelect = modal.querySelector("[data-search-select]");
+  const cardSummary = modal.querySelector("[data-payment-card-summary]");
+  const steps = {
+    invoice: modal.querySelector('[data-payment-step="invoice"]'),
+    confirm: modal.querySelector('[data-payment-step="confirm"]'),
+    success: modal.querySelector('[data-payment-step="success"]'),
+  };
+  const stepTitles = {
+    invoice: "payment-step-invoice-title",
+    confirm: "payment-step-confirm-title",
+    success: "payment-step-success-title",
+  };
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lastTrigger = null;
+  let closeTimer = 0;
+
+  const selectedCardOption = () => {
+    const hidden = cardSelect?.querySelector('input[type="hidden"]');
+    return (
+      cardSelect?.querySelector(".search-select__option.is-selected") ||
+      (hidden?.value
+        ? cardSelect?.querySelector(
+            `.search-select__option[data-value="${CSS.escape(hidden.value)}"]`
+          )
+        : null) ||
+      null
+    );
+  };
+
+  const cardMarkup = (option) => Array.from(option?.children || [], (node) => node.cloneNode(true));
+
+  const paintCardLabel = () => {
+    const labelEl = cardSelect?.querySelector("[data-search-label]");
+    const option = selectedCardOption();
+    if (!labelEl || !option) {
+      return;
+    }
+
+    labelEl.replaceChildren(...cardMarkup(option));
+  };
+
+  const revealStep = (step) => {
+    if (!step || prefersReducedMotion) {
+      return;
+    }
+
+    step.classList.remove("is-revealed");
+    void step.offsetWidth;
+    step.classList.add("is-revealed");
+  };
+
+  const showStep = (name, { animate = false } = {}) => {
+    Object.entries(steps).forEach(([key, step]) => {
+      if (step) {
+        step.hidden = key !== name;
+        if (key !== name) {
+          step.classList.remove("is-revealed");
+        }
+      }
+    });
+    panel?.setAttribute("aria-labelledby", stepTitles[name]);
+
+    if (name === "confirm" && cardSummary) {
+      const option = selectedCardOption();
+      if (option) {
+        cardSummary.replaceChildren(...cardMarkup(option));
+      }
+    }
+
+    if (panel) {
+      panel.scrollTop = 0;
+    }
+
+    if (animate) {
+      revealStep(steps[name]);
+    }
+  };
+
+  const getFocusable = () => {
+    return Array.from(
+      panel.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((element) => !element.closest("[hidden]") && element.getClientRects().length);
+  };
+
+  const focusStep = (name) => {
+    const step = steps[name];
+    const target = step?.querySelector(".card-modal__submit, .search-select__trigger");
+    window.requestAnimationFrame(() => {
+      (target || panel)?.focus();
+    });
+  };
+
+  const finishClose = () => {
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden", "true");
+    showStep("invoice");
+
+    if (lastTrigger && lastTrigger.isConnected && typeof lastTrigger.focus === "function") {
+      lastTrigger.focus();
+    }
+  };
+
+  const closeModal = () => {
+    if (modal.hidden || !modal.classList.contains("is-open")) {
+      return;
+    }
+
+    modal.classList.remove("is-open");
+    window.clearTimeout(closeTimer);
+
+    if (prefersReducedMotion) {
+      finishClose();
+      return;
+    }
+
+    closeTimer = window.setTimeout(finishClose, 520);
+  };
+
+  const openModal = (trigger) => {
+    lastTrigger = trigger || null;
+    window.clearTimeout(closeTimer);
+    showStep("invoice");
+    paintCardLabel();
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+    void modal.offsetWidth;
+    modal.classList.add("is-open");
+    revealStep(steps.invoice);
+    focusStep("invoice");
+  };
+
+  paintCardLabel();
+  cardSelect?.querySelector('input[type="hidden"]')?.addEventListener("change", paintCardLabel);
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-payment-open]");
+    if (!trigger) {
+      return;
+    }
+
+    event.preventDefault();
+    openModal(trigger);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-payment-invoice]")) {
+      event.preventDefault();
+      return;
+    }
+
+    if (event.target.closest("[data-payment-close]")) {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.target.closest("[data-payment-next]")) {
+      event.preventDefault();
+      if (!selectedCardOption()) {
+        cardSelect?.querySelector(".search-select__trigger")?.focus();
+        return;
+      }
+
+      showStep("confirm", { animate: true });
+      focusStep("confirm");
+      return;
+    }
+
+    if (event.target.closest("[data-payment-back]")) {
+      event.preventDefault();
+      showStep("invoice", { animate: true });
+      focusStep("invoice");
+      return;
+    }
+
+    if (event.target.closest("[data-payment-pay]")) {
+      event.preventDefault();
+      showStep("success", { animate: true });
+      focusStep("success");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden || !modal.classList.contains("is-open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      if (cardSelect?.classList.contains("is-open")) {
+        return;
+      }
+
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusable = getFocusable();
+    if (!focusable.length) {
+      event.preventDefault();
+      panel?.focus();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && (active === first || !panel.contains(active))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (active === last || !panel.contains(active))) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     initDashboardTabs();
@@ -766,6 +997,7 @@ if (document.readyState === "loading") {
     initDeclarationViewModal();
     initTrackingModal();
     initDeleteModal();
+    initPaymentModal();
   });
 } else {
   initDashboardTabs();
@@ -777,4 +1009,5 @@ if (document.readyState === "loading") {
   initDeclarationViewModal();
   initTrackingModal();
   initDeleteModal();
+  initPaymentModal();
 }
