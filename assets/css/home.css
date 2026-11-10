@@ -3241,7 +3241,6 @@ body:has(.tabs-picker-modal:not([hidden])) {
   z-index: 1;
   width: 100%;
   max-height: min(92vh, 860px);
-  overflow: auto;
   padding: 60px 0 60px;
   background-color: #ffffff;
   background-image: radial-gradient(ellipse 52% 122% at 102% 69%, rgba(60, 98, 193, 0.831372549) 0%, rgba(255, 255, 255, 0) 57%);
@@ -4355,9 +4354,6 @@ body:has(.declaration-modal:not([hidden])) {
 #payment-modal .payment-step.is-revealed {
   animation: payment-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-#payment-modal .payment-step.is-revealed {
-  animation: payment-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
 #payment-modal .payment-modal__title {
   margin: 0 0 25px;
   font-family: "FiraGO-Bold", sans-serif;
@@ -4516,23 +4512,6 @@ body:has(.declaration-modal:not([hidden])) {
   #payment-modal .payment-modal__field,
   #payment-modal .payment-step {
     max-width: none;
-  }
-}
-
-@keyframes payment-step-in {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 10px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #payment-modal .payment-step.is-revealed {
-    animation: none;
   }
 }
 .container {
