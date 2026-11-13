@@ -2776,7 +2776,8 @@
                         </div>
                     </div>
 
-                    <a class="button button--outline payment-modal__add" href="cards.html">
+                    <button class="button button--outline payment-modal__add" type="button"
+                        data-payment-save-toggle aria-expanded="false" aria-controls="payment-save-card">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                             aria-hidden="true">
@@ -2784,7 +2785,19 @@
                             <line x1="5" y1="12" x2="19" y2="12" />
                         </svg>
                         ახალი ბარათი
-                    </a>
+                    </button>
+
+                    <div class="payment-modal__save" id="payment-save-card" data-payment-save hidden>
+                        <div class="payment-modal__save-inner">
+                            <p class="payment-modal__label">ბარათის დამახსოვრება</p>
+                            <div class="payment-modal__save-actions">
+                                <a class="button button--outline payment-modal__choice" href="https://apos.ge/"
+                                    target="_blank" rel="noopener noreferrer">დიახ</a>
+                                <a class="button button--outline payment-modal__choice" href="https://apos.ge/"
+                                    target="_blank" rel="noopener noreferrer">არა</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="payment-modal__meta">
                         <p class="payment-modal__label">თარიღი</p>

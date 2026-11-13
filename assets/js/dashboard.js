@@ -764,6 +764,8 @@ function initPaymentModal() {
   const panel = modal.querySelector(".card-modal__panel");
   const cardSelect = modal.querySelector("[data-search-select]");
   const cardSummary = modal.querySelector("[data-payment-card-summary]");
+  const saveChoice = modal.querySelector("[data-payment-save]");
+  const saveToggle = modal.querySelector("[data-payment-save-toggle]");
   const steps = {
     invoice: modal.querySelector('[data-payment-step="invoice"]'),
     confirm: modal.querySelector('[data-payment-step="confirm"]'),
@@ -811,6 +813,34 @@ function initPaymentModal() {
     step.classList.remove("is-revealed");
     void step.offsetWidth;
     step.classList.add("is-revealed");
+  };
+
+  const hideSaveChoice = () => {
+    if (!saveChoice) {
+      return;
+    }
+
+    saveChoice.hidden = true;
+    saveChoice.classList.remove("is-open");
+    saveToggle?.setAttribute("aria-expanded", "false");
+  };
+
+  const showSaveChoice = () => {
+    if (!saveChoice || !saveChoice.hidden) {
+      return;
+    }
+
+    saveChoice.hidden = false;
+    saveToggle?.setAttribute("aria-expanded", "true");
+
+    if (prefersReducedMotion) {
+      saveChoice.classList.add("is-open");
+      return;
+    }
+
+    saveChoice.classList.remove("is-open");
+    void saveChoice.offsetWidth;
+    saveChoice.classList.add("is-open");
   };
 
   const showStep = (name, { animate = false } = {}) => {
@@ -885,6 +915,7 @@ function initPaymentModal() {
   const openModal = (trigger) => {
     lastTrigger = trigger || null;
     window.clearTimeout(closeTimer);
+    hideSaveChoice();
     showStep("invoice");
     paintCardLabel();
     modal.hidden = false;
@@ -909,6 +940,12 @@ function initPaymentModal() {
   });
 
   modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-payment-save-toggle]")) {
+      event.preventDefault();
+      showSaveChoice();
+      return;
+    }
+
     if (event.target.closest("[data-payment-invoice]")) {
       event.preventDefault();
       return;

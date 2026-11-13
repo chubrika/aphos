@@ -4414,6 +4414,46 @@ body:has(.declaration-modal:not([hidden])) {
 #payment-modal .payment-modal__add svg {
   display: block;
 }
+#payment-modal .payment-modal__save {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: grid-template-rows 0.38s cubic-bezier(0.22, 1, 0.36, 1), margin-top 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+}
+#payment-modal .payment-modal__save[hidden] {
+  display: none;
+}
+#payment-modal .payment-modal__save.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 22px;
+  opacity: 1;
+  pointer-events: auto;
+}
+#payment-modal .payment-modal__save-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+#payment-modal .payment-modal__save-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#payment-modal .payment-modal__choice {
+  height: 36px;
+  min-width: 68px;
+  padding: 0 16px;
+  font-family: "FiraGO-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+}
 #payment-modal .payment-modal__meta {
   display: flex;
   flex-direction: column;
@@ -4499,6 +4539,9 @@ body:has(.declaration-modal:not([hidden])) {
 @media (prefers-reduced-motion: reduce) {
   #payment-modal .payment-step.is-revealed {
     animation: none;
+  }
+  #payment-modal .payment-modal__save {
+    transition: none;
   }
 }
 @media (max-width: 768px) {
