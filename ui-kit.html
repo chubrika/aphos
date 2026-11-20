@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit | Aphos</title>
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/addresses.css">
+  <link rel="stylesheet" href="assets/css/registration.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/transactions.css">
+  <link rel="stylesheet" href="assets/css/notifications.css">
+  <style>
+    /* Showcase wrapper only — does not restyle project components */
+    .ui-kit {
+      padding: 32px 0 80px;
+    }
+
+    .ui-kit__intro {
+      margin-bottom: 40px;
+    }
+
+    .ui-kit__intro h1 {
+      margin: 0 0 8px;
+      font-family: "FiraGO-Bold", sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      color: #3c62c1;
+    }
+
+    .ui-kit__intro p {
+      margin: 0;
+      max-width: 52rem;
+      font-family: "FiraGO-Regular", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1b2636;
+    }
+
+    .ui-kit__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ui-kit__nav a {
+      font-family: "FiraGO-Bold", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #27479a;
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid #cdd7e3;
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .ui-kit__nav a:hover,
+    .ui-kit__nav a:focus-visible {
+      border-color: #3c62c1;
+    }
+
+    .ui-kit__section {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid #cdd7e3;
+    }
+
+    .ui-kit__section-title {
+      margin: 0 0 8px;
+      font-family: "FiraGO-Bold", sans-serif;
+      font-size: 22px;
+      color: #1b2636;
+    }
+
+    .ui-kit__section-note {
+      margin: 0 0 24px;
+      font-family: "FiraGO-Regular", sans-serif;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .ui-kit__example {
+      margin: 0 0 28px;
+    }
+
+    .ui-kit__label {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #eef2f7;
+      color: #5b6577;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.2px;
+    }
+
+    .ui-kit__row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ui-kit__row--stack {
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 420px;
+    }
+
+    .ui-kit__swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .ui-kit__swatch {
+      overflow: hidden;
+      border: 1px solid #cdd7e3;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .ui-kit__swatch-color {
+      height: 64px;
+    }
+
+    .ui-kit__swatch-meta {
+      padding: 10px 12px;
+      font-family: "FiraGO-Regular", sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .ui-kit__swatch-meta strong {
+      display: block;
+      font-family: "FiraGO-Bold", sans-serif;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .ui-kit__grid-2 {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .ui-kit__grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .ui-kit__demo-panel {
+      padding: 16px;
+      border: 1px dashed #cdd7e3;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .ui-kit__disabled-note {
+      opacity: 0.65;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="main-content">
+  <div class="alert" role="status" aria-live="polite" hidden>
+    <svg class="alert__icon alert__icon--success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="8.5 12.2 11 14.8 15.5 9.5" />
+    </svg>
+    <svg class="alert__icon alert__icon--error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <line x1="12" y1="8" x2="12" y2="12.5" />
+      <circle cx="12" cy="16" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+    <p class="alert__message"></p>
+    <button class="alert__close" type="button" aria-label="დახურვა" data-alert-close>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <main class="ui-kit">
+    <div class="container">
+      <div class="ui-kit__intro">
+        <h1>Aphos UI Kit</h1>
+        <p>
+          Standalone showcase of recurring UI elements from the project pages.
+          Components use the same compiled CSS/JS as production HTML. Design tokens
+          are SCSS variables compiled into CSS (not exposed as <code>:root</code> custom properties).
+        </p>
+        <ul class="ui-kit__nav">
+          <li><a href="#colors">Colors</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#buttons">Buttons &amp; Links</a></li>
+          <li><a href="#forms">Form Elements</a></li>
+          <li><a href="#tabs">Tabs &amp; Navigation</a></li>
+          <li><a href="#cards">Cards</a></li>
+          <li><a href="#badges">Badges / Tags</a></li>
+          <li><a href="#modals">Modals / Overlays</a></li>
+          <li><a href="#lists">Lists &amp; Layout</a></li>
+        </ul>
+      </div>
+
+      <!-- ========== Colors ========== -->
+      <section class="ui-kit__section" id="colors">
+        <h2 class="ui-kit__section-title">Colors &amp; CSS Variables</h2>
+        <p class="ui-kit__section-note">
+          From <code>assets/scss/abstracts/_variables.scss</code>. Runtime CSS custom properties used by tabs:
+          <code>--tabs-bg</code>, <code>--tabs-tab-bg</code>, <code>--tabs-tab-hover-bg</code>,
+          <code>--tabs-tab-active-bg</code>.
+        </p>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">$color-*</span>
+          <div class="ui-kit__swatches">
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#3c62c1"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-primary</strong>#3c62c1</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#1d4ed8"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-primary-dark</strong>#1d4ed8</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#27479a"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-primary-dark-2</strong>#27479a</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#f16e27"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-orange</strong>#f16e27</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#2bb3a0"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-success</strong>#2bb3a0</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#e75656"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-error</strong>#e75656</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#1b2636"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-footer</strong>#1B2636</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#000"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-text</strong>#000</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#cdd7e3"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-border</strong>#CDD7E3</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#f5f7fa;border-bottom:1px solid #cdd7e3"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-background</strong>#f5f7fa</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#fff;border-bottom:1px solid #cdd7e3"></div>
+              <div class="ui-kit__swatch-meta"><strong>$color-surface</strong>#ffffff</div>
+            </div>
+            <div class="ui-kit__swatch">
+              <div class="ui-kit__swatch-color" style="background:#f0f6fc;border-bottom:1px solid #cdd7e3"></div>
+              <div class="ui-kit__swatch-meta"><strong>tabs filled bg</strong>#f0f6fc</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Typography ========== -->
+      <section class="ui-kit__section" id="typography">
+        <h2 class="ui-kit__section-title">Typography &amp; Titles</h2>
+        <p class="ui-kit__section-note">FiraGO Normal / Regular / Bold. Titles are component-scoped rather than generic utilities.</p>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.title-gradient</span>
+          <h1 class="cards__title" id="ui-kit-page-title">
+            <span class="title-gradient">გვერდის სათაური</span>
+          </h1>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-tabs__title / .dashboard-tabs__title-text</span>
+          <h1 class="dashboard-tabs__title">
+            <span class="dashboard-tabs__title-text">აქტიური გზავნილები</span>
+          </h1>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-tabs__title-text--sm .mt-20</span>
+          <h2 class="dashboard-tabs__title-text--sm mt-20">წინასწარი დეკლარირება</h2>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.registration__title-text</span>
+          <h1 class="registration__title">
+            <span class="registration__title-text">რეგისტრაცია</span>
+          </h1>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">h1 / h2 / h3 / p (base typography)</span>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <p>Body text uses FiraGO-Normal. Secondary copy often sits inside component classes such as
+            <code>.dashboard-shipment__tracking</code> or <code>.faq-item__answer</code>.</p>
+        </div>
+      </section>
+
+      <!-- ========== Buttons & Links ========== -->
+      <section class="ui-kit__section" id="buttons">
+        <h2 class="ui-kit__section-title">Buttons &amp; Links</h2>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.button .button--sm .button--primary | .button--outline</span>
+          <div class="ui-kit__row">
+            <a class="button button--sm button--primary" href="#">რეგისტრაცია</a>
+            <button class="button button--sm button--outline" type="button" data-login-open aria-haspopup="dialog"
+              aria-controls="login-modal">შესვლა</button>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.button .button--orange .button--sm</span>
+          <div class="ui-kit__row">
+            <button class="button button--orange button--sm" type="button">გადახდა</button>
+            <a class="button button--sm button--outline" href="#">ქულებით გადახდა</a>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.button .button--md .button--primary | .button--orange | .button--outline</span>
+          <div class="ui-kit__row ui-kit__row--stack">
+            <button class="button button--md button--primary" type="button">შეცვლა</button>
+            <button class="button button--md button--orange" type="button">შესვლა</button>
+            <a class="button button--md button--outline" href="#">რეგისტრაცია</a>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.button .button--primary (default / modal size)</span>
+          <div class="ui-kit__row">
+            <button class="button button--primary" type="button">დეკლარირება</button>
+            <button class="button button--primary" type="button" disabled>Disabled</button>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-shipment__declare | .dashboard-shipment__clearance | .dashboard-shipment__declare--alert</span>
+          <div class="ui-kit__row">
+            <button class="dashboard-shipment__declare" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+              დეკლარირება
+            </button>
+            <button class="dashboard-shipment__clearance" type="button">განბაჟება</button>
+            <button class="dashboard-shipment__declare--alert" type="button">განბაჟება</button>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-consignment__link | .disabled | .dashboard-consignment__link-sep</span>
+          <nav class="dashboard-consignment__links" aria-label="ამანათის სერვისები" style="justify-content:flex-start;padding-right:0">
+            <button class="dashboard-consignment__link" type="button">გადამისამართება</button>
+            <span class="dashboard-consignment__link-sep" aria-hidden="true">|</span>
+            <button class="dashboard-consignment__link disabled" type="button">საკურიერო სერვისი</button>
+          </nav>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.login-card__recover | .login-modal__recover | .login-modal__cancel</span>
+          <div class="ui-kit__row">
+            <a class="login-card__recover" href="reset-password.html">პაროლის აღდგენა</a>
+            <a class="login-modal__recover" href="reset-password.html">პაროლის აღდგენა</a>
+            <button class="login-modal__cancel" type="button">გაუქმება</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Form Elements ========== -->
+      <section class="ui-kit__section" id="forms">
+        <h2 class="ui-kit__section-title">Form Elements</h2>
+
+        <div class="ui-kit__grid-2">
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.floating-field .input .floating-field__control</span>
+            <div class="floating-field">
+              <input class="input floating-field__control" id="kit-email" name="email" type="email" placeholder=" "
+                autocomplete="email">
+              <label class="floating-field__label" for="kit-email">ელ. ფოსტა</label>
+            </div>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.floating-field .input-group--password .input-group__toggle</span>
+            <div class="floating-field input-group input-group--password">
+              <input class="input floating-field__control" id="kit-password" name="password" type="password"
+                placeholder=" " autocomplete="current-password">
+              <label class="floating-field__label" for="kit-password">პაროლი</label>
+              <button class="input-group__toggle" type="button" data-password-toggle aria-label="პაროლის ჩვენება"
+                aria-pressed="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.input (placeholder)</span>
+            <input class="input" type="text" placeholder="ბარათის ნომერი">
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.input.is-invalid | :disabled</span>
+            <div class="ui-kit__row ui-kit__row--stack">
+              <input class="input is-invalid" type="text" value="invalid value" aria-invalid="true">
+              <input class="input" type="text" value="Disabled field" disabled>
+            </div>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.input.input--select .floating-field</span>
+            <div class="floating-field">
+              <select class="input floating-field__control input--select" id="kit-month" name="birth_month">
+                <option value="" disabled selected hidden></option>
+                <option value="1">იანვარი</option>
+                <option value="2">თებერვალი</option>
+                <option value="3">მარტი</option>
+              </select>
+              <label class="floating-field__label" for="kit-month">თვე*</label>
+            </div>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.floating-field--textarea</span>
+            <div class="floating-field floating-field--textarea">
+              <textarea class="input floating-field__control" id="kit-notes" name="notes" placeholder=" "></textarea>
+              <label class="floating-field__label" for="kit-notes">შენიშვნა</label>
+            </div>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.input.address-modal__textarea</span>
+            <textarea class="input address-modal__textarea" rows="3"
+              placeholder="მისამართი (გთხოვთ ჩაწეროთ სრულად...)"></textarea>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.checkbox .checkbox__input .checkbox__control .checkbox__label</span>
+            <label class="checkbox">
+              <input class="checkbox__input" type="checkbox" name="remember" checked>
+              <span class="checkbox__control" aria-hidden="true"></span>
+              <span class="checkbox__label">Keep Logged In</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.search-select [data-search-select]</span>
+          <div class="search-select" data-search-select style="max-width:420px">
+            <input type="hidden" id="kit-city" name="city" value="">
+            <button class="search-select__trigger input" type="button" aria-expanded="false" aria-haspopup="listbox"
+              aria-controls="kit-city-list">
+              <span class="search-select__label" data-search-label data-placeholder="ქალაქი">ქალაქი</span>
+              <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="search-select__menu" hidden aria-hidden="true">
+              <input class="search-select__search input" type="search" placeholder="ძებნა..." autocomplete="off"
+                aria-label="ქალაქის ძებნა">
+              <ul class="search-select__list" id="kit-city-list" role="listbox">
+                <li role="option" class="search-select__option" data-value="tbilisi" tabindex="-1" aria-selected="false">თბილისი</li>
+                <li role="option" class="search-select__option" data-value="batumi" tabindex="-1" aria-selected="false">ბათუმი</li>
+                <li role="option" class="search-select__option" data-value="kutaisi" tabindex="-1" aria-selected="false">ქუთაისი</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== Tabs (full-bleed like production) ========== -->
+    <section class="ui-kit__section" id="tabs">
+      <div class="container">
+        <h2 class="ui-kit__section-title">Tabs &amp; Navigation</h2>
+        <p class="ui-kit__section-note">Powered by <code>assets/js/modules/tabs.js</code>. Mobile view injects
+          <code>.tabs-picker</code> / <code>.tabs-picker-modal</code>.</p>
+      </div>
+
+      <div class="ui-kit__example">
+        <div class="container">
+          <span class="ui-kit__label">.dashboard-tabs .dashboard-tabs__tab.is-active .dashboard-tabs__badge</span>
+        </div>
+        <section class="dashboard-tabs" aria-labelledby="kit-dashboard-tabs-title">
+          <div class="container">
+            <h1 class="dashboard-tabs__title" id="kit-dashboard-tabs-title">
+              <span class="dashboard-tabs__title-text">აქტიური გზავნილები</span>
+            </h1>
+          </div>
+          <div class="dashboard-tabs__header">
+            <div class="separator-top"></div>
+            <div class="container">
+              <div class="dashboard-tabs__nav" role="tablist" aria-label="აქტიური გზავნილები">
+                <button class="dashboard-tabs__tab is-active" type="button" role="tab" id="kit-tab-service-center"
+                  aria-selected="true" aria-controls="kit-panel-service-center" data-tab="service-center">
+                  <span class="dashboard-tabs__label">სერვის ცენტრში</span>
+                  <span class="dashboard-tabs__badge">4</span>
+                </button>
+                <button class="dashboard-tabs__tab" type="button" role="tab" id="kit-tab-customs" aria-selected="false"
+                  aria-controls="kit-panel-customs" data-tab="customs" tabindex="-1">
+                  <span class="dashboard-tabs__label">საბაჟო პროცედურები</span>
+                  <span class="dashboard-tabs__badge">34</span>
+                </button>
+                <button class="dashboard-tabs__tab" type="button" role="tab" id="kit-tab-sent" aria-selected="false"
+                  aria-controls="kit-panel-sent" data-tab="sent" tabindex="-1">
+                  <span class="dashboard-tabs__label">გამოგზავნილი</span>
+                  <span class="dashboard-tabs__badge">12</span>
+                </button>
+              </div>
+            </div>
+            <div class="separator-bottom"></div>
+          </div>
+          <div class="container">
+            <div class="dashboard-tabs__panels">
+              <div class="dashboard-tabs__panel is-active is-revealed" role="tabpanel" id="kit-panel-service-center"
+                aria-labelledby="kit-tab-service-center">
+                <p>Panel: სერვის ცენტრში</p>
+              </div>
+              <div class="dashboard-tabs__panel" role="tabpanel" id="kit-panel-customs"
+                aria-labelledby="kit-tab-customs" hidden>
+                <p>Panel: საბაჟო პროცედურები</p>
+              </div>
+              <div class="dashboard-tabs__panel" role="tabpanel" id="kit-panel-sent" aria-labelledby="kit-tab-sent"
+                hidden>
+                <p>Panel: გამოგზავნილი</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="ui-kit__example">
+        <div class="container">
+          <span class="ui-kit__label">.tabs .tabs__tab .tabs__flag .tabs__label</span>
+        </div>
+        <section class="warehouses tabs" aria-labelledby="kit-country-tabs-title">
+          <div class="container">
+            <h1 class="visually-hidden" id="kit-country-tabs-title">Country tabs</h1>
+          </div>
+          <div class="tabs__header">
+            <div class="separator-top"></div>
+            <div class="container">
+              <div class="tabs__nav" role="tablist" aria-label="საწყობები">
+                <button class="tabs__tab is-active" type="button" role="tab" id="kit-tab-usa" aria-selected="true"
+                  aria-controls="kit-panel-usa" data-tab="usa">
+                  <span class="tabs__flag" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
+                      <circle cx="16" cy="16" r="16" fill="#3C3B6E" />
+                      <path fill="#B22234" d="M0 8h32v2.3H0zm0 4.6h32v2.3H0zm0 4.6h32v2.3H0zm0 4.6h32V24H0z" />
+                      <path fill="#fff" d="M0 10.3h32v2.3H0zm0 4.6h32v2.3H0zm0 4.6h32v2.3H0z" />
+                      <rect width="14" height="11.5" fill="#3C3B6E" />
+                    </svg>
+                  </span>
+                  <span class="tabs__label">აშშ</span>
+                </button>
+                <button class="tabs__tab" type="button" role="tab" id="kit-tab-italy" aria-selected="false"
+                  aria-controls="kit-panel-italy" data-tab="italy" tabindex="-1">
+                  <span class="tabs__flag" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
+                      <circle cx="16" cy="16" r="16" fill="#fff" />
+                      <path fill="#009246" d="M0 0h10.67v32H0z" />
+                      <path fill="#CE2B37" d="M21.33 0H32v32H21.33z" />
+                    </svg>
+                  </span>
+                  <span class="tabs__label">იტალია</span>
+                </button>
+                <button class="tabs__tab" type="button" role="tab" id="kit-tab-china" aria-selected="false"
+                  aria-controls="kit-panel-china" data-tab="china" tabindex="-1">
+                  <span class="tabs__flag" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
+                      <circle cx="16" cy="16" r="16" fill="#DE2910" />
+                      <polygon fill="#FFDE00"
+                        points="8,6 9.2,9.6 13,9.6 10,11.8 11.1,15.4 8,13.2 4.9,15.4 6,11.8 3,9.6 6.8,9.6" />
+                    </svg>
+                  </span>
+                  <span class="tabs__label">ჩინეთი</span>
+                </button>
+              </div>
+            </div>
+            <div class="separator-bottom"></div>
+          </div>
+          <div class="container">
+            <div class="tabs__panels">
+              <div class="tabs__panel is-active is-revealed" role="tabpanel" id="kit-panel-usa"
+                aria-labelledby="kit-tab-usa">
+                <p>Panel: აშშ საწყობი</p>
+              </div>
+              <div class="tabs__panel" role="tabpanel" id="kit-panel-italy" aria-labelledby="kit-tab-italy" hidden>
+                <p>Panel: იტალია საწყობი</p>
+              </div>
+              <div class="tabs__panel" role="tabpanel" id="kit-panel-china" aria-labelledby="kit-tab-china" hidden>
+                <p>Panel: ჩინეთი საწყობი</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container">
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.registration__tabs .registration__tab.is-active</span>
+          <section class="registration" aria-labelledby="kit-registration-title">
+            <h1 class="visually-hidden" id="kit-registration-title">Registration tabs</h1>
+            <div class="registration__header">
+              <div class="separator-top"></div>
+              <div class="container">
+                <div class="registration__tabs" role="tablist" aria-label="რეგისტრაციის ტიპი">
+                  <button class="registration__tab is-active" id="kit-tab-individual" type="button" role="tab"
+                    aria-selected="true" aria-controls="kit-panel-individual">
+                    <span class="registration__tab-label">ფიზიკური პირებისთვის</span>
+                  </button>
+                  <button class="registration__tab" id="kit-tab-legal" type="button" role="tab" aria-selected="false"
+                    aria-controls="kit-panel-legal" tabindex="-1">
+                    <span class="registration__tab-label">იურიდიული პირებისთვის</span>
+                  </button>
+                </div>
+              </div>
+              <div class="separator-bottom"></div>
+            </div>
+            <div class="container">
+              <div class="registration__panel is-active is-revealed" id="kit-panel-individual" role="tabpanel"
+                aria-labelledby="kit-tab-individual">
+                <p>Panel: ფიზიკური პირი</p>
+              </div>
+              <div class="registration__panel" id="kit-panel-legal" role="tabpanel" aria-labelledby="kit-tab-legal"
+                hidden>
+                <p>Panel: იურიდიული პირი</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- ========== Cards ========== -->
+      <section class="ui-kit__section" id="cards">
+        <h2 class="ui-kit__section-title">Cards</h2>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-stat | .dashboard-stat--warning</span>
+          <section class="dashboard-hero">
+            <div class="dashboard-hero__summary" aria-label="Dashboard summary">
+              <div class="dashboard-hero__stats">
+                <article class="dashboard-stat">
+                  <p class="dashboard-stat__label">ბალანსი</p>
+                  <div class="dashboard-stat__row">
+                    <p class="dashboard-stat__value">107</p>
+                    <a class="button button--primary button--sm dashboard-stat__action" href="#">შევსება</a>
+                  </div>
+                </article>
+                <article class="dashboard-stat">
+                  <p class="dashboard-stat__label">ქულა</p>
+                  <div class="dashboard-stat__row">
+                    <p class="dashboard-stat__value">3800</p>
+                  </div>
+                </article>
+                <article class="dashboard-stat dashboard-stat--warning">
+                  <p class="dashboard-stat__label">დავალიანება</p>
+                  <div class="dashboard-stat__row">
+                    <p class="dashboard-stat__value">34</p>
+                    <button class="button button--orange button--sm dashboard-stat__action" type="button">გადახდა</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-consignment (default shipment card)</span>
+          <ul class="dashboard-consignments">
+            <li class="dashboard-consignment">
+              <table class="dashboard-consignment__table">
+                <caption class="visually-hidden">ამანათი TBAACY504175791</caption>
+                <colgroup>
+                  <col class="dashboard-consignment__col dashboard-consignment__col--item">
+                  <col class="dashboard-consignment__col dashboard-consignment__col--meta">
+                  <col class="dashboard-consignment__col dashboard-consignment__col--actions">
+                </colgroup>
+                <thead class="visually-hidden">
+                  <tr>
+                    <th scope="col">ამანათი</th>
+                    <th scope="col">წონა და ტარიფი</th>
+                    <th scope="col">მოქმედება</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="dashboard-shipment">
+                    <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                      <div class="dashboard-shipment__product">
+                        <div class="dashboard-shipment__merchant" aria-hidden="true">
+                          <span class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                        </div>
+                        <div class="dashboard-shipment__info">
+                          <p class="dashboard-shipment__tracking">TBAACY504175791</p>
+                          <p class="dashboard-shipment__price">112.00 $</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="dashboard-shipment__cell dashboard-shipment__cell--meta"></td>
+                    <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                      <div class="dashboard-shipment__actions">
+                        <button class="dashboard-shipment__declare" type="button">დეკლარირება</button>
+                        <button class="dashboard-shipment__delete" type="button" aria-label="წაშლა">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <polyline points="3 6 5 6 21 6" />
+                            <path
+                              d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-consignment--alert | --success | --transit + .dashboard-consignment__status</span>
+          <ul class="dashboard-consignments">
+            <li class="dashboard-consignment dashboard-consignment--alert">
+              <p class="dashboard-consignment__status">საბაჟოს მიერ გაჩერების / განბაჟებულის შემთხვევაში</p>
+              <div class="dashboard-consignment__body">
+                <div class="dashboard-consignment__head">
+                  <div class="dashboard-consignment__origin">
+                    <span class="dashboard-consignment__flag" aria-hidden="true">
+                      <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                    </span>
+                    <div class="dashboard-consignment__refs">
+                      <p class="dashboard-consignment__id">H0102462</p>
+                      <p class="dashboard-consignment__eta">(Estimated date 21/01/20)</p>
+                    </div>
+                  </div>
+                </div>
+                <table class="dashboard-consignment__table">
+                  <tbody>
+                    <tr class="dashboard-shipment">
+                      <td class="dashboard-shipment__cell dashboard-shipment__cell--item">
+                        <div class="dashboard-shipment__product">
+                          <div class="dashboard-shipment__merchant" aria-hidden="true">
+                            <span class="dashboard-shipment__logo dashboard-shipment__logo--amazon">a</span>
+                          </div>
+                          <div class="dashboard-shipment__info">
+                            <p class="dashboard-shipment__tracking">TBAACY504175789</p>
+                            <p class="dashboard-shipment__price">58.99 $</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="dashboard-shipment__cell dashboard-shipment__cell--meta">
+                        <p class="dashboard-shipment__weight">0.7 კგ</p>
+                        <p class="dashboard-shipment__fee">17 ლარი</p>
+                      </td>
+                      <td class="dashboard-shipment__cell dashboard-shipment__cell--actions">
+                        <div class="dashboard-shipment__actions">
+                          <button class="dashboard-shipment__clearance" type="button">განბაჟება</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li class="dashboard-consignment dashboard-consignment--success">
+              <p class="dashboard-consignment__status">გზავნილი წარმატებით განბაჟდა. შეგიძლიათ განაგრძოთ დეკლარირება.</p>
+              <div class="dashboard-consignment__body">
+                <div class="dashboard-consignment__head">
+                  <div class="dashboard-consignment__origin">
+                    <span class="dashboard-consignment__flag" aria-hidden="true">
+                      <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                    </span>
+                    <div class="dashboard-consignment__refs">
+                      <p class="dashboard-consignment__id">H0102463</p>
+                      <p class="dashboard-consignment__eta">(Estimated date 22/01/20)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dashboard-consignment dashboard-consignment--transit">
+              <p class="dashboard-consignment__status">გზავნილი საბაჟო პროცედურაშია. სავარაუდო დასრულება 2–3 დღე.</p>
+              <div class="dashboard-consignment__body">
+                <div class="dashboard-consignment__head">
+                  <div class="dashboard-consignment__origin">
+                    <span class="dashboard-consignment__flag" aria-hidden="true">
+                      <img src="assets/images/flag_en.svg" alt="" width="28" height="28">
+                    </span>
+                    <div class="dashboard-consignment__refs">
+                      <p class="dashboard-consignment__id">H0102464</p>
+                      <p class="dashboard-consignment__eta">(Estimated date 25/01/20)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ui-kit__grid-2">
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.cards .bank-card .cards__add</span>
+            <section class="cards" aria-labelledby="kit-cards-title">
+              <h1 class="visually-hidden" id="kit-cards-title">ბარათები</h1>
+              <ul class="cards__list">
+                <li class="bank-card" data-holder="სახელი" data-fullname="" data-number="" data-last="3456"
+                  data-brand="Visa Gold" data-expiry="" data-ccv="">
+                  <div class="bank-card__info">
+                    <p class="bank-card__title">Visa Gold *** **** **** 3456</p>
+                    <p class="bank-card__label">სახელი</p>
+                  </div>
+                  <div class="bank-card__actions">
+                    <button class="bank-card__action" type="button" data-card-edit aria-label="რედაქტირება">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                      </svg>
+                    </button>
+                    <button class="bank-card__action" type="button" data-card-delete aria-label="წაშლა">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                        <path d="M10 11v6" />
+                        <path d="M14 11v6" />
+                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <div class="cards__footer">
+                <button class="button button--primary cards__add" type="button" data-card-add>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  ახალი ბარათი
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <div class="ui-kit__example">
+            <span class="ui-kit__label">.addresses .address-card .addresses__add</span>
+            <section class="addresses" aria-labelledby="kit-addresses-title">
+              <h1 class="visually-hidden" id="kit-addresses-title">მისამართები</h1>
+              <ul class="addresses__list">
+                <li class="address-card" data-name="სახლი" data-city="tbilisi" data-center="freedom"
+                  data-address="16 ალ. ყაზბეგის გამზ., თბილისი 0160, საქართველო">
+                  <div class="address-card__info">
+                    <p class="address-card__title">16 ალ. ყაზბეგის გამზ.,<br>თბილისი 0160, საქართველო</p>
+                    <p class="address-card__label">სახლი</p>
+                  </div>
+                  <div class="address-card__actions">
+                    <button class="address-card__action" type="button" data-address-edit aria-label="რედაქტირება">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                      </svg>
+                    </button>
+                    <button class="address-card__action" type="button" data-address-delete aria-label="წაშლა">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                        <path d="M10 11v6" />
+                        <path d="M14 11v6" />
+                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <div class="addresses__footer">
+                <button class="button button--primary addresses__add" type="button" data-address-add>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  ახალი მისამართი
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.transaction-card .circle .flex-title</span>
+          <ul class="transactions__list">
+            <li class="transaction-card" data-year="2026" data-invoice="10109693">
+              <div class="transaction-card__info">
+                <p class="transaction-card__title flex-title">
+                  <span class="circle"></span><span>ტრანსპორტირების გადახდა</span>
+                </p>
+                <p class="transaction-card__date">2026-07-24 10:07:57</p>
+              </div>
+              <div class="transaction-card__aside">
+                <button class="transaction-card__view" type="button" aria-label="დეტალების ნახვა">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-hero__cta</span>
+          <a class="dashboard-hero__cta" href="#" style="max-width:420px">
+            <div class="dashboard-hero__cta-copy">
+              <span class="dashboard-hero__cta-title">წინასწარი დეკლარირება</span>
+            </div>
+            <span class="dashboard-hero__cta-icon" aria-hidden="true">+</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========== Badges ========== -->
+      <section class="ui-kit__section" id="badges">
+        <h2 class="ui-kit__section-title">Badges / Tags</h2>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-tabs__badge / .tabs__badge</span>
+          <div class="ui-kit__row">
+            <span class="dashboard-tabs__badge">4</span>
+            <span class="dashboard-tabs__badge">34</span>
+            <span class="tabs__badge">12</span>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.payment-card__tag .payment-card__sep (from payment modal markup)</span>
+          <div class="ui-kit__demo-panel">
+            <div class="ui-kit__row">
+              <span>Visa Gold *** 3456<span class="payment-card__sep"> / </span><span class="payment-card__tag">პირადი</span></span>
+              <span class="payment-card__tag">სამსახური</span>
+              <span class="payment-card__tag">საოჯახო</span>
+            </div>
+            <p class="ui-kit__section-note" style="margin:10px 0 0">Tag color rules are scoped to <code>#payment-modal</code> in production CSS.</p>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.dashboard-consignment--alert / --success / --transit</span>
+          <p class="ui-kit__section-note" style="margin:0">Full status-card variants are shown in the Cards section above.</p>
+        </div>
+      </section>
+
+      <!-- ========== Modals ========== -->
+      <section class="ui-kit__section" id="modals">
+        <h2 class="ui-kit__section-title">Modals / Overlays</h2>
+        <p class="ui-kit__section-note">Triggers use the same data attributes as production pages.</p>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.alert .alert--success | .alert--error + showAlert()</span>
+          <div class="ui-kit__row">
+            <button class="button button--sm button--primary" type="button"
+              onclick="window.showAlert &amp;&amp; window.showAlert('success', 'ოპერაცია წარმატებით შესრულდა')">
+              Show success alert
+            </button>
+            <button class="button button--sm button--outline" type="button"
+              onclick="window.showAlert &amp;&amp; window.showAlert('error', 'დაფიქსირდა შეცდომა')">
+              Show error alert
+            </button>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.login-modal [data-login-open]</span>
+          <button class="button button--sm button--outline" type="button" data-login-open aria-haspopup="dialog"
+            aria-controls="login-modal">Open login modal</button>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.card-modal [data-card-add]</span>
+          <button class="button button--sm button--primary" type="button"
+            onclick="document.querySelector('[data-card-add]')?.click()">Open card modal</button>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.address-modal [data-address-add]</span>
+          <button class="button button--sm button--primary" type="button"
+            onclick="document.querySelector('[data-address-add]')?.click()">Open address modal</button>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.declaration-modal .dashboard-shipment__declare / .dashboard-hero__cta</span>
+          <div class="ui-kit__row">
+            <button class="dashboard-shipment__declare" type="button">Open declaration modal</button>
+            <a class="dashboard-hero__cta" href="#" style="max-width:280px">
+              <div class="dashboard-hero__cta-copy">
+                <span class="dashboard-hero__cta-title">წინასწარი დეკლარირება</span>
+              </div>
+              <span class="dashboard-hero__cta-icon" aria-hidden="true">+</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Lists & Layout ========== -->
+      <section class="ui-kit__section" id="lists">
+        <h2 class="ui-kit__section-title">Lists, Accordion &amp; Layout Containers</h2>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.container | .container-fluid</span>
+          <div class="ui-kit__demo-panel">
+            <p style="margin:0"><code>.container</code> — max ~1280px · <code>.container-fluid</code> — max ~1920px (header/footer)</p>
+          </div>
+        </div>
+
+        <div class="ui-kit__example">
+          <span class="ui-kit__label">.faq .faq-item .faq-item__trigger (accordion)</span>
+          <section class="faq" aria-labelledby="kit-faq-title">
+            <div class="faq__header">
+              <h1 class="faq__title" id="kit-faq-title">FAQ</h1>
+              <button class="faq__toggle-all" type="button" data-faq-toggle-all aria-expanded="false">
+                <span class="faq__toggle-all-label">ყველას გახსნა</span>
+              </button>
+            </div>
+            <div class="faq__list">
+              <article class="faq-item">
+                <h2 class="faq-item__heading">
+                  <button class="faq-item__trigger" type="button" id="kit-faq-trigger-01" aria-expanded="false"
+                    aria-controls="kit-faq-panel-01">
+                    <span class="faq-item__number">01/</span>
+                    <span class="faq-item__question">რა არის აფოსი?</span>
+                    <span class="faq-item__icon" aria-hidden="true"></span>
+                  </button>
+                </h2>
+                <div class="faq-item__panel" id="kit-faq-panel-01" role="region" aria-labelledby="kit-faq-trigger-01">
+                  <div class="faq-item__panel-inner">
+                    <p class="faq-item__answer">
+                      აფოსი არის ამანათების ექსპრეს მიწოდების სერვისი, რომელიც საშუალებას გაძლევთ შეუკვეთოთ
+                      პროდუქცია საზღვარგარეთიდან და მიიღოთ საქართველოში.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="faq-item">
+                <h2 class="faq-item__heading">
+                  <button class="faq-item__trigger" type="button" id="kit-faq-trigger-02" aria-expanded="false"
+                    aria-controls="kit-faq-panel-02">
+                    <span class="faq-item__number">02/</span>
+                    <span class="faq-item__question">როგორ მუშაობს სერვისი?</span>
+                    <span class="faq-item__icon" aria-hidden="true"></span>
+                  </button>
+                </h2>
+                <div class="faq-item__panel" id="kit-faq-panel-02" role="region" aria-labelledby="kit-faq-trigger-02">
+                  <div class="faq-item__panel-inner">
+                    <p class="faq-item__answer">
+                      რეგისტრაციის შემდეგ იღებთ პირად მისამართს საწყობებში, აკონტროლებთ ამანათების სტატუსს
+                      და ირჩევთ მიღების სასურველ წესს.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="faq-item">
+                <h2 class="faq-item__heading">
+                  <button class="faq-item__trigger" type="button" id="kit-faq-trigger-03" aria-expanded="false"
+                    aria-controls="kit-faq-panel-03">
+                    <span class="faq-item__number">03/</span>
+                    <span class="faq-item__question">როგორ დავადეკლარირო ამანათი?</span>
+                    <span class="faq-item__icon" aria-hidden="true"></span>
+                  </button>
+                </h2>
+                <div class="faq-item__panel" id="kit-faq-panel-03" role="region" aria-labelledby="kit-faq-trigger-03">
+                  <div class="faq-item__panel-inner">
+                    <p class="faq-item__answer">
+                      დეკლარირება შესაძლებელია დეშბორდიდან ღილაკით „დეკლარირება“ ან წინასწარი დეკლარირების CTA-დან.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Login modal (index.html markup) -->
+  <div class="login-modal" id="login-modal" hidden aria-hidden="true">
+    <div class="login-modal__overlay" data-login-close></div>
+    <div class="login-modal__panel" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" tabindex="-1">
+      <div class="container login-modal__inner">
+        <button class="login-modal__close" type="button" aria-label="დახურვა" data-login-close>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <div class="login-modal__grid">
+          <form class="login-modal__form" id="login-modal-form" action="#" method="get">
+            <h2 class="login-modal__title" id="login-modal-title">ავტორიზაცია</h2>
+            <div class="login-modal__fields">
+              <div class="floating-field">
+                <input class="input floating-field__control" id="login-modal-email" name="email" type="email"
+                  placeholder=" " autocomplete="email" required>
+                <label class="floating-field__label" for="login-modal-email">ელ. ფოსტა</label>
+              </div>
+              <div class="floating-field input-group input-group--password">
+                <input class="input floating-field__control" id="login-modal-password" name="password" type="password"
+                  placeholder=" " autocomplete="current-password" required>
+                <label class="floating-field__label" for="login-modal-password">პაროლი</label>
+                <button class="input-group__toggle" type="button" data-password-toggle aria-label="პაროლის ჩვენება"
+                  aria-pressed="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="login-modal__meta">
+              <label class="checkbox">
+                <input class="checkbox__input" type="checkbox" name="remember" checked>
+                <span class="checkbox__control" aria-hidden="true"></span>
+                <span class="checkbox__label">Keep Logged In</span>
+              </label>
+              <a class="login-modal__recover" href="reset-password.html">პაროლის აღდგენა</a>
+            </div>
+            <div class="login-modal__actions">
+              <button class="button button--primary login-modal__submit" type="submit">შესვლა</button>
+              <button class="login-modal__cancel" type="button" data-login-close>გაუქმება</button>
+            </div>
+          </form>
+          <div class="login-modal__promo">
+            <p class="login-modal__promo-text">მარტივად მართეთ თქვენი ამანათები, სტატუსები, მიიღეთ ფასდაკლებები</p>
+            <a class="button button--md button--outline login-modal__register" href="registration.html">რეგისტრაცია</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card modal (cards.html) -->
+  <div class="card-modal" id="card-modal" hidden aria-hidden="true">
+    <div class="card-modal__overlay" data-card-close></div>
+    <div class="card-modal__panel" role="dialog" aria-modal="true" aria-labelledby="card-modal-title" tabindex="-1">
+      <div class="container card-modal__inner">
+        <button class="card-modal__close" type="button" aria-label="დახურვა" data-card-close>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 class="card-modal__title" id="card-modal-title" data-card-modal-title>ბარათის დამატება</h2>
+        <form class="card-modal__form" id="card-form" autocomplete="off">
+          <div>
+            <label class="visually-hidden" for="card-holder">შაბლონის სახელი</label>
+            <input class="input" id="card-holder" name="holder" type="text" placeholder="შაბლონის სახელი"
+              autocomplete="cc-name">
+          </div>
+          <div>
+            <label class="visually-hidden" for="card-fullname">სახელი გვარი</label>
+            <input class="input" id="card-fullname" name="fullname" type="text" placeholder="სახელი გვარი"
+              autocomplete="name">
+          </div>
+          <div>
+            <label class="visually-hidden" for="card-number">ბარათის ნომერი</label>
+            <input class="input" id="card-number" name="number" type="text" inputmode="numeric"
+              placeholder="ბარათის ნომერი" autocomplete="cc-number">
+          </div>
+          <div class="card-modal__split">
+            <div>
+              <label class="visually-hidden" for="card-expiry">valid to</label>
+              <input class="input" id="card-expiry" name="expiry" type="text" inputmode="numeric" placeholder="valid to"
+                autocomplete="cc-exp" maxlength="7">
+            </div>
+            <div>
+              <label class="visually-hidden" for="card-ccv">CCV</label>
+              <input class="input" id="card-ccv" name="ccv" type="text" inputmode="numeric" placeholder="CCV"
+                autocomplete="cc-csc" maxlength="4">
+            </div>
+          </div>
+          <div class="card-modal__actions">
+            <button class="button button--primary card-modal__submit" type="submit" data-card-submit>დამატება</button>
+            <button class="card-modal__cancel" type="button" data-card-close>გაუქმება</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Address modal (addresses.html) -->
+  <div class="address-modal" id="address-modal" hidden aria-hidden="true">
+    <div class="address-modal__overlay" data-address-close></div>
+    <div class="address-modal__panel" role="dialog" aria-modal="true" aria-labelledby="address-modal-title"
+      tabindex="-1">
+      <div class="container address-modal__inner">
+        <button class="address-modal__close" type="button" aria-label="დახურვა" data-address-close>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 class="address-modal__title" id="address-modal-title" data-address-modal-title>
+          <span>მისამართის დამატება</span>
+        </h2>
+        <form class="address-modal__form" id="address-form" autocomplete="off">
+          <div>
+            <label class="visually-hidden" for="address-name">შაბლონის სახელი</label>
+            <input class="input" id="address-name" name="name" type="text" placeholder="შაბლონის სახელი"
+              autocomplete="organization" required>
+          </div>
+          <div class="address-modal__field">
+            <label class="visually-hidden" for="address-city">ქალაქი</label>
+            <div class="search-select" data-search-select>
+              <input type="hidden" id="address-city" name="city" value="" required>
+              <button class="search-select__trigger input" type="button" aria-expanded="false" aria-haspopup="listbox"
+                aria-controls="address-city-list">
+                <span class="search-select__label" data-search-label data-placeholder="ქალაქი">ქალაქი</span>
+                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="search-select__menu" hidden aria-hidden="true">
+                <input class="search-select__search input" type="search" placeholder="ძებნა..." autocomplete="off"
+                  aria-label="ქალაქის ძებნა">
+                <ul class="search-select__list" id="address-city-list" role="listbox">
+                  <li role="option" class="search-select__option" data-value="tbilisi" tabindex="-1"
+                    aria-selected="false">თბილისი</li>
+                  <li role="option" class="search-select__option" data-value="batumi" tabindex="-1"
+                    aria-selected="false">ბათუმი</li>
+                  <li role="option" class="search-select__option" data-value="kutaisi" tabindex="-1"
+                    aria-selected="false">ქუთაისი</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="address-modal__field">
+            <label class="visually-hidden" for="address-center">სერვის ცენტრი</label>
+            <div class="search-select" data-search-select>
+              <input type="hidden" id="address-center" name="center" value="" required>
+              <button class="search-select__trigger input" type="button" aria-expanded="false" aria-haspopup="listbox"
+                aria-controls="address-center-list">
+                <span class="search-select__label" data-search-label data-placeholder="სერვის ცენტრი">სერვის ცენტრი</span>
+                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="search-select__menu" hidden aria-hidden="true">
+                <input class="search-select__search input" type="search" placeholder="ძებნა..." autocomplete="off"
+                  aria-label="სერვის ცენტრის ძებნა">
+                <ul class="search-select__list" id="address-center-list" role="listbox">
+                  <li role="option" class="search-select__option" data-value="freedom" tabindex="-1"
+                    aria-selected="false">თავისუფლების მოედანი 2</li>
+                  <li role="option" class="search-select__option" data-value="vake" tabindex="-1" aria-selected="false">
+                    ვაკე, ჭავჭავაძის 37</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="visually-hidden" for="address-line">მისამართი</label>
+            <textarea class="input address-modal__textarea" id="address-line" name="address" rows="4"
+              placeholder="მისამართი (გთხოვთ ჩაწეროთ სრულად: სოფელი, ქუჩის დასახელება, ბინის № და ა.შ.)"
+              autocomplete="street-address" required></textarea>
+          </div>
+          <div class="address-modal__actions">
+            <button class="button button--primary address-modal__submit" type="submit" data-address-submit>დამატება</button>
+            <button class="address-modal__cancel" type="button" data-address-close>გაუქმება</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Declaration modal (dashboard.html structure, simplified content) -->
+  <div class="declaration-modal" id="declaration-modal" hidden aria-hidden="true">
+    <div class="declaration-modal__overlay" data-modal-close></div>
+    <div class="declaration-modal__panel" role="dialog" aria-modal="true" aria-labelledby="declaration-modal-title"
+      aria-describedby="declaration-modal-subtitle" tabindex="-1">
+      <div class="container declaration-modal__inner">
+        <header class="declaration-modal__header">
+          <div class="declaration-modal__heading">
+            <h2 class="declaration-modal__title" id="declaration-modal-title">დეკლარირება</h2>
+            <p class="declaration-modal__subtitle" id="declaration-modal-subtitle">გთხოვთ შეავსოთ ყველა სავალდებულო ველი</p>
+          </div>
+          <button class="declaration-modal__close" type="button" aria-label="დახურვა" data-modal-close>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </header>
+        <form class="declaration-modal__form" id="declaration-form" novalidate>
+          <div class="declaration-modal__grid">
+            <div class="declaration-modal__fields">
+              <div class="floating-field">
+                <input class="input floating-field__control" id="declaration-tracking" name="tracking" type="text"
+                  placeholder=" ">
+                <label class="floating-field__label" for="declaration-tracking">თრექინგი</label>
+              </div>
+              <label class="visually-hidden" for="declaration-shop">მაღაზიის სახელი</label>
+              <div class="search-select" data-search-select>
+                <input type="hidden" id="declaration-shop" name="shop" value="">
+                <button class="search-select__trigger input" type="button" aria-expanded="false" aria-haspopup="listbox"
+                  aria-controls="declaration-shop-list">
+                  <span class="search-select__label" data-search-label data-placeholder="Shop name*">Shop name*</span>
+                  <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="search-select__menu" hidden aria-hidden="true">
+                  <input class="search-select__search input" type="search" placeholder="ძებნა..." autocomplete="off"
+                    aria-label="მაღაზიის ძებნა">
+                  <ul class="search-select__list" id="declaration-shop-list" role="listbox">
+                    <li role="option" class="search-select__option" data-value="amazon" tabindex="-1"
+                      aria-selected="false">Amazon</li>
+                    <li role="option" class="search-select__option" data-value="ebay" tabindex="-1"
+                      aria-selected="false">eBay</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="declaration-products">
+                <p class="declaration-products__title" id="declaration-products-title">პროდუქტები</p>
+                <div class="declaration-products__list" data-declaration-products
+                  aria-labelledby="declaration-products-title"></div>
+                <button class="declaration-products__add" type="button" data-declaration-add-product hidden>
+                  ახლის დამატება
+                </button>
+              </div>
+            </div>
+            <div class="declaration-modal__uploads">
+              <div class="declaration-modal__upload">
+                <h3 class="declaration-modal__upload-title">ინვოისი</h3>
+                <p class="declaration-modal__upload-hint">Each file must not exceed 2 MB. Only PDF</p>
+                <label class="declaration-modal__attach">
+                  <input class="visually-hidden" type="file" name="invoice" accept=".pdf,application/pdf">
+                  <span>ფაილის მიბმა</span>
+                </label>
+                <p class="declaration-modal__file-name" data-file-name hidden></p>
+              </div>
+            </div>
+          </div>
+          <div class="declaration-modal__actions">
+            <button class="button button--primary declaration-modal__submit" type="submit">დეკლარირება</button>
+            <button class="declaration-modal__cancel" type="button" data-modal-close>გაუქმება</button>
+          </div>
+        </form>
+        <template id="declaration-product-template">
+          <div class="declaration-product" data-declaration-product>
+            <label class="visually-hidden" data-product-label>პროდუქტი</label>
+            <div class="declaration-product__select search-select" data-search-select>
+              <input type="hidden" data-product-category value="" required>
+              <button class="search-select__trigger input" type="button" aria-expanded="false" aria-haspopup="listbox">
+                <span class="search-select__label" data-search-label data-placeholder="პროდუქტი">პროდუქტი</span>
+                <svg class="search-select__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="search-select__menu" hidden aria-hidden="true">
+                <input class="search-select__search input" type="search" placeholder="ძებნა..." autocomplete="off">
+                <ul class="search-select__list" role="listbox" data-product-category-list>
+                  <li role="option" class="search-select__option" data-value="electronics" tabindex="-1"
+                    aria-selected="false">Electronics</li>
+                </ul>
+              </div>
+            </div>
+            <div class="floating-field">
+              <input class="input floating-field__control" data-product-price type="text" placeholder=" ">
+              <label class="floating-field__label" data-product-price-label>ფასი</label>
+            </div>
+            <select class="input input--select" data-product-currency>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+            <button type="button" data-product-add>დამატება</button>
+            <button type="button" data-product-edit hidden>რედაქტირება</button>
+            <button type="button" data-product-delete hidden>წაშლა</button>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/modules/floating-field.js"></script>
+  <script src="assets/js/modules/tabs.js"></script>
+  <script src="assets/js/modules/search-select.js"></script>
+  <script src="assets/js/modules/alert.js"></script>
+  <script src="assets/js/modules/header.js"></script>
+  <script src="assets/js/modules/footer.js"></script>
+  <script src="assets/js/home.js"></script>
+  <script src="assets/js/cards.js"></script>
+  <script src="assets/js/addresses.js"></script>
+  <script src="assets/js/faq.js"></script>
+  <script src="assets/js/warehouses.js"></script>
+  <script src="assets/js/registration.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

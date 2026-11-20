@@ -194,6 +194,157 @@ function initHeaderMenu() {
       closeLanguageMenus();
     }
   });
+
+  initDesktopNavOverflow(header);
+}
+
+function initDesktopNavOverflow(header) {
+  const nav = header?.querySelector(".site-header__nav") || document.querySelector(".site-header__nav");
+  const menu = nav?.querySelector(".site-header__menu--desktop");
+  const moreItem = menu?.querySelector(":scope > .site-header__more-menu");
+  const dropdown = moreItem?.querySelector(".site-header__more-dropdown");
+  const inner = nav?.closest(".site-header__inner");
+
+  if (!menu || !moreItem || !dropdown || !inner) {
+    header?.classList.add("is-nav-ready");
+    return;
+  }
+
+  const primaryItems = Array.from(menu.children).filter((item) => item !== moreItem);
+  const staticHead = dropdown.firstElementChild;
+  const desktopQuery = window.matchMedia("(min-width: 769px)");
+
+  if (!primaryItems.length) {
+    header?.classList.add("is-nav-ready");
+    return;
+  }
+
+  const isVisibleBox = (element) => {
+    if (!element) {
+      return false;
+    }
+
+    const display = getComputedStyle(element).display;
+    return display !== "none" && display !== "contents";
+  };
+
+  const availableWidth = () => {
+    const style = getComputedStyle(inner);
+    const gap = Number.parseFloat(style.columnGap) || 0;
+    const paddingLeft = Number.parseFloat(style.paddingLeft) || 0;
+    const paddingRight = Number.parseFloat(style.paddingRight) || 0;
+    let available = inner.clientWidth - paddingLeft - paddingRight;
+
+    const takeSpace = (element, includeMarginLeft) => {
+      if (!isVisibleBox(element)) {
+        return;
+      }
+
+      const computed = getComputedStyle(element);
+      available -= element.getBoundingClientRect().width;
+      available -= gap;
+
+      if (includeMarginLeft) {
+        available -= Number.parseFloat(computed.marginLeft) || 0;
+      }
+
+      available -= Number.parseFloat(computed.marginRight) || 0;
+    };
+
+    takeSpace(inner.querySelector(".site-header__brand"), true);
+    takeSpace(inner.querySelector(".site-header__toggle"), true);
+    takeSpace(inner.querySelector(".site-header__auth"), false);
+
+    return available;
+  };
+
+  const measureItems = () => {
+    primaryItems.forEach((item) => {
+      menu.insertBefore(item, moreItem);
+      item.classList.add("is-measuring");
+    });
+
+    const widths = primaryItems.map((item) => item.getBoundingClientRect().width);
+    const moreWidth = moreItem.getBoundingClientRect().width;
+    const menuGap = Number.parseFloat(getComputedStyle(menu).columnGap) || 0;
+    const available = availableWidth();
+
+    primaryItems.forEach((item) => item.classList.remove("is-measuring"));
+
+    return { widths, moreWidth, menuGap, available };
+  };
+
+  const placeItems = (visibleCount) => {
+    primaryItems.forEach((item, index) => {
+      item.classList.remove("is-measuring");
+
+      if (index < visibleCount) {
+        item.classList.remove("is-overflow");
+        menu.insertBefore(item, moreItem);
+        return;
+      }
+
+      item.classList.add("is-overflow");
+      dropdown.insertBefore(item, staticHead);
+    });
+  };
+
+  const update = () => {
+    const desktopMenuVisible = desktopQuery.matches && getComputedStyle(menu).display !== "none";
+
+    if (!desktopMenuVisible) {
+      placeItems(primaryItems.length);
+      header?.classList.add("is-nav-ready");
+      return;
+    }
+
+    const { widths, moreWidth, menuGap, available } = measureItems();
+    let visibleCount = widths.length;
+
+    while (visibleCount > 0) {
+      let needed = moreWidth;
+
+      for (let index = 0; index < visibleCount; index += 1) {
+        needed += widths[index] + menuGap;
+      }
+
+      if (needed <= available + 0.5) {
+        break;
+      }
+
+      visibleCount -= 1;
+    }
+
+    placeItems(visibleCount);
+    header?.classList.add("is-nav-ready");
+  };
+
+  let frame = 0;
+  const schedule = () => {
+    window.cancelAnimationFrame(frame);
+    frame = window.requestAnimationFrame(update);
+  };
+
+  schedule();
+  window.addEventListener("resize", schedule);
+  desktopQuery.addEventListener("change", schedule);
+  document.fonts?.ready?.then(schedule);
+
+  if (typeof ResizeObserver !== "undefined") {
+    const observer = new ResizeObserver(schedule);
+    observer.observe(inner);
+
+    const brand = inner.querySelector(".site-header__brand");
+    const auth = inner.querySelector(".site-header__auth");
+
+    if (brand) {
+      observer.observe(brand);
+    }
+
+    if (auth) {
+      observer.observe(auth);
+    }
+  }
 }
 
 function initAccountDrawer() {
