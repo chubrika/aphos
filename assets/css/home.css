@@ -698,7 +698,7 @@ body:not(:has(.site-header.is-nav-ready)) {
   color: #3c62c1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   body:has(.site-header) {
     padding-top: 70px;
   }
@@ -1161,20 +1161,30 @@ body:has(.site-header--subnav-open) {
   padding: 0;
   list-style: none;
 }
-.account-drawer__menu a {
+.account-drawer__menu a,
+.account-drawer__menu button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
   font-family: "FiraGO-Bold";
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 700;
   color: #27479a;
+  text-align: left;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
 }
-.account-drawer__menu a:hover, .account-drawer__menu a:focus-visible {
+.account-drawer__menu a:hover, .account-drawer__menu a:focus-visible,
+.account-drawer__menu button:hover,
+.account-drawer__menu button:focus-visible {
   opacity: 0.72;
 }
-.account-drawer__menu a:focus-visible {
+.account-drawer__menu a:focus-visible,
+.account-drawer__menu button:focus-visible {
   outline: 2px solid #3c62c1;
   outline-offset: 4px;
   border-radius: 4px;
@@ -3079,6 +3089,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -3093,7 +3104,6 @@ body:has(.tabs-picker-modal:not([hidden])) {
 .dashboard-hero__stats {
   display: flex;
   align-items: stretch;
-  flex-wrap: wrap;
   gap: 0;
   border-radius: 25px;
   background-color: #fff;
@@ -3285,6 +3295,10 @@ body:has(.tabs-picker-modal:not([hidden])) {
   transform: translate3d(0, 0, 0);
 }
 
+.declaration-modal--front {
+  z-index: 1300;
+}
+
 .pickup-modal__fields,
 .courier-modal__fields {
   max-width: 360px;
@@ -3347,7 +3361,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   position: absolute;
   top: 3px;
   bottom: 12px;
-  left: 5px;
+  left: 10px;
   width: 7px;
   background-image: radial-gradient(circle closest-side, #1b2636 100%, transparent 100%);
   background-size: 2px 10px;
@@ -3377,6 +3391,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   background-color: #ffffff;
   box-sizing: border-box;
   box-shadow: 0 0 0 6px #ffffff;
+  left: 5px;
 }
 
 .tracking-modal__step--past .tracking-modal__dot {
@@ -3416,6 +3431,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   border-radius: 50%;
   background: radial-gradient(circle at 50% 32%, #3cc4b0 0%, #2bb3a0 72%);
   box-shadow: 0 0 0 6px #ffffff;
+  left: 5px;
 }
 .tracking-modal__icon img {
   display: block;
@@ -3462,7 +3478,7 @@ body:has(.tabs-picker-modal:not([hidden])) {
   font-family: "FiraGO-Bold", sans-serif;
   -webkit-font-feature-settings: "case" on;
   font-feature-settings: "case" on;
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: clamp(24px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 2px;
@@ -3574,11 +3590,17 @@ body:has(.tabs-picker-modal:not([hidden])) {
   height: 50px;
   min-height: 50px;
   padding-inline: 12px;
+  appearance: textfield;
+}
+.declaration-product__price .floating-field__control::-webkit-outer-spin-button, .declaration-product__price .floating-field__control::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 .declaration-product__currency {
   min-width: 0;
   width: 100%;
+  max-width: 70px;
 }
 .declaration-product__currency select {
   width: 100%;
@@ -4255,6 +4277,9 @@ body:has(.declaration-modal:not([hidden])) {
     margin-bottom: 40px;
     gap: 28px;
   }
+  .dashboard-hero {
+    padding: 20px 0;
+  }
 }
 @media (max-width: 768px) {
   .dashboard-hero__cta.mobile-declaration {
@@ -4317,12 +4342,12 @@ body:has(.declaration-modal:not([hidden])) {
   }
   .declaration-modal__close {
     position: absolute;
-    top: -30px;
+    top: 0px;
     right: 16px;
   }
   .declaration-modal__panel {
-    max-height: 94vh;
-    padding: 50px 0 28px;
+    max-height: 100vh;
+    padding: 20px 0 20px;
     background-image: none;
   }
   .declaration-modal__header {
@@ -4589,6 +4614,14 @@ body:has(.declaration-modal:not([hidden])) {
     max-width: none;
   }
 }
+.mt-30 {
+  margin-top: 30px;
+}
+
+.cancel-account-button {
+  color: #e75656 !important;
+}
+
 .container {
   width: min(100% - 2rem, 1280px);
   margin-inline: auto;

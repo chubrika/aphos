@@ -630,7 +630,7 @@ body:not(:has(.site-header.is-nav-ready)) {
   color: $color-primary;
 }
 
-@include mobile {
+@media (max-width: 1279px) {
   body:has(.site-header) {
     padding-top: $site-header-height-mobile;
   }
@@ -1120,11 +1120,15 @@ body:has(.site-header--subnav-open) {
   padding: 0;
   list-style: none;
 
-  a {
+  a,
+  button {
+    @include button-reset;
+    padding: 0;
     font-family: $font-family-bold;
     @include font-sm;
     font-weight: 700;
     color: $color-primary-dark-2;
+    text-align: left;
     text-decoration: none;
     transition: opacity $transition-base;
 

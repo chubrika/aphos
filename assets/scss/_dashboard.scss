@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: $spacing-lg;
 }
 
@@ -29,7 +30,6 @@
 .dashboard-hero__stats {
   display: flex;
   align-items: stretch;
-  flex-wrap: wrap;
   gap: 0;
   border-radius: 25px;
   background-color: #fff;
@@ -224,6 +224,10 @@
   transform: translate3d(0, 0, 0);
 }
 
+.declaration-modal--front {
+  z-index: 1300;
+}
+
 .pickup-modal__fields,
 .courier-modal__fields {
   max-width: 360px;
@@ -283,7 +287,7 @@
     position: absolute;
     top: 3px;
     bottom: 12px;
-    left: 5px;
+    left: 10px;
     width: 7px;
     background-image: radial-gradient(
       circle closest-side,
@@ -319,6 +323,7 @@
   background-color: $color-surface;
   box-sizing: border-box;
   box-shadow: 0 0 0 6px $color-surface;
+  left: 5px;
 }
 
 .tracking-modal__step--past {
@@ -361,6 +366,7 @@
   border-radius: 50%;
   background: radial-gradient(circle at 50% 32%, #3cc4b0 0%, #2bb3a0 72%);
   box-shadow: 0 0 0 6px $color-surface;
+  left: 5px;
 
   img {
     display: block;
@@ -404,7 +410,7 @@
   font-family: $font-family-bold, sans-serif;
   -webkit-font-feature-settings: "case" on;
   font-feature-settings: "case" on;
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: clamp(24px, 4vw, 38px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 2px;
@@ -510,12 +516,20 @@
     height: 50px;
     min-height: 50px;
     padding-inline: 12px;
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
   }
 }
 
 .declaration-product__currency {
   min-width: 0;
   width: 100%;
+  max-width: 70px;
 
   select {
     width: 100%;
@@ -1216,6 +1230,9 @@ body:has(.declaration-modal:not([hidden])) {
     margin-bottom: 40px;
     gap: 28px;
   }
+  .dashboard-hero{
+    padding: $spacing-md 0 ;
+  }
 }
 
 @include mobile {
@@ -1289,13 +1306,13 @@ body:has(.declaration-modal:not([hidden])) {
 
   .declaration-modal__close {
     position: absolute;
-    top: -30px;
+    top: 0px;
     right: 16px;
   }
 
   .declaration-modal__panel {
-    max-height: 94vh;
-    padding: 50px 0 28px;
+    max-height: 100vh;
+    padding: 20px 0 20px;
     background-image: none;
   }
 
@@ -1621,4 +1638,10 @@ body:has(.declaration-modal:not([hidden])) {
       max-width: none;
     }
   }
+}
+.mt-30{
+  margin-top: 30px;
+}
+.cancel-account-button{
+ color: #e75656 !important;
 }

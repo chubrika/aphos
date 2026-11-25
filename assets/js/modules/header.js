@@ -15,7 +15,7 @@ function initHeaderMenu() {
     header.append(overlay);
   }
 
-  const isDesktopNav = () => window.matchMedia("(min-width: 769px)").matches;
+  const isDesktopNav = () => window.matchMedia("(min-width: 1280px)").matches;
 
   const syncPageBlur = () => {
     if (!header) {
@@ -212,7 +212,7 @@ function initDesktopNavOverflow(header) {
 
   const primaryItems = Array.from(menu.children).filter((item) => item !== moreItem);
   const staticHead = dropdown.firstElementChild;
-  const desktopQuery = window.matchMedia("(min-width: 769px)");
+  const desktopQuery = window.matchMedia("(min-width: 1280px)");
 
   if (!primaryItems.length) {
     header?.classList.add("is-nav-ready");
@@ -439,6 +439,10 @@ function initAccountDrawer() {
       return;
     }
 
+    if (document.querySelector(".declaration-modal.is-open, .card-modal.is-open")) {
+      return;
+    }
+
     if (event.key === "Escape") {
       event.preventDefault();
       closeDrawer();
@@ -470,12 +474,147 @@ function initAccountDrawer() {
   });
 }
 
+function initCancelAccountModal() {
+  const modal = document.getElementById("cancel-account-modal");
+  if (!modal) {
+    return;
+  }
+
+  const panel = modal.querySelector(".declaration-modal__panel");
+  const form = modal.querySelector("form");
+  const closeTriggers = modal.querySelectorAll("[data-modal-close]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lastTrigger = null;
+  let closeTimer = 0;
+
+  const getFocusable = () => {
+    return Array.from(
+      panel.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((element) => {
+      return !element.hasAttribute("hidden")
+        && !element.classList.contains("visually-hidden")
+        && element.getClientRects().length;
+    });
+  };
+
+  const finishClose = () => {
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden", "true");
+    form?.reset();
+
+    if (lastTrigger && typeof lastTrigger.focus === "function") {
+      lastTrigger.focus();
+    }
+  };
+
+  const closeModal = () => {
+    if (modal.hidden || !modal.classList.contains("is-open")) {
+      return;
+    }
+
+    modal.classList.remove("is-open");
+    window.clearTimeout(closeTimer);
+
+    if (prefersReducedMotion) {
+      finishClose();
+      return;
+    }
+
+    closeTimer = window.setTimeout(finishClose, 520);
+  };
+
+  const openModal = (trigger) => {
+    lastTrigger = trigger || null;
+    window.clearTimeout(closeTimer);
+    form?.reset();
+
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+    void modal.offsetWidth;
+    modal.classList.add("is-open");
+
+    window.requestAnimationFrame(() => {
+      (modal.querySelector(".checkbox__input") || getFocusable()[0])?.focus();
+    });
+  };
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-cancel-account-open]");
+    if (!trigger || trigger.closest("#cancel-account-modal")) {
+      return;
+    }
+
+    event.preventDefault();
+    openModal(trigger);
+  });
+
+  closeTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeModal();
+    });
+  });
+
+  panel.addEventListener("transitionend", (event) => {
+    if (event.target !== panel || event.propertyName !== "transform") {
+      return;
+    }
+
+    if (!modal.classList.contains("is-open")) {
+      window.clearTimeout(closeTimer);
+      finishClose();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden || !modal.classList.contains("is-open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusable = getFocusable();
+    if (!focusable.length) {
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && (active === first || !panel.contains(active))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (active === last || !panel.contains(active))) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    closeModal();
+  });
+}
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     initHeaderMenu();
     initAccountDrawer();
+    initCancelAccountModal();
   });
 } else {
   initHeaderMenu();
   initAccountDrawer();
+  initCancelAccountModal();
 }
